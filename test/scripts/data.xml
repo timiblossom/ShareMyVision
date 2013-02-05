@@ -1,0 +1,6 @@
+xml_file='<Event>
+  <Action>createevent</Action>
+  <Address>ACT</Address>
+  <Address>ACT</Address>
+</Event>'
+

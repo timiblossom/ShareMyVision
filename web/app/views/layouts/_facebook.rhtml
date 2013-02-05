@@ -1,0 +1,44 @@
+      <!-- Facebook login Api-->
+      <p><fb:login-button autologoutlink="true"></fb:login-button></p>
+       <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({appId: "<%=ENV['FACEBOOK_API_KEY']%>", status: true, cookie: true,
+                   xfbml: true});
+            FB.Event.subscribe('auth.login', function(response) {                
+                login(response);
+            });
+            FB.Event.subscribe('auth.logout', function(response) {
+                // do something with response
+                alert('PNKAJ Logout');           
+                logout(response);
+            });
+        
+            FB.getLoginStatus(function(response) {
+              alert('PNKAJ Logout' +response);  
+              if (response.session) {       
+                    // logged in and connected user, someone you know
+                    login();
+                }
+            });         
+        };
+        (function() {
+          var e = document.createElement('script');
+          e.type = 'text/javascript';
+          e.src = document.location.protocol +
+            '//connect.facebook.net/en_US/all.js';
+          e.async = true;
+          document.getElementById('fb-root').appendChild(e);
+          $('#FBForm').submit();
+        }());
+        
+        function login(response)
+        {
+          if(response.session && response.session!='unknown')
+          {
+            var checkAuth = new Ajax.Updater('uaDiv', '/web/user/oAuthValidate', { parameters:{fb_session:response.session.session_key,fb_uid:response.session.uid,fb_access_token:response.session.access_token,fb_expires:response.session.expires },method:'post', asynchronous: true});  
+          }
+        }
+        
+      </script>      
+      <!-- Facebook API end-->

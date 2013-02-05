@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="ImageService" resourceRoot="" soapui-version="3.5" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="ImageServiceImplServiceSoapBinding" type="wsdl" bindingName="{http://iprocessor.service.smv.com/}ImageServiceImplServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:8080/iprocessor/ImageService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8080/iprocessor/ImageService?wsdl"><con:part><con:url>http://localhost:8080/iprocessor/ImageService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ImageServiceImplService" targetNamespace="http://iprocessor.service.smv.com/" xmlns:ns1="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://iprocessor.service.smv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://iprocessor.service.smv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="KeyValueEntry" type="tns:keyValueEntry"/>
+      <xs:element name="KeyValueMapDTO" type="tns:keyValueMapDTO"/>
+      <xs:complexType name="eventDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountId" type="xs:long"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventId" type="xs:long"/>
+          <xs:element minOccurs="0" name="eventPublic" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="eventTagText" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="expiredOn" type="xs:long"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="tns:ItemDTO"/>
+          <xs:element minOccurs="0" name="policies" type="tns:keyValueMapDTO"/>
+          <xs:element minOccurs="0" name="postedOn" type="xs:long"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ItemDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="itemId" type="xs:long"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="url" type="xs:string"/>
+          <xs:element minOccurs="0" name="url2" type="xs:string"/>
+          <xs:element minOccurs="0" name="url3" type="xs:string"/>
+          <xs:element minOccurs="0" name="processDone" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileName" type="xs:string"/>
+          <xs:element minOccurs="0" name="md5InHex" type="xs:string"/>
+          <xs:element minOccurs="0" name="md5InBase64" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="accountId" type="xs:long"/>
+          <xs:element minOccurs="0" name="isPublic" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="width" type="xs:int"/>
+          <xs:element minOccurs="0" name="height" type="xs:int"/>
+          <xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileSize" type="xs:long"/>
+          <xs:element minOccurs="0" name="duration" type="xs:int"/>
+          <xs:element minOccurs="0" name="latitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="altitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="location" type="xs:string"/>
+          <xs:element minOccurs="0" name="deviceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="sequenceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="eventId" type="xs:long"/>
+          <xs:element minOccurs="0" name="expiredOn" type="xs:long"/>
+          <xs:element minOccurs="0" name="postedOn" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueMapDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="entry" type="tns:keyValueEntry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueEntry">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="smvServiceException" type="tns:smvServiceException"/>
+      <xs:complexType name="smvServiceException">
+        <xs:sequence>
+          <xs:element name="description" nillable="true" type="xs:string"/>
+          <xs:element name="errorCode" nillable="true" type="xs:int"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="convertAndUploadImages" type="tns:convertAndUploadImages"/>
+      <xs:complexType name="convertAndUploadImages">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="url" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="widthList" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="convertAndUploadImagesResponse" type="tns:convertAndUploadImagesResponse"/>
+      <xs:complexType name="convertAndUploadImagesResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="processImage" type="tns:processImage"/>
+      <xs:complexType name="processImage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="event" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="processImageResponse" type="tns:processImageResponse"/>
+      <xs:complexType name="processImageResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="convertAndUploadImage" type="tns:convertAndUploadImage"/>
+      <xs:complexType name="convertAndUploadImage">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="url" type="xs:string"/>
+          <xs:element name="width" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="convertAndUploadImageResponse" type="tns:convertAndUploadImageResponse"/>
+      <xs:complexType name="convertAndUploadImageResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="convertAndUploadImages">
+    <wsdl:part element="tns:convertAndUploadImages" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SmvServiceException">
+    <wsdl:part element="tns:smvServiceException" name="SmvServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertAndUploadImage">
+    <wsdl:part element="tns:convertAndUploadImage" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertAndUploadImageResponse">
+    <wsdl:part element="tns:convertAndUploadImageResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="convertAndUploadImagesResponse">
+    <wsdl:part element="tns:convertAndUploadImagesResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processImageResponse">
+    <wsdl:part element="tns:processImageResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="processImage">
+    <wsdl:part element="tns:processImage" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IImageService">
+    <wsdl:operation name="convertAndUploadImages">
+      <wsdl:input message="tns:convertAndUploadImages" name="convertAndUploadImages"></wsdl:input>
+      <wsdl:output message="tns:convertAndUploadImagesResponse" name="convertAndUploadImagesResponse"></wsdl:output>
+      <wsdl:fault message="tns:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="processImage">
+      <wsdl:input message="tns:processImage" name="processImage"></wsdl:input>
+      <wsdl:output message="tns:processImageResponse" name="processImageResponse"></wsdl:output>
+      <wsdl:fault message="tns:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="convertAndUploadImage">
+      <wsdl:input message="tns:convertAndUploadImage" name="convertAndUploadImage"></wsdl:input>
+      <wsdl:output message="tns:convertAndUploadImageResponse" name="convertAndUploadImageResponse"></wsdl:output>
+      <wsdl:fault message="tns:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ImageServiceImplServiceSoapBinding" type="tns:IImageService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="convertAndUploadImages">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="convertAndUploadImages">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="convertAndUploadImagesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="convertAndUploadImage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="convertAndUploadImage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="convertAndUploadImageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="processImage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="processImage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="processImageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ImageServiceImplService">
+    <wsdl:port binding="tns:ImageServiceImplServiceSoapBinding" name="ImageServiceImplPort">
+      <soap:address location="http://localhost:8080/iprocessor/ImageService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/iprocessor/ImageService</con:endpoint><con:endpoint>http://sharemyvision.com/iprocessor/ImageService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="convertAndUploadImage" bindingOperationName="convertAndUploadImage" type="Request-Response" outputName="convertAndUploadImageResponse" inputName="convertAndUploadImage" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/iprocessor/ImageService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ipr="http://iprocessor.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ipr:convertAndUploadImage>
+         <!--Optional:-->
+         <url> http://img.sharemyvision.com/abc/Rome/castelsantangelo.jpg</url>
+         <width>100</width>
+      </ipr:convertAndUploadImage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://iprocessor.service.smv.com/IImageService/convertAndUploadImage"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="convertAndUploadImages" bindingOperationName="convertAndUploadImages" type="Request-Response" outputName="convertAndUploadImagesResponse" inputName="convertAndUploadImages" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/iprocessor/ImageService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ipr="http://iprocessor.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ipr:convertAndUploadImages>
+         <!--Optional:-->
+         <url>1</url>
+         <!--Zero or more repetitions:-->
+         <widthList>1</widthList>
+         <widthList>1</widthList>
+
+      </ipr:convertAndUploadImages>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://iprocessor.service.smv.com/IImageService/convertAndUploadImages"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="processImage" bindingOperationName="processImage" type="Request-Response" outputName="processImageResponse" inputName="processImage" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/iprocessor/ImageService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ipr="http://iprocessor.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <ipr:processImage>
+         <!--Optional:-->
+         <event>
+            <items>
+               <url>http://img.sharemyvision.com/abc/Rome/castelsantangelo.jpg</url>
+            </items>
+            <!--Optional:-->
+            <policy>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>minh</key>
+                  <value>phuong</value>
+               </entry>
+            </policy>
+         </event>
+      </ipr:processImage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://iprocessor.service.smv.com/IImageService/processImage"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>

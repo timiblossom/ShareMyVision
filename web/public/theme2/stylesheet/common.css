@@ -1,0 +1,10 @@
+* { margin:0; padding:0; border:0; outline:0; }
+body { color:#000; font:normal 12px/16px tahoma, arial, helvetica, sans-serif; background:#bce0f7 url(/web/theme2/images/body-bg.gif) repeat-x;  }
+ol, ul {list-style:none;}
+a{ text-decoration:none; }
+a:hover{ color:#787878; }
+.clear { clear:both; }
+.container { width:936px; margin:0 auto; }
+
+
+

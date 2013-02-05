@@ -1,0 +1,45 @@
+<style>
+#chooseandroid {
+    border-color:#A5CA39;
+}
+.choosebox {    
+    border-radius:23px 23px 23px 23px;
+    background-image:url("/web/theme2/images/choosebg.png");    
+    border:3px solid;
+    float:left;
+    opacity:1;    
+    margin:10px;    
+    padding-top:10px;
+    text-align:center;
+    width:376px;    
+}
+</style>
+
+<div class="innerContent">
+     <div class="breadcrumps">
+          <ul>
+               <li><%=link_to("Home", {:controller=>:user, :action=>:index})%></li>
+               <li>></li>
+               <li>Device</li>
+          </ul>
+         <div class="clear"></div>
+     </div>
+     
+     <div class="ContentSec">
+          <div >
+               <div  class="choosebox" id="chooseandroid" style="opacity: 1;">
+                    <img alt="Android" src="/web/theme2/images/androidlogo.png">
+                    <img alt="android Phones" src="/web/theme2/images/androidphones.png">               
+                </div>
+                <div class="clear"></div>
+                <!-- Mid Content -->
+                <div class="midContent"> </div>
+                <div class="clear"></div>
+          </div>
+     </div>
+ </div>    
+ </div>
+<div class="clear"></div>
+<!-- /Bottom Content -->
+<%= render :partial => "layouts/innerBottomContent" %>
+<%= render :partial => "layouts/innerFooter" %>

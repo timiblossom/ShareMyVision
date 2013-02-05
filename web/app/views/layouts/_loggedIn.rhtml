@@ -1,0 +1,9 @@
+<% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "logout"),:method=>'put',:id=>'logoutForm'}, 
+	                                                 :url=>{ :controller => "user", :action => "logout"},
+	                                                 :update=>{:success=>"update_tag", :failure=>'login_error'}, :complete=>'redirectHome(request)'
+                                                     
+
+	                                                    
+	                                      ) do%>
+<%= image_tag("/web/theme1/images/logout.jpg",	:size => "49x22", :vspace=>5,	:alt=>"Logout" ,:align=>"absmiddle", :onClick=>"$('logoutForm').onsubmit();") %>
+<%end%>

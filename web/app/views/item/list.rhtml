@@ -1,0 +1,27 @@
+
+<h2> LLL Listing items</h2>
+
+
+<table border="1" cellpadding="4" cellspacing="0">
+  <thead>
+    <tr>
+      <th  scope="col">Id</th>
+      <th  scope="col">Street</th>
+      <th  scope="col">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <% for item in @items %>
+      <tr>
+        <td><%= link_to %Q{#{item.status}}, :action => 'show', :id => item %>
+          </td>
+          <td>  <%=h item.fileSize %></td>
+          <td align="right"><%=h item.url %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <br />

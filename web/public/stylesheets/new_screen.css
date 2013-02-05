@@ -1,0 +1,369 @@
+/**********************************************************
+ * Original Style Sheet
+ **********************************************************/
+
+@import "screen.css";
+@import "business_plus.css";
+
+/**********************************************************
+ * Top Navigation
+ **********************************************************/
+#top-nav-bar1 {
+	height:40px;
+	width:1000px;
+        background: #20FF5F none no-repeat scroll 0%;
+        color: white;
+        font-size: 116%;
+	overflow:hidden;
+	margin-top:-1px;
+	position:relative;
+}
+
+
+#top-nav-bar {
+  height:15px;
+  width:1000px;
+  background: #58ACFA none no-repeat scroll 0%;
+  border-bottom: 4px solid #00FF40;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 25px;
+  color: white;
+  font-size: 130%;
+  font-weight: bold;
+  margin-top:-1px;
+}
+
+#top-nav-bar a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+
+#main_nav {
+  background: #58ACFA none no-repeat scroll 0%;
+  border-bottom: 5px solid #000;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-left: 25px;
+  color: white;
+  font-size: 116%;
+}
+
+
+#top-main-menu	{
+    position:absolute;
+    top:100px;
+    left:14px;
+}
+
+
+#top-main-menu li	{
+    list-style-type:none;
+    float:left;
+    margin:0px;
+}
+
+
+#top-sub-menu {
+	position:absolute;
+	top:100px;
+	right:0px;
+	width:300px;
+}
+
+#top-sub-menu li {
+	float:right;
+	list-style-type:none;
+	padding-right:6px;
+}
+
+#top-sub-menu li img {
+	position:relative;
+	top:1px;
+}
+
+#banner-logo {
+	overflow:hidden;
+}
+
+
+
+/**********************************************************
+ * Buttons
+ **********************************************************/
+ 
+.white-button {
+    background: url(/en/images/wht_btn_bgrd.png) no-repeat 0 0;    
+	margin-right:10px;
+	height:22px;
+	float:left;
+	padding:0;
+}
+
+.white-button a {
+    padding:3px 8px 7px 3px;
+    background: url(/en/images/wht_btn_bgrd_edge.png) no-repeat 100% 0;    
+  	height:20px;
+	position:relative;
+	right:-6px;
+	top:3px;	
+	font-family:Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	color: #333333;
+	font-size:9pt;
+}
+
+.white-button a:hover {
+	text-decoration: none;	
+	background: url(/en/images/wht_btn_bgrd_edge_over.png) no-repeat 100% 0;        
+}
+
+/**********************************************************
+ * GUI Layout
+ **********************************************************/
+ 
+html {
+	overflow-y:scroll; /*force vertical scroll bar space reservation on Firefox*/
+}
+
+div.contentwrapper {
+	min-height:687px;
+}
+
+
+div.blueBoxBtm {
+	width:594px;
+	height:15px;
+	background-image:url(/en/images/blue_bottom.gif);
+	position:relative;
+	margin:0;
+	padding:0;
+	top:0;
+}
+
+div.int-content {
+	margin-left:5px;
+	margin-top:15px;
+	overflow:hidden;
+	width:590px;
+	
+}
+
+div.int-content p {
+	padding:0;
+	margin:0 0 0 5px;
+}
+
+div.int-content h4 {
+	font-size:12px;
+}
+
+
+
+div.int-content ul,
+div.int-content ol {
+	margin:10px;
+}
+
+div.int-content ul li {
+	list-style-type:disc;
+	margin-left:20px;
+	margin-bottom:5px;
+
+}
+
+div.int-content ol li {
+	list-style-type:inherit;
+	margin-left:25px;
+	margin-bottom:5px;
+
+}
+
+#ads-bottom-leaderboard {
+	position:relative;
+	left:-75px;
+	margin:5px;
+}
+
+div.noImage ul li a span {
+	position:relative;
+	top:6px;
+}
+
+div.content h5 {
+	margin-left:5px;
+}
+
+#upload-form-div {
+	min-height:377px;
+}
+
+#ads-medium-rectangle {
+	margin-bottom:10px;
+}
+
+/**********************************************************
+ * Info Messages and Warnings 
+ **********************************************************/
+
+#success-status {
+    width:520px;
+    padding:5px 0 10px 25px;
+    font-weight:bold;
+    font-size:11px;
+    text-align:center;
+}
+
+#error-status {
+    width:550px;
+    padding:5px 0 10px 0px;
+    color:#FF6600;
+    font-weight:bold;
+    font-size:11px;
+    text-align:center;  
+}
+
+div.homeGreyBox{
+border:1px solid #ccc; 
+width:600px; 
+height:110px;
+background:#eeeeee; 
+margin-top:10px; 
+padding:7px;
+font-size:12px;
+}
+
+.homepageEmailBox{
+width:1000px; 
+height:60px; 
+border:1px solid #ccc; 
+margin:0 0 8px 0;
+}
+
+.homepageBanner{
+border: 1px solid #747474;
+background:#f1f1f1;
+}
+
+
+/**********************************************************
+ * company.css--content area font
+ **********************************************************/
+div.staticContent	{
+	width:585px;
+	color:#666666;
+	font-size:11px;
+	padding-top:16px;
+	/*margin-left:20px;
+	float:left;*/
+}
+
+div.staticContent p	{
+	margin-right:0px;
+	margin-left:0px;
+}
+
+
+div.staticContent ul{
+	margin-left:30px;
+}
+
+
+div.staticContent ul,
+div.staticContent ol {
+        margin:10px;
+}
+
+div.staticContent ul li {
+        list-style-type:disc;
+        margin-left:20px;
+        margin-bottom:5px;
+
+}
+
+div.staticContent ol li {
+        list-style-type:inherit;
+        margin-left:25px;
+        margin-bottom:5px;
+
+}
+
+
+div.staticContent h4 {
+	margin-left:0px;
+        font-size:11px;
+        color:#333333;
+}
+
+
+div.staticContent ol{
+	margin-left:45px;
+}
+
+
+div.contentColRight	{
+	float:right;
+	margin-right:0;
+	width:165px;
+	background-color:white;
+	height:500px;
+	margin-top:11px;
+	border-left:1px solid #ccc;
+	padding-left:9px;
+}
+
+#error-status {
+	padding-left:30px;
+}
+
+#faq_table th {
+        text-align:left;
+        padding-right:12px;
+        vertical-align:top;
+    margin: none;
+}
+
+
+#faq_table th li {
+        font-size:11px;
+        color:#333333;
+        list-style:none;
+        margin-left:0px;
+        margin-top:10px;
+}
+
+
+#faq_table td li {
+        margin-left:-15px;
+}
+
+#faq_table td {
+    font-size:11px;
+        vertical-align:top;
+        padding-top:10px;
+        padding-bottom:25px;
+}
+
+#faq_table {
+        width:515px;
+        margin-top:-10px;
+}
+
+
+/**********************************************************
+ * Title Font
+ **********************************************************/
+ 
+ .greenTitle14{
+font-size: 14px;
+font-weight:bold;
+color:#88b64f;
+margin: 10px 0;
+}
+
+
+
+

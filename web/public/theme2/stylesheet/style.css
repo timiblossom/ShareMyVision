@@ -1,0 +1,196 @@
+@charset "utf-8";
+@import url("common.css");
+@import url("tabber.css");
+/* Header */
+.center { text-align:center;}
+.header { height:99px; padding-right:17px; position:relative; }
+.header .headerTop { background:url(/web/theme2/images/header-topmiddle.gif) repeat-x left top; font-size:11px; float:right; width:161px; margin-top:1px; }
+.headerTopRghtSide { background:url(/web/theme2/images/header-topright.gif) no-repeat right top;  }
+.headerTop ul { background:url(/web/theme2/images/header-topleft.gif) no-repeat left top; padding:12px 3px 6px 7px; height:18px; }
+.headerTop li { display:inline; padding-right:7px; }
+.headerTop a { color:#4d4d4d; }
+.logoHolder { float:left; padding-top:32px; }
+.logoHolder .logoIcon {margin-right:10px;}
+.noPads { padding:0px !important; } 
+/* Nav */
+.navHolder { border-left:1px solid #b7c0c8; font-size:14px; }
+.navHolder, .navHolder li { height:27px; line-height:27px; }
+.navHolder li { float:left; }
+.navHolder li.divider { background:url(/web/theme2/images/nav-divider.gif) no-repeat right top; width:2px; }
+.navHolder li a { color:#4d4d4d; float:left; display:block; padding:0 32px;  }
+.navHolder li a:hover { background:#FFF; text-decoration:none; }
+.navHolder li a.sel { background:#0873b7; text-decoration:none; color:#FFFFFF; }
+.navHolder li a.home { background:url(/web/theme2/images/homeIcon.gif) no-repeat center center; text-indent:-10000px; width:40px; padding:0 !important; }
+.navHolder li a.home:hover, .homeActive { background:url(/web/theme2/images/home-active.gif) no-repeat center center !important; text-indent:-10000px; width:40px; padding:0 !important; }
+.homeActive.sel {background: #fff url(/web/theme2/images/home-active.gif) no-repeat center center !important;}
+.navHolder li.login { background:url(/web/theme2/images/nav-li-login-bg-img.gif) repeat-x; float:right; padding:0 12px; position:relative; z-index:99 }
+.navHolder li.login, .navHolder li.login a { color:#FFF; }
+.navHolder li.login a { background:url(/web/theme2/images/red-arrow-img.gif) no-repeat right center; padding:0 30px 0 0; }
+.navHolder li.login a:hover, .userLoginHover { background:url(/web/theme2/images/red-arrow-img-over.gif) no-repeat right center !important; }
+
+/* Login Pop Up Box */
+.userLoginBox { background:#4e4e4e url(/web/theme2/images/login-box-grad-bg-img.gif) repeat-x; color:#FFF; position:absolute; right:0; top:27px; width:215px; padding:10px 0px 17px; line-height:13px; display:none;z-index:99  }
+.userLoginBox h3{ font-size:13px; padding:0 0 10px 17px; }
+.userLoginBox .errorLogin{ color:#FF0; margin:4px 0 8px; display:block; }
+.userLoginBox form { font-size:12px; width:185px; margin:0 auto; }
+.userLoginBox label, .userLoginBox input { float:left; }
+.userLoginBox label { width:70px; padding-right:6px; text-align:right; }
+.userLoginBox input { width:103px; height:18px; margin-bottom:6px; }
+.userLoginBox input.smallInput { width:80px; }
+.userLoginBox input.submitGo { background:#c10000; color:#FFF; cursor:pointer; font:normal 12px "Myriad Pro", "Trebuchet MS", Arial; width:23px; }
+.userLoginBox p.fgtPswd { padding:5px 8px 0 0; clear:both; float:right; text-align:right; }
+.userLoginBox p.fgtPswd a, .userLoginBox p.fgtPswd a:hover { color:#FFF; background:none !important; padding:0; }
+.navHolder li.login div.loginError {color:#FF0000 !important; }
+
+/* Banner */
+.HomeBanner{ height:325px; margin-top:0px; background:url(/web/theme2/images/headerImg.jpg) no-repeat; position:relative; z-index:0; }
+.HomeBanner span {bottom:15px;
+font-size:14px;
+height:24px;
+left:150px;
+position:absolute; display:none;}
+
+
+/* Mid Content */
+.midContent { margin-bottom:10px; width:100%; }
+.midContent .tabSec { background:url(/web/theme2/images/mid-bottom-tab-bg-img.gif) no-repeat; width:932px; }
+.midContent .tabSec, .midContent .adSec { float:left; }  
+.midContent .adSec { background:url(/web/theme2/images/mid-ad-box.gif) no-repeat right top; width:206px; padding:7px; display:none; }
+.gallery { background:url(/web/theme2/images/gallery-sec-bg-img.gif) no-repeat; padding:10px 0; margin-bottom:15px; }
+.gallery h1, .gallery ul, .gallery ul li { float:left; }
+.gallery h1 { color:#3b3a3a; font:normal 25px "Trebuchet MS", tahoma; padding:0 10px 25px 10px }
+.gallery li a { float:left; height:29px; color:#FFF; font:normal 14px "Trebuchet MS", tahoma; text-align:center; padding-top:4px; margin:4px 4px 0 10px; }
+.gallery li a.popular { background:url(/web/theme2/images/red-btn-normal-size.gif) no-repeat; width:139px; }
+.gallery li a.popular:hover, .gallery li a.editor:hover { color:#FFF; text-decoration:none; }
+.gallery li a.editor { background:url(/web/theme2/images/red-btn-large-size.gif) no-repeat; width:158px; }
+.slideshow  ul li { float:left; }
+.slideshow h1 { color:#3b3a3a; font:normal 25px "Trebuchet MS", tahoma; padding:0 10px 25px 10px }
+.slideshow li a { float:left; height:29px; color:#FFF;font:normal 14px "Trebuchet MS", tahoma; text-align:center; padding-top:4px; margin:4px 4px 0 10px; }
+.slideshow li a.popular {  background:url(/web/theme2/images/red-btn-normal-size.gif) no-repeat; width:139px; }
+.slideshow li a.popular:hover, .slideshow li a.editor:hover {color:#FFF; text-decoration:none; }
+.slideshow li a.editor {  width:158px; }
+
+/* Bottom Content */
+.bottomContent, .InnerbottomContent { background:#083c5f url(/web/theme2/images/bottom-cont-bg-img.gif) repeat-x; color:#FFF;  }
+.InnerbottomContent { background:#083c5f url(/web/theme2/images/bottom-cont-bg-img.gif) repeat-x left -50px; padding-top:18px; }
+.bottomSec, .footerSec { width:936px; margin:0 auto; }
+.leftSide, .rightSide { float:left; padding-top:18px; }
+.leftSide { background:url(/web/theme2/images/bottom-divider-blue-shadow-img.gif) no-repeat right top; width:568px; padding:18px 80px 0 10px; }
+.leftSide h4, .rightSide h4, .bottomSec h4 { font:normal 18px "Myriad Pro", "Trebuchet MS"; padding-bottom:28px; text-align:center; }
+.bottomSec h4 { padding-bottom:18px; }
+.rightSide  { width:240px; padding-left:35px; }
+.leftSide p, .rightSide p { padding-bottom:16px; }
+.rightSide p.socialIcons { padding-top:12px; }
+.rightSide p.socialIcons img, .InnersocialIcons img { margin-right:22px; }
+.InnersocialIcons { float:right; padding:0 !important; position:relative; top:-10px; left:210px; }
+/* Footer */
+.footer { height:65px; background:#032840; color:#7a7a78; font:normal 11px Arial; }
+.footerSec { padding:30px 0 0 20px; }
+.footer p, .footer li { float:left; padding-right:5px; }
+.footer a { color:#FFF; }
+/* Inner Content */
+.innerbanner { height:210px; margin:20px 0 10px; display:none; }
+.innerContent { background:#FFF; border:1px solid #dae4eb; padding:16px 10px 50px 10px; margin-bottom:20px; margin-top:1px; }
+.innerGalleryContent { margin-bottom:20px; margin-top:1px; }
+.breadcrumps { background:url(/web/theme2/images/dot-divider-img.gif) repeat-x left bottom; padding-bottom:16px; margin-bottom:10px; }
+.breadcrumps p, .breadcrumps ul, .breadcrumps li { float:left; padding-right:5px; }
+.breadcrumps li { color:#c10000; }
+.breadcrumps a { color:#7a7a7a; }
+.ContentSec { color:#3e4533; position:relative; }
+.bannerHolder {float:right; position:absolute; right:0; display:none;}  /*display:none --------right banner */
+
+.firstCol { width:483px; padding:10px 50px 0 0; }
+.secCol { width:332px; }
+.firstCol, .secCol { float:left; }
+.firstCol h1 { color:#c10000; font-size:18px; font-weight:normal; line-height:22px; padding-bottom:22px; }
+.firstCol p { padding-bottom:25px; }
+.firstCol ul { padding:0 0 18px 4px; }
+.firstCol li { background:url(/web/theme2/images/inner-square-bullet.gif) no-repeat left 6px; padding:0 0  10px 12px; }
+.secCol { border:2px solid #efefef; }
+.secCol h3 { background:#0b0b0c url(/web/theme2/images/caption-black-grad-bg-img.gif) repeat-x; color:#FFF; font:normal, 24px "Myriad Pro", "Trebuchet MS"; padding:15px; }
+.secCol form { background:url(/web/theme2/images/inner-grad-effect-bg-img.gif) repeat-x; padding-top:22px; width:290px; margin:0 auto; }
+.secCol input { background:url(/web/theme2/images/input-bg-img.gif) repeat-x; border:1px solid #e0e0e0; width:160px; height:24px; margin-bottom:10px; }
+.secCol input, .secCol label { float:left; }
+.secCol label { width:120px; }
+.secCol label span.asterix { color:#c10000; padding-right:2px; }
+.secCol label span.colon { width:15px; text-align:right; padding-right:5px; }
+.secCol label span.colon.last { top:-1px; }
+.secCol .imageBox { border:1px solid #e6e6e6; margin:6px 0 13px 0; padding:12px; }
+.sectionBox { border:2px solid #efefef; padding-left:100px;height:200px}
+.sectionBox h3 { background:#0b0b0c url(/web/theme2/images/caption-black-grad-bg-img.gif) repeat-x; color:#FFF; font:normal, 24px "Myriad Pro", "Trebuchet MS"; padding:15px; }
+.sectionBox form {  padding-top:22px; width:290px; margin:0 auto; }
+.sectionBox input { background:url(/web/theme2/images/input-bg-img.gif) repeat-x; border:1px solid #e0e0e0; width:160px; height:24px; margin-bottom:10px; }
+.sectionBox input, .sectionBox label { float:left; }
+.sectionBox label { width:120px; }
+.sectionBox label span.asterix { color:#c10000; padding-right:2px; }
+.sectionBox label span.colon { width:15px; text-align:right; padding-right:5px; }
+.sectionBox label span.colon.last { top:-1px; }
+.sectionBox .imageBox { border:1px solid #e6e6e6; margin:6px 0 13px 0; padding:12px; }
+.imageBox .getWords { width:91px; height:20px; }
+.imageBox img { padding-left:30px; }
+.secCol input.submit { background:url(/web/theme2/images/black-grad-btn-img.gif) no-repeat; color:#FFF; cursor:pointer; height:28px; width:91px;float:none; }
+
+
+.ContentSec .textHolder {padding: 10px 0px 20px; float:left; display:block; min-height:300px;
+  height:auto !important;
+  height:300px;
+  width:100%;
+ /* margin-right:160px; */} /* right banner */
+
+.EventHolder table tr td .box { background:url(/web/theme2/images/box02.jpg); width:242px; margin-right:10px;}
+.ContentSec  .StreamView {width:220px; text-align:left; margin-left:20px;}
+.ContentSec  .StreamView h3{margin: 2px 10px 2px; color:#000066; font-size:1.5em; height:40px; }
+.ContentSec  .StreamView .Photo {text-align:left; display:block; padding-left:50px;}
+.ContentSec  .StreamView .Desc {margin:10px 20px 10px 0;}
+.ContentSec  .StreamView .Privacy { font-size:11px;}
+.ContentSec  .StreamView .Do { font-size:11px;}
+.ContentSec  .EventHolder table tr td {padding-bottom:20px; vertical-align:top;}
+
+
+
+
+.catalog01 {width:305px; float:left; margin-right:20px;}
+.catalog01 table {padding:0; margin:0; border:0;}
+.catalog01 table td.header {background:url(/web/theme2/images/catalog01.jpg) no-repeat; height:70px;}
+.catalog01 table td.header .subHeader{ background:url(/web/theme2/images/catalog_icon.gif) no-repeat 15px 5px; padding:10px 0 10px 80px; color:#FFFFFF;height:40px; font-size:2em; font-weight:bold; vertical-align:middle; }
+.catalog01 table td.header .subHeader span{margin-top:8px; display:block;}
+
+
+
+.catalog01 table td.mainHolder {background:url(/web/theme2/images/catalog02.gif); vertical-align:top;}
+
+.catalog01 table td.mainHolder ul {display:block; margin:10px 10px 10px 40px;;}
+.catalog01 table td.mainHolder ul li{ color:#000000; float:none; list-style-type:square; margin-bottom:10px;}
+.catalog01 table td.mainHolder ul li span{ color:#518a03; font-size:1.5em;}
+.catalog01 table td.mainHolder .btnHolder { border-top:1px solid #999999 ; display:block; text-align:center;}
+
+
+
+
+.cataList {border:1px solid #CCCCCC; border-collapse:collapse; margin-top:10px;}
+.cataList tr td {border:1px solid #CCCCCC; border-collapse:collapse; padding:15px 10px;}
+.cataList tr td.cataListHead {text-align:center; background:url(/web/theme2/images/cata_02.jpg);repeat scroll 0 0 transparent;text-align:center;width:150px;}
+.cataList tr td.cataListHead a{font-size:2em; color:#FFFFFF; padding:3px 0;}
+
+.cataList tr td.cataFeature {padding:5px 10px; font-weight:bold;}
+
+
+
+
+
+input.btn { background:#095e97; color:#FFF; cursor:pointer; padding:3px 6px; margin:20px 0; }
+
+
+
+
+
+
+
+.catalog01 table td.bottom {background:url(/web/theme2/images/catalog03.gif) no-repeat;}
+
+
+
+
+
+.LoginError {background:#fff09e; color:#e72b00; position:absolute; bottom:2px; float:right; right:0px; padding:3px 10px 0 10px;text-align:right;}
+.facebookAPI {position:absolute; bottom:2px; float:right; right:0px; padding:3px 10px 0 10px;text-align:right;}

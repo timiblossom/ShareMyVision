@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:jaxws="http://cxf.apache.org/jaxws"
+        xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+        http://cxf.apache.org/jaxws http://cxf.apache.org/schema/jaxws.xsd">
+
+    <bean id="props" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+                <value>classpath:web.properties</value>
+        </property>
+    </bean>
+
+    <bean id="catalogProxy" class="com.smv.service.catalog.ICatalogService" factory-bean="proxyCatalogServiceFactory" factory-method="create"/>
+
+    <bean id="proxyCatalogServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.catalog.ICatalogService"/>
+          <property name="address" value="${catalog.serviceUrl}/CatalogService"/>
+    </bean>
+
+    <bean id="fileProxy" class="com.smv.service.file.IFileService" factory-bean="proxyFileServiceFactory" factory-method="create"/>
+
+    <bean id="proxyFileServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.file.IFileService"/>
+          <property name="address" value="${file.serviceUrl}/FileService"/>
+    </bean>
+
+    <bean id="imageProxy" class="com.smv.service.iprocessor.IImageService" factory-bean="proxyImageServiceFactory" factory-method="create"/>
+
+    <bean id="proxyImageServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.iprocessor.IImageService"/>
+          <property name="address" value="${image.serviceUrl}/ImageService"/>
+    </bean>
+
+    <bean id="outletProxy" class="com.smv.service.outlet.IOutletService" factory-bean="proxyOutletServiceFactory" factory-method="create"/>
+
+    <bean id="proxyOutletServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.outlet.IOutletService"/>
+          <property name="address" value="${outlet.serviceUrl}/OutletService"/>
+    </bean>
+
+    <bean id="mailerProxy" class="com.smv.service.mailer.IMailerService" factory-bean="proxyMailerServiceFactory" factory-method="create"/>
+
+    <bean id="proxyMailerServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.mailer.IMailerService"/>
+          <property name="address" value="${mailer.serviceUrl}/MailerService"/>
+    </bean>
+    
+    
+    <bean id="userProxy" class="com.smv.service.user.IUserService" factory-bean="proxyUserServiceFactory" factory-method="create"/>
+
+    <bean id="proxyUserServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+          <property name="serviceClass" value="com.smv.service.user.IUserService"/>
+          <property name="address" value="${user.serviceUrl}/UserService"/>
+    </bean>
+
+
+</beans>

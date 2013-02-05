@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"     
+      xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+    <% if @smv_event_status[:statusCode]!=-1 && @smv_event_status[:statusCode]==0%><% if !@smv_event_status[:value].blank? %><% @eventId =@smv_event_status[:value].eventId%> <% @eventTitle = @smv_event_status[:value].eventTitle %><%end%><%end%>
+    <title>ShareMyVision</title>
+    <meta property="og:title" content="<%=@eventTitle%>"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:url" content="htp://<%=request.host%>/web/gallery/imagegallery/<%=@eventId%>"/>
+    <%
+     if !@smv_event_status[:value].folderUrl.nil?
+         logo = @smv_event_status[:value].folderUrl
+     else
+         logo = "http://#{request.host}/web/theme2/logo/Logo_design2.jpg"
+     end   
+    %> 
+    <meta property="og:image" content="<%=logo%>" />
+    <meta property="og:site_name" content="ShareMyVision"/>
+    <meta property="fb:app_id" content="<%=ENV['FACEBOOK_API_KEY']%>"/>
+    <meta property="og:description"  content="Capture your vision whenever you see using your mobile phones. Share your vision instantly to many socialized outlets like Email, FaceBook, Twitter, etc. from your mobile phones or our website. Organize and store your captured vision for life on our website."/>
+    <link rel="shortcut icon" href="http://<%=request.host%>/web/theme2/logo/logo_36.png" type="image/x-icon">
+    <link rel="image_src" type="image/jpeg" href="<%=logo%>" />
+    
+    <%= stylesheet_link_tag '/web/theme2/stylesheet/style.css' %>
+    <%= javascript_include_tag "/web/theme2/javascript/jquery-1.4.3.min.js" %>
+    <%= javascript_include_tag "/web/theme2/javascript/galleria.js" %>
+    <%= javascript_include_tag "http://connect.facebook.net/en_US/all.js#xfbml=1" %>
+      <script>   
+       function fbs_click() 
+       {
+            u=location.href;
+            t=document.title;
+            window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
+            return false;
+        }
+        </script>
+        
+      <style>
+           .content{color:#eee;font:14px/1.4 "helvetica neue", arial,sans-serif;width:620px;margin:20px auto}
+           h1{line-height:1.1;letter-spacing:-1px;}
+           a {color:#000;}
+           #galleria{height:400px;width: 1000px; margin-left: -160px;left:100px;}
+           body { color:#000; font:normal 12px/16px tahoma, arial, helvetica, sans-serif; background: url(/web/theme2/images/caption-black-grad-bg-img.gif) repeat-x;  }
+           html .fb_share_link 
+           { padding:2px 0 0 20px; height:16px; 
+             background:url(http://static.ak.facebook.com/images/share/facebook_share_icon.gif?6:26981) no-repeat top left; 
+           }
+       </style>
+</head>
+<body>
+    <div class="container">
+       <!--Header Starts here-->
+        <div class="header">
+           <div class="logoHolder">
+              <h2><%= link_to image_tag("/web/theme2/images/full_logo01.png", :border=>0, :class=>"logoIcon"), :controller=>:user, :action=>:index %>
+              </h2>
+          </div>      
+        </div>
+       
+       <!--Header Ends Here-->
+       <div id="flash"></div>
+       <%=yield %>
+       <div class="clear"></div>
+       <%= render :partial => "layouts/innerFooter" %>
+        <script>           
+          // Load the classic theme
+          Galleria.loadTheme('/web/theme2/javascript/galleria.classic.js');          
+          // Initialize Galleria 
+             $('#galleria').galleria({                              
+               transition: 'fade'          
+             });             
+          var gallery = Galleria.get(0); // gallery is now the first galleria instance                    
+          $('#play').click(function() {
+                  gallery.play(1500); // will start slideshow when the element #play is clicked
+                  $('#pause').show();
+                  $('#play').hide();
+          });
+          $('#pause').click(function() {
+                  gallery.pause(); // will start slideshow when the element #pause is clicked
+                  $('#play').show();
+                  $('#pause').hide();
+          });
+          $('#prev').click(function() {
+                  gallery.prev(); // will start slideshow when the element #play is clicked
+          });
+          $('#next').click(function() {
+                  gallery.next(); // will start slideshow when the element #play is clicked
+          });
+        </script>
+        <%= render :partial => "layouts/googleAnalytics" %>
+</body>
+</html>

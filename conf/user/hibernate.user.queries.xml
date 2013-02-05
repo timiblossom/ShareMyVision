@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<query name="allAccounts"><![CDATA[from AccountDO]]></query>
+	<query name="allAccountExtraInfos"><![CDATA[from AccountExtraInfoDO]]></query>
+	<query name="allAddresses"><![CDATA[from AddressDO]]></query>
+	<query name="allCcInfos"><![CDATA[from CcInfoDO]]></query>
+	<query name="allContacts"><![CDATA[from ContactDO]]></query>
+	<query name="allPermissions"><![CDATA[from PermissionDO]]></query>
+	<query name="allRoles"><![CDATA[from RoleDO]]></query>
+	<query name="allRolePermissions"><![CDATA[from RolePermissionDO]]></query>
+	<query name="allSessions"><![CDATA[from SessionDO]]></query>
+	<query name="allTimeZones"><![CDATA[from TimeZoneDO]]></query>
+	<query name="allUsers"><![CDATA[from UserDO]]></query>
+	<query name="allUserExtraInfos"><![CDATA[from UserExtraInfoDO]]></query>
+	<query name="allUserStatus"><![CDATA[from UserStatusDO]]></query>
+	<query name="allUserTypes"><![CDATA[from UserTypeDO]]></query>
+		
+	<query name="lookupAddressesByState"><![CDATA[select address from AddressDO as address where address.state = ?]]></query>
+
+	<query name="lookupUserByActivationCode">
+		<![CDATA[
+			select new UserDO ( user.id,
+								user.displayName,
+								user.email,
+								user.password,
+								user.salt,
+								user.statusId,
+								user.activationCode,
+								user.passwordResetCode,
+								user.accountId, 
+								user.contactId, 
+								user.userExtraInfoId, 
+								user.roleId,
+								user.language)
+			from UserDO as user
+			where user.activationCode = ?
+		]]>
+	</query>
+
+	<query name="lookupUserByEmail">
+		<![CDATA[
+			select new UserDO ( user.id,
+								user.displayName,
+								user.email,
+								user.password,
+								user.salt,
+								user.statusId,
+								user.activationCode,
+								user.passwordResetCode,
+								user.accountId, 
+								user.contactId, 
+								user.userExtraInfoId, 
+								user.roleId,
+								user.language)
+			from UserDO as user
+			where user.email = ?
+		]]>
+	</query>
+
+	<query name="lookupUserByEmailAndPassword">
+		<![CDATA[
+			select new UserDO ( user.id,
+								user.displayName,
+								user.email,
+								user.password,
+								user.salt,
+								user.statusId,
+								user.activationCode,
+								user.passwordResetCode,
+								user.accountId, 
+								user.contactId, 
+								user.userExtraInfoId, 
+								user.roleId,
+								user.language)
+			from UserDO as user
+			where user.email = ?
+			and user.password = ?
+		]]>
+	</query>
+
+	<query name="lookupUserByAccountId">
+		<![CDATA[
+			select new UserDO ( user.id,
+								user.displayName,
+								user.email,
+								user.password,
+								user.salt,
+								user.statusId,
+								user.activationCode,
+								user.passwordResetCode,
+								user.accountId, 
+								user.contactId, 
+								user.userExtraInfoId, 
+								user.roleId,
+								user.language)
+			from UserDO user, AccountDO account
+			where user.accountId = account.id
+			and account.id = ?
+		]]>
+	</query>
+
+	<query name="lookupRolePermissionsByRoleId">
+		<![CDATA[
+			select new RolePermissionDO (	rolePermission.id,
+											rolePermission.roleId,
+											rolePermission.permissionId)
+			from RolePermissionDO rolePermission, RoleDO role
+			where rolePermission.roleId = role.id
+			and role.id = ?
+		]]>
+	</query>
+  
+	<query name="lookupRoleByNameAndDescription">
+		<![CDATA[
+			select new RoleDO (	role.id,
+								role.name,
+								role.description)
+			from RoleDO role
+			where role.name = ?
+			and role.description = ?
+		]]>
+	</query>
+
+	<query name="lookupSessionByUserId">
+		<![CDATA[
+			select new SessionDO (	session.id,
+									session.guid,
+									session.uid,
+									session.clientIp,
+									session.lastLogin,
+									session.userAgent,
+									session.loggedIn)
+			from UserDO user, SessionDO session
+			where session.uid = user.id
+			and user.id = ?
+		]]>
+	</query>
+
+	<query name="lookupSessionByUserEmail">
+		<![CDATA[
+			select new SessionDO (	session.id,
+									session.guid,
+									session.uid,
+									session.clientIp,
+									session.lastLogin,
+									session.userAgent,
+									session.loggedIn)
+			from UserDO user, SessionDO session
+			where session.uid = user.id
+			and user.email = ?
+		]]>
+	</query>
+  
+	<!--
+	<query name="lookupResidentAddressByContactId">
+		<![CDATA[
+			select new AddressDO(
+									address.id,
+									address.street, 
+									address.city, 
+									address.state, 
+									address.zipCode,
+									address.country, 
+									address.latitude, 
+									address.longitude, 
+									address.versionId,
+									address.updatedOn, 
+									address.createdOn
+								 ) 
+			from AddressDO address, ContactDO contact
+			where address.id = contact.residentAddressId
+			and contact.id = ?
+		]]>
+	</query>
+	-->
+  
+	<!--
+	<query name="lookupShippingAddressByContactId">
+		<![CDATA[
+			select new AddressDO(
+									address.id,
+									address.street, 
+									address.city, 
+									address.state, 
+									address.zipCode,
+									address.country, 
+									address.latitude, 
+									address.longitude, 
+									address.versionId,
+									address.updatedOn, 
+									address.createdOn
+								 ) 
+			from AddressDO address, ContactDO contact
+			where address.id = contact.shippingAddressId
+			and contact.id = ?
+		]]>
+	</query>
+	-->
+	  
+	<!--
+	<query name="lookupBillingAddressByContactId">
+		<![CDATA[
+			select new AddressDO(
+									address.id,
+									address.street, 
+									address.city, 
+									address.state, 
+									address.zipCode,
+									address.country, 
+									address.latitude, 
+									address.longitude, 
+									address.versionId,
+									address.updatedOn, 
+									address.createdOn
+								 ) 
+			from AddressDO address, ContactDO contact
+			where address.id = contact.billingAddressId
+			and contact.id = ?
+		]]>
+	</query>
+	-->
+	  
+</hibernate-mapping>

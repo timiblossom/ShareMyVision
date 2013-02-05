@@ -1,0 +1,62 @@
+@charset "UTF-8";
+.TabbedPanels {
+	margin: 12px 12px 14px 10px;
+	padding: 0px;
+	clear: none;
+	width:907px;
+	border-left:1px solid #cbd1dc;
+	background: url(/web/theme2/images/tabber-content-img.gif) repeat-x;
+	overflow:hidden;
+	position:relative;
+	border-bottom: solid 1px #cdd3de;
+	border-right: solid 1px #cdd3de;
+}
+
+.TabbedPanelsTabGroup {
+	margin: 0px;
+	padding: 0px;
+	float:left;
+	width:193px;
+}
+
+.TabbedPanelsTab {
+	font: normal 15px Tahoma, Arial;
+	list-style: none;
+	border-left: solid 1px #bcc4cb;
+	border-right: solid 1px #bcc4cb;
+	cursor: pointer;
+	width:160px;
+	padding:10px 0 10px 20px;
+	margin-bottom:1px;
+	position:relative;
+	background: url(/web/theme2/images/mid-tabber-bg-img.gif) repeat-x;
+}
+
+.TabbedPanelsTabHover {
+	background-color: #CCC;
+}
+
+.TabbedPanelsTabSelected {
+	background: url(/web/theme2/images/tab-select-active-img.gif) no-repeat;
+	border:none;
+	width:173px;
+	padding:10px 0 10px 20px;
+}
+
+
+.TabbedPanelsContentGroup {
+	border-top: solid 1px #cdd3de;
+	float:none;
+	width:723px;
+	position:absolute;
+	left:194px;
+	color:#535353;
+}
+
+.TabbedPanelsContent {
+	padding:20px 40px 16px 20px;
+}
+
+.TabbedPanelsContent h4 { color:#000; padding-bottom:16px; }
+.TabbedPanelsContent p { padding-bottom:12px; }
+.TabbedPanelsContent a { text-decoration: underline; }

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<query name="allEventCodes"><![CDATA[from EventCodeDO]]></query>
+
+	<query name="lookupEventCodeByName">
+		<![CDATA[
+			select eventCode 
+			from EventCodeDO as eventCode 
+			where eventCode.name = ?
+		]]>
+	</query>
+
+	<query name="allSubjectTemplates"><![CDATA[from SubjectTemplateDO]]></query>
+
+	<query name="lookupSubjectTemplateByName">
+		<![CDATA[
+			select template 
+			from SubjectTemplateDO as template 
+			where template.name = ?
+		]]>
+	</query>
+
+	<query name="allBodyTemplates"><![CDATA[from BodyTemplateDO]]></query>
+
+	<query name="lookupBodyTemplateByName">
+		<![CDATA[
+			select template 
+			from BodyTemplateDO as template 
+			where template.name = ?
+		]]>
+	</query>
+
+	<query name="allEventCodeTemplates"><![CDATA[from EventCodeTemplateDO]]></query>
+
+	<query name="lookupEventCodeTemplateByName">
+		<![CDATA[
+			select eventCodeTemplate 
+			from EventCodeTemplateDO as eventCodeTemplate 
+			where eventCodeTemplate.name = ?
+		]]>
+	</query>
+
+	<query name="lookupEventCodeTemplateByEventCodeId">
+		<![CDATA[
+			select eventCodeTemplate 
+			from EventCodeTemplateDO as eventCodeTemplate 
+			where eventCodeTemplate.eventCodeId = ?
+		]]>
+	</query>
+
+	<query name="lookupEventCodeTemplateBySubjectTemplateId">
+		<![CDATA[
+			select eventCodeTemplate 
+			from EventCodeTemplateDO as eventCodeTemplate 
+			where eventCodeTemplate.subjectTemplateId = ?
+		]]>
+	</query>
+
+	<query name="lookupEventCodeTemplateByBodyTemplateId">
+		<![CDATA[
+			select eventCodeTemplate 
+			from EventCodeTemplateDO as eventCodeTemplate 
+			where eventCodeTemplate.bodyTemplateId = ?
+		]]>
+	</query>
+
+	<query name="allSubjectTemplateKeyValuePairs"><![CDATA[from SubjectTemplateKeyValuePairDO]]></query>
+
+	<query name="lookupSubjectTemplateKeyValuePairByName">
+		<![CDATA[
+			select templateKeyValuePair 
+			from SubjectTemplateKeyValuePairDO as templateKeyValuePair 
+			where templateKeyValuePair.name = ?
+		]]>
+	</query>
+
+	<query name="allBodyTemplateKeyValuePairs"><![CDATA[from BodyTemplateKeyValuePairDO]]></query>
+
+	<query name="lookupBodyTemplateKeyValuePairByName">
+		<![CDATA[
+			select templateKeyValuePair 
+			from BodyTemplateKeyValuePairDO as templateKeyValuePair 
+			where templateKeyValuePair.name = ?
+		]]>
+	</query>
+
+</hibernate-mapping>

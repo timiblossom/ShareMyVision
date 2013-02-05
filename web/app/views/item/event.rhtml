@@ -1,0 +1,295 @@
+                          <%= render :partial => 'layouts/windowEvent' %>   
+                          <script>
+                                  var contentWin;                                  
+                          </script>                
+                              
+                          <div class="clear"></div><BR>                     
+                          <div class="innerContent">
+                             <div class="breadcrumps">                                       
+                                  <ul>
+                                     <li><%= link_to("Home", {:controller=>:user, :action=>:index}) %></li>
+                                     <li>></li>
+                                     <li>Events</li>
+                                 </ul>
+                                 
+                                 <% if @numberOfInactiveEvents > 0 %>
+                                          <div id="trash_full"  style="float:right"><%= link_to image_tag("/web/theme2/images/full_trash.png",:border=>0,:class=>"pc_img"), :controller=>:item, :action=>:inactiveEvent%></div>
+                                 <% else %>        
+                                          <div id="trash_empty" style="float:right"><%= image_tag("/web/theme2/images/empty_trash.png",:border=>0,:class=>"pc_img")%></div>
+                                 <% end %> 
+                                 <div class="clear"></div>
+                             </div>
+                             <div class="ContentSec"><BR><BR>
+                             <%
+                             @event_count=0; 
+                             if !@smv_status.blank? && @smv_status[:statusCode]!=-1%> 
+                                 <% if !@smv_status[:value].blank? 
+                                      @count =0%>
+                                   <div class="EventHolder"> 
+                                      <table  id="results" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                      <tr>
+                                          <script>var arr = new Array();</script>
+                                          <%
+                                          #@event_count  = @smv_status[:value].length 
+                                          @smv_status[:value].each do |event| 
+                                            if event.status== I18n.t("constant.event_active")
+                                                    @event_count = @event_count +1  
+                                                     enc =  event.eventId
+                                                      %>
+                                                      <script>
+                                                      var obj = new Object();
+                                                      obj.eventTitle = "<%=event.eventTitle%>";
+                                                      obj.eventDescription = "<%=event.eventDescription.gsub(/\n/, '<br>')%>";
+                                                      obj.eventId = "<%=event.eventId%>";
+                                                      obj.eventPublic = "<%=event.isEventPublic%>";
+                                                      arr['<%=event.eventId%>'] =obj;
+                                                     </script>
+                                                     <%
+                                                       if event.isEventPublic 
+                                                          permission = "/web/theme2/images/permission-public.gif"
+                                                          folderIcon = "/web/theme2/images/folderIcon_public.gif"
+                                                       else
+                                                          permission = "/web/theme2/images/permission-private.gif"
+                                                          folderIcon ="/web/theme2/images/folderIcon_private.gif"
+                                                       end   
+                                                       if !event.folderUrl.nil?
+                                                           folderIcon = event.folderUrl
+                                                       end  
+                                              %>     
+                                              <td class="center">
+                                                     <div class="box">
+                                                         <%= image_tag("/web/theme2/images/box01.jpg",:border=>0)%>                                                     
+                                                         <div class="StreamView">                                                         
+                                                            <%if event.status == I18n.t("constant.event_active")%>
+                                                                <h3><%=link_to(event.eventTitle, :controller=>:gallery, :action=>:imagegallery, :id=>enc) %></h3>
+                                                                <div class="Photo"><%= link_to image_tag(folderIcon,:border=>0,:class=>"pc_img"),  :controller=>:gallery, :action=>:imagegallery, :id=>enc %> </div>
+                                                                <div class="Desc" id="Desc"><% if event.eventDescription.length > 20 %>
+                                                                                        <%=event.eventDescription[0, 20]%>.....
+                                                                                  <%else%>
+                                                                                        <%=event.eventDescription%>   
+                                                                                  <%end%>
+                                                               </div>
+                                                               <p class="Privacy"><%=image_tag("/web/theme2/images/permission-copyright.gif",:border=>0,:class=>"pc_img")%>
+                                                                                   <a class="image_link" href="#"  onClick="setPrivacyContent(arr['<%=event.eventId%>']);Application.evalCode('update_privacy', true)"> <img height="15" width="15" src="<%=permission%>" /></a> 
+                                                                                   Anyone can see this photo (<a class="Plain" title="Set privacy permissions for this photo" href="#" onClick="showContent(arr['<%=event.eventId%>']);Application.evalCode('open_login', true)">edit</a>)<br>  
+                                                               </p> 
+                                                               <p class="Do"> Uploaded on <a class="Plain" href="#">
+                                                                              <% sec, min, hour, day, month, year, wday, yday, isdst, zone = Time.at(event.postedOn/1000).to_a %>
+                                                                              <%= "#{Date::ABBR_MONTHNAMES[month]} #{day}, #{year} #{hour}:#{min}:#{sec}" %></a> &nbsp;|&nbsp; <a class="Plain" href="#" onClick="setEventId(arr['<%=event.eventId%>']);Application.evalCode('open_confirm', true)">Delete</a>
+                                                               </p>
+                                                            <%else%>
+                                                                <h3><%=event.eventTitle%></h3><br>
+                                                                <div class="Photo"><%= image_tag(folderIcon,:border=>0,:class=>"pc_img")%> </div>
+                                                                <div class="Desc" id="Desc"><% if event.eventDescription.length > 20 %>
+                                                                                        <%=event.eventDescription[0, 20]%>.....
+                                                                                  <%else%>
+                                                                                        <%=event.eventDescription%>   
+                                                                                  <%end%>
+                                                               </div>
+                                                               <p class="Privacy"><%=image_tag("/web/theme2/images/permission-copyright.gif",:border=>0,:class=>"pc_img")%> 
+                                                                                   <a class="image_link" href="#" onClick="setPrivacyContent(arr['<%=event.eventId%>']);Application.evalCode('update_privacy', true)"> <img height="15" width="15" src="<%=permission%>" /></a> 
+                                                                                   Anyone can see this photo (<a class="Plain" title="Set privacy permissions for this photo" href="#" onClick="showContent(arr['<%=event.eventId%>']);Application.evalCode('open_login', true)">edit</a>)<br>
+                                                                                   [This event is not active. Please contact your administrator]  
+                                                               </p> 
+                                                               <p class="Do"> Uploaded on <a class="Plain" href="#">
+                                                                              <% sec, min, hour, day, month, year, wday, yday, isdst, zone = Time.at(event.postedOn/1000).to_a %>
+                                                                              <%= "#{Date::ABBR_MONTHNAMES[month]} #{day}, #{year} #{hour}:#{min}:#{sec}" %></a> &nbsp;|&nbsp; <a class="Plain" href="#" onClick="setEventId(arr['<%=event.eventId%>']);Application.evalCode('open_confirm', true)">Delete</a>
+                                                               </p>
+                                                            <%end%>   
+                                                         </div>
+                                                         <%= image_tag("/web/theme2/images/box03.jpg",:border=>0)%>                                                     
+                                                     </div>
+                                              </td>                                                                
+                                              <% @count =@count +1
+                                                 if @count == 3 %> </tr><tr> <% @count =0 end %> 
+                                              <%end%>
+                                          <%end%>    
+                                      </tr>
+                                      </table>
+                                      <div id="pageNavPosition"></div>
+                                   </div>        
+                                 <%else%>
+                                     No Records Found 
+                                 <%end%>
+                             <%else%>
+                                <%=@smv_status[:msg]%>
+                             <%end%>
+                             </div>
+                             <!-- /Inner Content -->
+                             <div class="clear"></div>
+                             <!-- Mid Content -->
+                             <div class="midContent"> </div>
+                             <div class="clear"></div>
+                          </div>                          
+                     </div>
+                            <%if @event_count>9 %>
+                             <script type="text/javascript"><!--
+                               var pager = new Pager('results', 3); 
+                               pager.init(); 
+                               pager.showPageNav('pager', 'pageNavPosition'); 
+                               pager.showPage(1);
+                              //--></script>
+                            <% end %>
+                        <div class="clear"></div>
+                        <%= render :partial => "layouts/innerBottomContent" %>
+                        <%= render :partial => "layouts/innerFooter" %>                        
+                                  
+                                    <div id="wrapper">
+                                    <div id= "content" class="content">
+                                      <div id="samples">
+                                      <% form_remote_tag(:html => {:action => url_for(:controller => "item", :action => "updateEvent"),:method=>'post',:id=>'editEventForm',:name=>'loginForm'},
+                                                                                                               :url=>{ :controller => "item", :action => "updateEvent"}, 
+                                                                                                               :complete=>'successMsg(request)' ) do%>                                                                                                                       
+                                        <div id="login" style="display:none">
+                                                <%= hidden_field "event", "eventId" %>                                                                   
+                                                <span id='login_error_msg' class="login_error" style="display:none">&nbsp;</span>
+                                                <div style="clear:both"></div>                                                
+                                                <p><span class="login_label">Event Title</span><span id="title" class="login_input"></span></p>
+                                                <div style="clear:both"></div>
+                                                <p><span class="login_label">Event Description</span> <span class="login_input">
+                                                <%= text_area "event", "eventDescription", :rows=>"8",:cols=>"30" %>
+                                                </span></p>
+                                                <div style="clear:both"></div>                                                
+                                        </div>
+                                       <%end%>
+                                       <% form_remote_tag(:html => {:action => url_for(:controller => "item", :action => "deleteEvent"),:method=>'post',:id=>'deleteEventForm',:name=>'loginForm'},
+                                                                                                                                                     :url=>{ :controller => "item", :action => "deleteEvent"}, 
+                                                                                                                                                     :complete=>'successMsg(request)' ) do%>                                                                                                                       
+                                          <div id="delete_event" style="display:none">
+                                                  <%= hidden_field "event", "eventValue" %>                                                                   
+                                                  <span id='edit_error_msg' class="login_error" style="display:none">&nbsp;</span>
+                                                  <div style="clear:both"></div>                                                
+                                                  <p><span>Are you sure to delete event?</span></p>
+                                                  <div style="clear:both"></div>
+                                          </div>
+                                         <%end%>
+                                         
+                                      <% form_remote_tag(:html => {:action => url_for(:controller => "item", :action => "updatePrivacy"),:method=>'post',:id=>'updatePrivacyForm',:name=>'loginForm'},
+                                                                                                                                                                                           :url=>{ :controller => "item", :action => "updatePrivacy"}, 
+                                                                                                                                                                                           :complete=>'successMsg(request)' ) do%>                                                                                                                       
+                                          <div id="sh_privacy" style="display:none">
+                                                  <%= hidden_field "event", "eventValueId" %>
+                                                  <%= hidden_field "event", "eventPublic" %>                                                                   
+                                                  <span id='privacy_error_msg' class="login_error" style="display:none">&nbsp;</span>
+                                                  <div style="clear:both"></div>                                                
+                                                  <p><span>Are you sure to update privacy of event?</span></p>
+                                                  <div style="clear:both"></div>
+                                          </div>
+                                         <%end%>   
+                                        <div class="listing" style="display:none" id="open_login_codediv">        
+                                          <xmp id="open_login">                                                                                
+                                                Dialog.confirm($('login').innerHTML, {className:"alphacube", width:400,                                                   
+                                                okLabel: "Submit", cancelLabel: "cancel",
+                                                onOk:function(win){
+                                                  if ($('event_eventDescription').value==''){
+                                                    $('login_error_msg').innerHTML='Please enter event description!';
+                                                    $('login_error_msg').show(); 
+                                                    Windows.focusedWindow.updateHeight();
+                                                    new Effect.Shake(Windows.focusedWindow.getId()); return false;                                                  
+                                                  }
+                                                   return new Ajax.Updater('uaDiv', '/web/item/updateEvent', { parameters:{eventDescription:$F('event_eventDescription'),eventId:$F('eventValue')},method:'post', asynchronous: true,onComplete:function(transport){updateEvent(transport) }});
+                                                }});
+                                          </xmp>                                          
+                                        </div>
+                                        
+                                         <div class="listing" style="display:none" id="open_confirm_codediv">        
+                                          <xmp id="open_confirm">                                                                                
+                                                Dialog.confirm($('delete_event').innerHTML, {className:"alphacube", width:400,                                                   
+                                                okLabel: "Yes", cancelLabel: "No",
+                                                onOk:function(win){                                                  
+                                                   return new Ajax.Updater('uaDiv', '/web/item/deleteEvent', { parameters:{status:'INA',eventId:$F('event_eventId')},method:'post', asynchronous: true,onComplete:function(transport){deleteEvent(transport) }});
+                                                }});
+                                          </xmp>                                          
+                                        </div>
+                                        
+                                        <div class="listing" style="display:none" id="update_privacy_codediv">        
+                                          <xmp id="update_privacy">                                                                                
+                                                Dialog.confirm($('sh_privacy').innerHTML, {className:"alphacube", width:400,                                                   
+                                                okLabel: "Yes", cancelLabel: "No",
+                                                onOk:function(win){                                                  
+                                                   return new Ajax.Updater('uaDiv', '/web/item/updatePrivacy', { parameters:{eventPublic:$F('event_eventPublic'),eventValueId:$F('event_eventValueId')},method:'post', asynchronous: true,onComplete:function(transport){updatePrivacyEvent(transport) }});
+                                                }});
+                                          </xmp>                                          
+                                        </div>
+                                                                               
+                                    </div>                                    
+                                    </div>
+                                   </div>
+                                   <script>
+                                      showContent = function(obj){
+                                        $('title').innerHTML=obj.eventTitle;
+                                        $('event_eventId').value=obj.eventId;
+                                        $('event_eventDescription').innerHTML=obj.eventDescription.replace(/<br>/g,"\n");
+                                        
+                                      }
+                                      
+                                      setEventId = function(obj){                                        
+                                        $('event_eventValue').value=obj.eventId;                                        
+                                      }
+                                      
+                                      setPrivacyContent = function(obj){                                        
+                                         $('event_eventValueId').value=obj.eventId; 
+                                         $('event_eventPublic').value=obj.eventPublic;
+                                      }
+                                      
+                                      updateEvent = function(res){
+                                        if(res.status==200)
+                                            {
+                                               var jsondata=eval("("+res.responseText+")");
+                                               if (jsondata.status== '-1'){
+                                                  Element.update("login_error_msg", jsondata.errorMesage);                                                    
+                                                  $("login_error_msg").show();
+                                                  $("login_error_msg").visualEffect("pulsate", {"queue":{"position":"end","scope":"flash"}});
+                                                  $("login_error_msg").visualEffect("fade", {"queue":{"position":"end","scope":"flash"}});         
+                                                  return false;
+                                               }
+                                               else
+                                               {
+                                                 window.parent.location.reload();
+                                                 return true;
+                                               }
+                                            }
+                                      }
+                                      
+                                    deleteEvent = function(res){
+                                      if(res.status==200)
+                                          {
+                                             var jsondata=eval("("+res.responseText+")");
+                                             if (jsondata.status== '-1'){
+                                                Element.update("edit_error_msg", jsondata.errorMesage);                                                    
+                                                $("edit_error_msg").show();
+                                                $("edit_error_msg").visualEffect("pulsate", {"queue":{"position":"end","scope":"flash"}});
+                                                $("edit_error_msg ").visualEffect("fade", {"queue":{"position":"end","scope":"flash"}});         
+                                                return false;
+                                             }
+                                             else
+                                             {
+                                               alert('Event updated successfully!');
+                                               window.parent.location.reload();                                              
+                                               return false;
+                                             }
+                                          }
+                                    }
+                                    
+                                    updatePrivacyEvent = function(res){
+                                      if(res.status==200)
+                                          {
+                                             var jsondata=eval("("+res.responseText+")");
+                                             if (jsondata.status== '-1'){
+                                                Element.update("privacy_error_msg", jsondata.errorMesage);                                                    
+                                                $("privacy_error_msg").show();
+                                                $("privacy_error_msg").visualEffect("pulsate", {"queue":{"position":"end","scope":"flash"}});
+                                                $("privacy_error_msg ").visualEffect("fade", {"queue":{"position":"end","scope":"flash"}});         
+                                                return false;
+                                             }
+                                             else
+                                             {
+                                               alert('Privacy updated successfully!');
+                                               window.parent.location.reload();                                              
+                                               return false;
+                                             }
+                                          }
+                                    }
+                                        
+                                      
+                                   </script>

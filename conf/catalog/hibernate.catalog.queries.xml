@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<query name="allCatalogs"><![CDATA[from CatalogDO]]></query>
+	<query name="allProductCompositions"><![CDATA[from ProductCompositionDO]]></query>
+	<query name="allProducts"><![CDATA[from ProductDO]]></query>
+	<query name="allServiceCompositions"><![CDATA[from ServiceCompositionDO]]></query>
+	<query name="allServices"><![CDATA[from ServiceDO]]></query>
+	<query name="allStatuses"><![CDATA[from StatusDO]]></query>
+
+	<query name="lookupKeyValuePairsByProduct">
+		<![CDATA[
+ 			select productKeyValuePair
+ 			from 
+				ProductKeyValuePairDO as productKeyValuePair
+			where
+				productKeyValuePair.parentContainerId = ?
+		]]>
+	</query>
+
+	<query name="lookupProductsByStatusId">
+		<![CDATA[
+			select product
+			from 
+				ProductDO as product
+			where
+				product.statusId = ?
+		]]>
+	</query>
+
+	<query name="lookupProductByIdAndStatusId">
+		<![CDATA[
+			select product
+			from 
+				ProductDO as product
+			where
+				product.id = ?
+			    and
+				product.statusId = ?
+		]]>
+	</query>
+
+	<query name="lookupProductByKeyValuePair">
+		<![CDATA[
+			select product
+			from 
+				ProductDO as product, 
+				ProductKeyValuePairDO as keyValuePair
+			where
+				product.id = keyValuePair.parentContainerId
+			and
+				keyValuePair.id = ?
+		]]>
+	</query>
+
+	<query name="lookupKeyValuePairsByService">
+		<![CDATA[
+ 			select keyValuePair
+			from 
+				ServiceKeyValuePairDO as keyValuePair
+			where
+				keyValuePair.parentContainerId = ?
+		]]>
+	</query>
+
+	<query name="lookupServiceByKeyValuePair">
+		<![CDATA[
+			select service
+			from 
+				ServiceDO as service, 
+				ServiceKeyValuePairDO as keyValuePair
+			where
+				service.id = keyValuePair.parentContainerId
+			and
+				keyValuePair.id = ?
+	 	]]>
+	</query>
+
+	<query name="lookupKeyValuePairsByCatalog">
+		<![CDATA[
+ 			select keyValuePair
+			from 
+				CatalogKeyValuePairDO as keyValuePair
+			where
+				keyValuePair.parentContainerId = ?
+		]]>
+	</query>
+
+	<query name="lookupCatalogByKeyValuePair">
+		<![CDATA[
+			select catalog
+			from 
+				CatalogDO as catalog, 
+				CatalogKeyValuePairDO as keyValuePair
+			where
+				catalog.id = keyValuePair.parentContainerId
+			and
+				keyValuePair.id = ?
+	 	]]>
+	</query>
+
+</hibernate-mapping>

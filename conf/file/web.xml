@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+ 
+   <context-param>
+        <param-name>componentName</param-name>
+        <param-value>File Module</param-value>
+   </context-param>	
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:file.xml</param-value>
+   </context-param>
+
+
+   <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+   </listener>
+
+   <listener>
+        <listener-class>com.smv.util.webcontainer.DefaultContextLoaderListener</listener-class>
+   </listener>
+
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <description>Apache CXF Endpoint</description>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+	
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
+	
+    <session-config>
+        <session-timeout>60</session-timeout>
+    </session-config>
+	
+</web-app>

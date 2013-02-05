@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" threshold="all" debug="false">
+    <appender name="R" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.home}/logs/file.log" />
+        <param name="MaxFileSize" value="100MB" />
+        <param name="MaxBackupIndex" value="10" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="conversionPattern" value="[%X{hostname}] %d{dd/MM/yyyy HH:mm:ss,SSS}[%p][%t][%F:%L] - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="FATAL" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+
+
+    <appender name="ASYNCLOGGING" class="org.apache.log4j.AsyncAppender">
+        <param name="bufferSize" value="1024"/>
+        <param name="blocking" value="false"/>
+        <appender-ref ref="R" />
+    </appender>
+
+
+
+
+    <logger name="com.mchange" additivity="false">
+        <level value="info" />
+        <appender-ref ref="ASYNCLOGGING" />
+    </logger>
+    
+        <logger name="net.spy" additivity="false">
+        <level value="info" />
+        <appender-ref ref="ASYNCLOGGING" />
+    </logger>
+
+
+    <logger name="org.hibernate" additivity="false">
+        <level value="info" />
+        <appender-ref ref="ASYNCLOGGING" />
+    </logger>
+
+    <logger name="com.danga.MemCached" additivity="false">
+        <level value="info" />
+        <appender-ref ref="ASYNCLOGGING" />
+    </logger>
+
+    <root>
+        <level value="error" />
+        <appender-ref ref="ASYNCLOGGING" />
+    </root>
+
+</log4j:configuration>
+    

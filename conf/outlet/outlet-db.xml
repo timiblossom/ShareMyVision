@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+      <bean id="userDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+                <property name="driverClass"><value>org.gjt.mm.mysql.Driver</value></property>
+                <property name="jdbcUrl"><value>${database.url}</value></property>
+                <property name="user"><value>${database.username}</value></property>
+                <property name="password"><value>${database.password}</value></property>
+                <property name="initialPoolSize"><value>3</value></property>
+                <property name="maxPoolSize"><value>${dbpool.maxPoolSize}</value></property>
+                <property name="minPoolSize"><value>${dbpool.minPoolSize}</value></property>
+
+
+                <!-- important pool's properites -->
+                <property name="acquireIncrement"><value>3</value></property>
+                <property name="checkoutTimeout"><value>20000</value></property>
+                <property name="acquireRetryAttempts"><value>5</value></property>
+                <property name="acquireRetryDelay"><value>1000</value></property>
+                <property name="preferredTestQuery"><value>SELECT 1</value></property>
+                <property name="testConnectionOnCheckin"><value>false</value></property>
+                <property name="testConnectionOnCheckout"><value>false</value></property>
+
+
+                <property name="maxStatements"><value>0</value></property>
+                <property name="maxStatementsPerConnection"><value>0</value></property>
+                <property name="idleConnectionTestPeriod"><value>14</value></property>
+                <property name="maxIdleTimeExcessConnections"><value>14</value></property>
+
+                <property name="maxAdministrativeTaskTime"><value>300</value></property>
+                <property name="numHelperThreads"><value>${dbpool.numHelperThreads}</value></property>
+
+
+                <property name="maxConnectionAge"><value>300</value></property>
+                <property name="propertyCycle"><value>15</value></property>
+                <property name="unreturnedConnectionTimeout"><value>40</value></property>
+
+      </bean>
+
+	
+	<!-- Database Property -->
+	<bean id="userHibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+		<property name="properties">
+			<props>	
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+				
+				<prop key="hibernate.jdbc.autocommit">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">false</prop>
+				<!-- <prop key="show_sql">true</prop>  -->
+				<!-- prop key="connection.autoReconnect">true</prop -->
+                <!-- <prop key="hibernate.connection.release_mode">auto</prop>  -->
+			</props>
+		</property>
+	</bean>
+	
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref local="userDataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<ref bean="userHibernateProperties" />
+		</property>
+		<!--  OR mapping files. -->
+		<property name="mappingResources">
+			<list>
+				<value>hibernate.outlet.mappings.xml</value>
+                <value>hibernate.outlet.queries.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	
+
+</beans>

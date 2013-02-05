@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Outlet" resourceRoot="" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="OutletServiceSoapBinding" type="wsdl" bindingName="{http://smv}OutletServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.245.128:8080/outlet/OutletService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.245.128:8080/outlet/OutletService?wsdl"><con:part><con:url>http://192.168.245.128:8080/outlet/OutletService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="OutletService" targetNamespace="http://smv" xmlns:ns1="http://outlet.service.smv.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://smv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://192.168.245.128:8080/outlet/OutletService?wsdl=IOutletService.wsdl" namespace="http://outlet.service.smv.com/"></wsdl:import>
+  <wsdl:binding name="OutletServiceSoapBinding" type="ns1:IOutletService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="publishToOutlets">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="publishToOutlets">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="publishToOutletsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOutlet">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOutlet">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOutletResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="enableOutletForUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="enableOutletForUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="enableOutletForUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="disableOutletForUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="disableOutletForUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="disableOutletForUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOutletForUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getOutletForUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getOutletForUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OutletService">
+    <wsdl:port binding="tns:OutletServiceSoapBinding" name="OutletServiceImplPort">
+      <soap:address location="http://192.168.245.128:8080/outlet/OutletService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://192.168.245.128:8080/outlet/OutletService?wsdl=IOutletService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IOutletService" targetNamespace="http://outlet.service.smv.com/" xmlns:ns1="http://outlet.service.smv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://outlet.service.smv.com/" xmlns:tns="http://outlet.service.smv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="KeyValueMapDTO" type="tns:keyValueMapDTO"/>
+      <xs:complexType name="UserOutletContentDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="data" type="tns:keyValueMapDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueMapDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="entry" type="tns:KeyValueEntryDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="KeyValueEntryDTO">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OutletDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="statusType" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserOutletDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="statusType" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="outlet" type="tns:OutletDTO"/>
+          <xs:element minOccurs="0" name="keyValueMap" type="tns:keyValueMapDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="smvServiceException" type="tns:smvServiceException"/>
+      <xs:complexType name="smvServiceException">
+        <xs:sequence>
+          <xs:element name="description" nillable="true" type="xs:string"/>
+          <xs:element name="errorCode" nillable="true" type="xs:int"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="publishToOutlets" type="tns:publishToOutlets"/>
+      <xs:complexType name="publishToOutlets">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="content" type="tns:UserOutletContentDTO"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="outlets" type="tns:OutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="publishToOutletsResponse" type="tns:publishToOutletsResponse"/>
+      <xs:complexType name="publishToOutletsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getOutlet" type="tns:getOutlet"/>
+      <xs:complexType name="getOutlet">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="getOutletResponse" type="tns:getOutletResponse"/>
+      <xs:complexType name="getOutletResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:OutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="enableOutletForUser" type="tns:enableOutletForUser"/>
+      <xs:complexType name="enableOutletForUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userOutlet" type="tns:UserOutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="enableOutletForUserResponse" type="tns:enableOutletForUserResponse"/>
+      <xs:complexType name="enableOutletForUserResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:UserOutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="disableOutletForUser" type="tns:disableOutletForUser"/>
+      <xs:complexType name="disableOutletForUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userOutlet" type="tns:UserOutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="disableOutletForUserResponse" type="tns:disableOutletForUserResponse"/>
+      <xs:complexType name="disableOutletForUserResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:UserOutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getOutletForUser" type="tns:getOutletForUser"/>
+      <xs:complexType name="getOutletForUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getOutletForUserResponse" type="tns:getOutletForUserResponse"/>
+      <xs:complexType name="getOutletForUserResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:OutletDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="disableOutletForUser">
+    <wsdl:part element="ns1:disableOutletForUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOutletResponse">
+    <wsdl:part element="ns1:getOutletResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="publishToOutletsResponse">
+    <wsdl:part element="ns1:publishToOutletsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="disableOutletForUserResponse">
+    <wsdl:part element="ns1:disableOutletForUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOutletForUserResponse">
+    <wsdl:part element="ns1:getOutletForUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="publishToOutlets">
+    <wsdl:part element="ns1:publishToOutlets" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SmvServiceException">
+    <wsdl:part element="ns1:smvServiceException" name="SmvServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOutletForUser">
+    <wsdl:part element="ns1:getOutletForUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enableOutletForUserResponse">
+    <wsdl:part element="ns1:enableOutletForUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="enableOutletForUser">
+    <wsdl:part element="ns1:enableOutletForUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getOutlet">
+    <wsdl:part element="ns1:getOutlet" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IOutletService">
+    <wsdl:operation name="publishToOutlets">
+      <wsdl:input message="ns1:publishToOutlets" name="publishToOutlets"></wsdl:input>
+      <wsdl:output message="ns1:publishToOutletsResponse" name="publishToOutletsResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOutlet">
+      <wsdl:input message="ns1:getOutlet" name="getOutlet"></wsdl:input>
+      <wsdl:output message="ns1:getOutletResponse" name="getOutletResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="enableOutletForUser">
+      <wsdl:input message="ns1:enableOutletForUser" name="enableOutletForUser"></wsdl:input>
+      <wsdl:output message="ns1:enableOutletForUserResponse" name="enableOutletForUserResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="disableOutletForUser">
+      <wsdl:input message="ns1:disableOutletForUser" name="disableOutletForUser"></wsdl:input>
+      <wsdl:output message="ns1:disableOutletForUserResponse" name="disableOutletForUserResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getOutletForUser">
+      <wsdl:input message="ns1:getOutletForUser" name="getOutletForUser"></wsdl:input>
+      <wsdl:output message="ns1:getOutletForUserResponse" name="getOutletForUserResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:endpoint>http://HPE-209f:8088/mockOutletServiceSoapBinding</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="disableOutletForUser" bindingOperationName="disableOutletForUser" type="Request-Response" outputName="disableOutletForUserResponse" inputName="disableOutletForUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:disableOutletForUser>
+         <!--Optional:-->
+         <userOutlet>
+            <!--Optional:-->
+            <name>Disabling ShareMyVision</name>
+            <!--Optional:-->
+            <description>SMV Outlet for User 1</description>
+            <!--Optional:-->
+            <statusType>INACTIVE</statusType>
+            <!--Optional:-->
+            <userId>1</userId>
+            <!--Optional:-->
+            <outlet>
+               <!--Optional:-->
+               <id>1</id>
+            </outlet>
+         </userOutlet>
+      </out:disableOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/disableOutletForUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="enableOutletForUser" bindingOperationName="enableOutletForUser" type="Request-Response" outputName="enableOutletForUserResponse" inputName="enableOutletForUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:enableOutletForUser>
+         <!--Optional:-->
+
+         <userOutlet>
+
+            <!--Optional:-->
+
+            <name>Disabling ShareMyVision</name>
+
+            <!--Optional:-->
+
+            <description>SMV Outlet for User 1</description>
+
+            <!--Optional:-->
+
+            <statusType>ACTIVE</statusType>
+
+            <!--Optional:-->
+
+            <userId>1</userId>
+
+            <!--Optional:-->
+
+            <outlet>
+
+               <!--Optional:-->
+
+               <id>1</id>
+
+            </outlet>
+
+         </userOutlet>
+
+      </out:enableOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/enableOutletForUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getOutlet" bindingOperationName="getOutlet" type="Request-Response" outputName="getOutletResponse" inputName="getOutlet" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutlet/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/getOutlet"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getOutletForUser" bindingOperationName="getOutletForUser" type="Request-Response" outputName="getOutletForUserResponse" inputName="getOutletForUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutletForUser>
+         <!--Optional:-->
+         <userId>1</userId>
+      </out:getOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/getOutletForUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="publishToOutlets" bindingOperationName="publishToOutlets" type="Request-Response" outputName="publishToOutletsResponse" inputName="publishToOutlets" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="publishToOutletsSMVPublisherRequest1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:publishToOutlets>
+         <!--Optional:-->
+         <userId>1</userId>
+         <!--Optional:-->
+         <content>
+            <!--Optional:-->
+            <data>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>toEmail</key>
+                  <value>tri.nguyen@sharemyvision.com</value>
+               </entry>
+               <entry>
+                  <key>toName</key>
+                  <value>Tri Nguyen</value>
+               </entry>
+               <entry>
+                  <key>folderNameLink</key>
+                  <value>http://www.sharemyvision.com/</value>
+               </entry>
+            </data>
+         </content>
+         <!--Zero or more repetitions:-->
+         <outlets>
+            <!--Optional:-->
+            <id>1</id>
+            <!--Optional:-->
+            <name>SMV</name>
+            <!--Optional:-->
+            <description>SMV Description</description>
+            <!--Optional:-->
+            <statusType>ACTIVE</statusType>
+         </outlets>
+      </out:publishToOutlets>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/publishToOutlets"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="OutletServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="disableOutletForUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="disableOutletForUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OutletServiceSoapBinding</con:interface><con:operation>disableOutletForUser</con:operation><con:request name="disableOutletForUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:disableOutletForUser>
+         <!--Optional:-->
+         <userOutlet>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+            <!--Optional:-->
+            <userId>?</userId>
+            <!--Optional:-->
+            <outlet>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <statusType>?</statusType>
+            </outlet>
+            <!--Optional:-->
+            <keyValueMap>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </keyValueMap>
+         </userOutlet>
+      </out:disableOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://smv/IOutletService/disableOutletForUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="enableOutletForUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="enableOutletForUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OutletServiceSoapBinding</con:interface><con:operation>enableOutletForUser</con:operation><con:request name="enableOutletForUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:enableOutletForUser>
+         <!--Optional:-->
+         <userOutlet>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+            <!--Optional:-->
+            <userId>?</userId>
+            <!--Optional:-->
+            <outlet>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <statusType>?</statusType>
+            </outlet>
+            <!--Optional:-->
+            <keyValueMap>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </keyValueMap>
+         </userOutlet>
+      </out:enableOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://smv/IOutletService/enableOutletForUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOutlet TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getOutlet"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OutletServiceSoapBinding</con:interface><con:operation>getOutlet</con:operation><con:request name="getOutlet"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutlet/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://smv/IOutletService/getOutlet"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getOutletForUser TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getOutletForUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OutletServiceSoapBinding</con:interface><con:operation>getOutletForUser</con:operation><con:request name="getOutletForUser"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutletForUser>
+         <!--Optional:-->
+         <userId>?</userId>
+      </out:getOutletForUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig action="http://smv/IOutletService/getOutletForUser"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="publishToOutlets TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="publishToOutlets"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>OutletServiceSoapBinding</con:interface><con:operation>publishToOutlets</con:operation><con:request name="publishToOutlets"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/outlet/OutletService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:publishToOutlets>
+         <!--Optional:-->
+         <userId>1</userId>
+         <!--Optional:-->
+         <content>
+            <!--Optional:-->
+            <data>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>Content Key 1</key>
+                  <value>Content Value 1</value>
+               </entry>
+            </data>
+         </content>
+         <!--Zero or more repetitions:-->
+         <outlets>
+            <!--Optional:-->
+            <id>1</id>
+            <!--Optional:-->
+            <name>SMV</name>
+            <!--Optional:-->
+            <description>SMV Description</description>
+            <!--Optional:-->
+            <statusType>ACTIVE</statusType>
+         </outlets>
+         <outlets>
+            <!--Optional:-->
+            <id>2</id>
+            <!--Optional:-->
+            <name>Facebook</name>
+            <!--Optional:-->
+            <description>Facebook Description</description>
+            <!--Optional:-->
+            <statusType>ACTIVE</statusType>
+         </outlets>
+      </out:publishToOutlets>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://smv/IOutletService/publishToOutlets" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8088" path="/mockOutletServiceSoapBinding" host="HPE-209f" name="OutletServiceSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="disableOutletForUser" interface="OutletServiceSoapBinding" operation="disableOutletForUser"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:disableOutletForUserResponse>
+         <!--Optional:-->
+         <return>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+            <!--Optional:-->
+            <userId>?</userId>
+            <!--Optional:-->
+            <outlet>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <statusType>?</statusType>
+            </outlet>
+            <!--Optional:-->
+            <keyValueMap>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </keyValueMap>
+         </return>
+      </out:disableOutletForUserResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/disableOutletForUserResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="enableOutletForUser" interface="OutletServiceSoapBinding" operation="enableOutletForUser"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:enableOutletForUserResponse>
+         <!--Optional:-->
+         <return>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+            <!--Optional:-->
+            <userId>?</userId>
+            <!--Optional:-->
+            <outlet>
+               <!--Optional:-->
+               <id>?</id>
+               <!--Optional:-->
+               <name>?</name>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <statusType>?</statusType>
+            </outlet>
+            <!--Optional:-->
+            <keyValueMap>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </keyValueMap>
+         </return>
+      </out:enableOutletForUserResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/enableOutletForUserResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getOutlet" interface="OutletServiceSoapBinding" operation="getOutlet"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutletResponse>
+         <!--Zero or more repetitions:-->
+         <return>
+            <!--Optional:-->
+            <id>?</id>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+         </return>
+      </out:getOutletResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/getOutletResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="getOutletForUser" interface="OutletServiceSoapBinding" operation="getOutletForUser"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:getOutletForUserResponse>
+         <!--Zero or more repetitions:-->
+         <return>
+            <!--Optional:-->
+            <id>?</id>
+            <!--Optional:-->
+            <name>?</name>
+            <!--Optional:-->
+            <description>?</description>
+            <!--Optional:-->
+            <statusType>?</statusType>
+         </return>
+      </out:getOutletForUserResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/getOutletForUserResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="publishToOutlets" interface="OutletServiceSoapBinding" operation="publishToOutlets"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:out="http://outlet.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <out:publishToOutletsResponse>
+         <!--Optional:-->
+         <return>?</return>
+      </out:publishToOutletsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IOutletService/publishToOutletsResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties/></con:mockService><con:properties/><con:wssContainer/></con:soapui-project>

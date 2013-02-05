@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<query name="allInvoices"><![CDATA[from InvoiceDO]]></query>
+	<query name="allInvoiceItems"><![CDATA[from InvoiceItemDO]]></query>
+	<query name="allOrderItems"><![CDATA[from OrderItemDO]]></query>
+	<query name="allPayments"><![CDATA[from PaymentDO]]></query>
+	<query name="allPaymentMethods"><![CDATA[from PaymentMethodDO]]></query>
+	<query name="allPurchaseOrders"><![CDATA[from PurchaseOrderDO]]></query>
+
+	<query name="lookupPurchaseOrderByOrderNumberId">
+		<![CDATA[
+			select new PurchaseOrderDO ( purchaseOrder.id, 
+										 purchaseOrder.orderNumberId, 
+										 purchaseOrder.totalOrderAmount,
+										 purchaseOrder.totalOrderQuantity, 
+										 purchaseOrder.orderCode,
+										 purchaseOrder.orderDescription, 
+										 purchaseOrder.userId, 
+										 purchaseOrder.accountId)
+			from PurchaseOrderDO as purchaseOrder
+			where purchaseOrder.orderNumberId = ?
+		]]>
+	</query>
+
+</hibernate-mapping>

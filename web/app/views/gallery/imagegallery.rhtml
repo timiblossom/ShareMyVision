@@ -1,0 +1,53 @@
+<div class="clear"></div>
+    <div class="innerGalleryContent">
+       <%if logged_in? %>
+          <div class="breadcrumps">
+            <ul>
+               <li><%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"home"}) %></li>
+               <li>></li>
+               <li><%= link_to("Events", {:controller=>:item, :action=>:event}) %></li>
+               <li>></li>
+               <li>Image Gallery</li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+       <%end%>
+      <div class="ContentSec">                                           
+         <% if  !@smv_event_status.blank? && @smv_event_status[:statusCode]!=-1 && @smv_event_status[:statusCode]==0%>
+             <% if !@smv_event_status[:value].blank? %>
+                     <div >
+                           <h1 style="margin-bottom:10px"><%=@smv_event_status[:value].eventTitle%></h1>
+                           <% if logged_in? %>
+                             <a rel="nofollow" href="http://www.facebook.com/share.php?u=http://<%=request.host%>/web/gallery/imagegallery/<%=@smv_event_status[:value].eventId%>" onclick="return fbs_click()" target="_blank" class="fb_share_link">Share on Facebook</a>                                                                              
+                             <fb:like href="http://<%=request.host%>/web/gallery/imagegallery/<%=@smv_event_status[:value].eventId%>" layout="button_count" show_faces="true" width="450" font="trebuchet ms"></fb:like>
+                           <% end %> <br> 
+                           <%= render :partial => 'layouts/outlet', :locals=>{:type=>'share'} %> 
+                     </div>
+                  <div class="slideshow" style="padding: 40px 40px 40px; margin-left: 810px; margin-top: -60px; position: absolute; z-index: 2;">
+                   <ul>
+                       <li><a href="javascript:void(0);" class="popular" id="play">play</a></li>
+                       <li><a href="javascript:void(0);" class="popular" id="pause" style="display:none">pause</a></li>
+                   </ul>                                                   
+                 </div> 
+                <div class="content">
+                    <div id="galleria">
+                         <% if  !@smv_status.blank? && @smv_status[:statusCode]!=-1 && @smv_status[:statusCode]==0%>
+                            <% !@smv_status[:value].blank? && @smv_status[:value].each do |item| %> 
+                                  <img alt="<%=item.itemTitle%>" src="<%=item.url2%>" style="width:800px" >
+                            <%end%>                            
+                         <%end%>    
+                    </div>
+                </div>
+             <%else%>
+                  No Records Found 
+             <%end%>
+         <%else%>
+             <%=@smv_status[:msg]%>
+         <%end%>
+      </div>
+      <!-- /Inner Content -->
+      <!-- Mid Content -->
+      <div class="midContent"> </div>
+      <div class="clear"></div>
+  </div>
+</div>

@@ -1,0 +1,306 @@
+<% @body_id = 'update_profile' %>
+<% if logged_in? %>
+   <script language="JavaScript">
+     Element.hide('signup');
+   </script>
+<%end%>
+
+<script language="JavaScript">
+function acct_info(show_hide, type)
+{
+  if(show_hide=='hide')
+  {
+    document.getElementById('show_'+type).style.display="inline";
+    document.getElementById('hide_'+type).style.display="none";
+    document.getElementById(type+'_info').style.display="none";
+  }
+  if(show_hide=='show')
+  {
+    document.getElementById('show_'+type).style.display="none";
+    document.getElementById('hide_'+type).style.display="inline";
+    document.getElementById(type+'_info').style.display="inline";
+  }
+}
+
+function edit_info(show_hide, type)
+{
+  if(show_hide=='hide')
+  {
+    document.getElementById('show_'+type).style.display="inline";
+    document.getElementById('hide_'+type).style.display="none";
+    document.getElementById(type+'_info').style.display="none";
+  }
+  if(show_hide=='show')
+  {
+    document.getElementById('show_'+type).style.display="none";
+    document.getElementById('hide_'+type).style.display="inline";
+    document.getElementById(type+'_info').style.display="inline";
+  }
+}
+
+ 
+</script>
+
+
+<div class="clearboth"></div>
+    <div class="midArea">
+        <div class="topbdr">
+            <div class="imgTop"></div>
+            <div class="middlecontent">
+                <div class="leftpart"><%= image_tag("/web/theme1/images/banner.gif", :size => "150x500" ) %></div>
+                <div class="rightpart" 
+                    <div id="rightpart">
+                        <div class="required">* All fields are Mandatory</div>
+                        <div class="clearboth header1">Update Profile</div>
+                        <div class="clearboth height29">&nbsp;</div>
+                        <div id="errormsg"></div>
+                        <% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "save_reg"),:method=>'put',:id=>'fleetForm'}, 
+                                                     :url=>{ :controller => "user", :action => "save_reg"},
+                                                     :update=>{:success=>"update_tag", :failure=>'errormsg'}, :complete=>'successMsg(request)'
+                                                     
+                                           ) do%>
+                        
+          
+                                          <div  id='err'></div>
+                                          <div class="clearboth"></div>
+                                         
+					  <div class="label"><B>Account Info</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','account')", :id=>"show_account",:title=>"Show Account Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Account Information"), "acct_info('hide','account')", :id=>"hide_account",:style=>"display:none") %></div>
+					  <div class="clearboth height18"></div>
+					  <div class="clearboth height18"></div>
+                                          
+				
+
+
+					  <div id="account_info" style="display:none">
+
+                                               <div class="label">Account Type</div><div class="label"><%= current_user[:value].account.accountType %></div>
+                                              <div class="clearboth height18"></div> 
+                                          
+
+                                              <div class="label">Account Description</div><div class="label"><%= current_user[:value].account.accountDescription %></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Account Status</div><div class="label"><%= current_user[:value].account.accountStatus %></div>
+                                              <div class="clearboth height18"></div>
+                                          
+					  </div>
+					  
+
+
+                                   
+ 					  <div class="label"><B>User Info</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','user')", :id=>"show_user",:title=>"Show User Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide User Information"), "acct_info('hide','user')", :id=>"hide_user",:style=>"display:none") %></div>
+					  <div class="clearboth height18"></div>
+					  <div class="clearboth height18"></div>
+
+  					 
+
+
+                                          <div id="user_info" style="display:none">
+					       <!--<div class="label"><B>Edit User Info</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "edit_info('show','edit_user')", :id=>"show_edit_user",:title=>"Edit User") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Shipping Address Information"), "acct_info('hide','edit_user')", :id=>"hide_edit_user",:style=>"display:none") %></div>
+                                               <div class="clearboth height18"></div>-->
+
+
+                                               <div class="label">First Name</div><div class="label"><%= current_user[:value].contact.contactFirstName %></div>
+                                               <div class="clearboth height18"></div>
+
+                                              <div class="label">Last Name</div><div class="label"><%= current_user[:value].contact.contactLastName %></div>
+                                              <div class="clearboth height18"></div>
+
+                                             <div class="label">Email Address</div><div class="label"><%= current_user[:value].userEmail %></div>
+                                             <div class="clearboth height18"></div>
+
+                                         </div>
+					 <div id="edit_user_info" style="display:none">
+                                               <div class="label">First Name</div><div class="label"><div class="tb2"><%= text_field "user", "firstName" ,:class=>"tb2a" ,:value=>current_user[:value].contact.contactFirstName%></div></div>
+                                               <div class="clearboth height18"></div>
+
+                                              <div class="label">Last Name</div><div class="label"><div class="tb2"><%= text_field "user", "lastName" ,:class=>"tb2a", :value=>current_user[:value].contact.contactLastName %></div></div>
+                                              <div class="clearboth height18"></div>
+                                             
+
+                                         </div>
+
+
+
+                                         <div class="label"><B>Phone</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','phone')", :id=>"show_phone",:title=>"Show Phone Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Phone Information"), "acct_info('hide','phone')", :id=>"hide_phone",:style=>"display:none") %></div>
+					 <div class="clearboth height18"></div>
+					 <div class="clearboth height18"></div>
+
+
+	                                <div id="phone_info" style="display:none"> 
+     					       <!--<div class="label"><B>Edit Phone</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "edit_info('show','edit_phone')", :id=>"show_edit_phone",:title=>"Edit Phone") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Shipping Address Information"), "acct_info('hide','edit_phone')", :id=>"hide_edit_phone",:style=>"display:none") %></div>
+                                               <div class="clearboth height18"></div>-->
+
+                                              <div class="label">Home Phone</div><div class="label"><%= current_user[:value].contact.contactHomePhone%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Mobile Phone</div><div class="label"><%= current_user[:value].contact.contactMobilePhone%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Work Phone</div><div class="label"><%= current_user[:value].contact.contactWorkPhone%></div>
+                                              <div class="clearboth height18"></div>
+                                        </div>
+	                                <div id="edit_phone_info" style="display:none"> 
+                                              <div class="label">Home Phone</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>current_user[:value].contact.contactHomePhone %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Mobile Phone</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a" , :value=>current_user[:value].contact.contactMobilePhone%></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Work Phone</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>current_user[:value].contact.contactWorkPhone%></div></div>
+                                              <div class="clearboth height18"></div>
+                                        </div>
+
+
+                                        <div class="label"><B>Instant Messenger</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','messenger')", :id=>"show_messenger",:title=>"Show Messenger Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Messenger Information"), "acct_info('hide','messenger')", :id=>"hide_messenger",:style=>"display:none") %></div>
+                                        <div class="clearboth height18"></div>
+                                        <div class="clearboth height18"></div>
+
+					
+
+                                        <div id="messenger_info" style="display:none"> 
+					      <!--<div class="label"><B>Edit Instant Messenger</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "edit_info('show','edit_messenger')", :id=>"show_edit_messenger",:title=>"Edit Messenger") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Messenger Information"), "edit_info('hide','edit_messenger')", :id=>"hide_edit_billing",:style=>"display:none") %></div>
+                                              <div class="clearboth height18"></div>-->
+
+
+                                              <div class="label">Skype</div><div class="label"><%= current_user[:value].contact.contactSkype%></div>
+					      <div class="clearboth height18"></div>
+
+
+                                              <div class="label">Twitter</div><div class="label"><%= current_user[:value].contact.contactTwitter%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Yahoo</div><div class="label"><%= current_user[:value].contact.contactYim%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Hotmail</div><div class="label">&nbsp;</div>
+                                              <div class="clearboth height18"></div>
+
+
+                                              <div class="label">Gmail</div><div class="label">&nbsp;</div>
+                                              <div class="clearboth height18"></div>
+                                         </div>
+					 <div id="edit_messenger_info" style="display:none"> 
+                                              <div class="label">Skype</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>current_user[:value].contact.contactSkype %></div></div>
+                                              <div class="clearboth height18"></div>
+
+
+                                              <div class="label">Twitter</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>current_user[:value].contact.contactTwitter %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Yahoo</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>current_user[:value].contact.contactYim %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Hotmail</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>"" %></div></div>
+                                              <div class="clearboth height18"></div>
+
+
+                                              <div class="label">Gmail</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a",  :value=>""%></div></div>
+                                              <div class="clearboth height18"></div>
+                                         </div>
+
+                                         <div class="label"><B>Shipping Address</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','shipping')", :id=>"show_shipping",:title=>"Show Shipping Address Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Shipping Address Information"), "acct_info('hide','shipping')", :id=>"hide_shipping",:style=>"display:none") %></div>
+					 <div class="clearboth height18"></div>
+					 <div class="clearboth height18"></div>
+
+					 
+					 
+					 <div id="shipping_info" style="display:none"> 
+					      <div class="label"><B>Edit Shipping Address</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "edit_info('show','edit_shipping')", :id=>"show_edit_shipping",:title=>"Edit Shipping Address Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Shipping Address Information"), "acct_info('hide','edit_shipping')", :id=>"hide_edit_billing",:style=>"display:none") %></div>
+                                               <div class="clearboth height18"></div>
+
+                                              <div class="label">Street</div><div class="label"><%=@shippingStreet%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">City</div><div class="label"><%=@shippingCity%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Country</div><div class="label"><%=@shippingCountry%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">State</div><div class="label"><%=@shippingState%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Zip</div><div class="label"><%=@shippingZipCode%></div>
+                                              <div class="clearboth height18"></div>
+                                         </div>
+					 <div id="edit_shipping_info" style="display:none"> 
+                                              <div class="label">Street</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@shippingStreet%></div></div>
+                                              <div class="clearboth height18"></div>
+
+
+                                              <div class="label">City</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@shippingCity%></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Country</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a" , :value=>@shippingCountry %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">State</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@shippingState %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Zip</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@shippingZipCode%></div></div>
+                                              <div class="clearboth height18"></div>
+                                         </div>
+                                        
+                                        <div class="label"><B>Billing Address</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "acct_info('show','billing')", :id=>"show_billing",:title=>"Show Billing Address Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Billing Address Information"), "acct_info('hide','billing')", :id=>"hide_billing",:style=>"display:none") %></div>
+                                        <div class="clearboth height18"></div>
+                                        <div class="clearboth height18"></div>
+					
+                                        <div id="billing_info" style="display:none">                                        
+					     <!--<div class="label"><B>Edit Billing Address</B></div><div class="label"><%= link_to_function (image_tag("/theme1/images/plus.gif",:border=>"0"), "edit_info('show','edit_billing')", :id=>"show_edit_billing",:title=>"Edit Billing Address Information") %><%= link_to_function (image_tag("/theme1/images/minus.gif",:border=>"0",:title=>"Hide Billing Address Information"), "acct_info('hide','edit_billing')", :id=>"hide_edit_billing",:style=>"display:none") %></div>
+                                            <div class="clearboth height18"></div>-->
+
+                                             <div class="label">Street</div><div class="label"><%=@billingStreet%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">City</div><div class="label"><%=@billingCity%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Country</div><div class="label"><%=@billingCountry%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">State</div><div class="label"><%=@billingState%></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Zip</div><div class="label"><%=@billingZipCode%></div>
+                                              <div class="clearboth height18"></div>
+
+                                         </div>
+					 <div id="edit_billing_info" style="display:none">                                        
+                                             <div class="label">Street</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@billingStreet%></div></div>
+                                              <div class="clearboth height18"></div>
+
+
+                                              <div class="label">City</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@billingCity%></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Country</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a" , :value=>@billingCountry %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">State</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@billingState %></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                              <div class="label">Zip</div><div class="label"><div class="tb2"><%= text_field "user", "phone"  ,:class=>"tb2a", :value=>@billingZipCode%></div></div>
+                                              <div class="clearboth height18"></div>
+
+                                         </div>
+
+
+					 <%= hidden_field "user", "type" ,:value=>"Free"%>
+          
+  
+                                         <div class="clearboth height18"></div>
+                                         <div class="clearboth height18"></div>
+                           
+                                        <!-- <div class="label">&nbsp;</div><div class="label"> <%= submit_tag "Update" , :onClick=>'return register();', :id=>"submit" %></div>				-->	
+                                         <div class="clearboth height10"></div>
+                       <% end %>
+                    </div>
+                    <div class="clearboth"></div>
+                    <div id='update_tag'></div>
+                </div>
+                <div class="clearboth"></div>
+            </div>
+            <div class="imgBot"></div>
+        </div>
+    </div>

@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.smv.service.catalog.db.dbobject.ProductDO" table="product"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="startDate" type="java.sql.Timestamp">
+			<column name="start_date" />
+		</property>
+		<property name="endDate" type="java.sql.Timestamp">
+			<column name="end_date" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.catalog.db.dbobject.ProductKeyValuePairDO" table="product_key_value_pair"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<property name="parentContainerId" type="java.lang.Long">
+			<column name="product_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.catalog.db.dbobject.ProductCompositionDO" table="product_composition"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="parentProductId" type="java.lang.Long">
+			<column name="parent_product_id" />
+		</property>
+		<property name="childProductId" type="java.lang.Long">
+			<column name="child_product_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.catalog.db.dbobject.ServiceDO" table="service"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="startDate" type="java.sql.Timestamp">
+			<column name="start_date" />
+		</property>
+		<property name="endDate" type="java.sql.Timestamp">
+			<column name="end_date" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.catalog.db.dbobject.ServiceKeyValuePairDO" table="service_key_value_pair"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<property name="parentContainerId" type="java.lang.Long">
+			<column name="service_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+	
+	<class name="com.smv.service.catalog.db.dbobject.ServiceCompositionDO" table="service_composition"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="parentServiceId" type="java.lang.Long">
+			<column name="parent_service_id" />
+		</property>
+		<property name="childServiceId" type="java.lang.Long">
+			<column name="child_service_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.catalog.db.dbobject.CatalogDO" table="catalog"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="productId" type="java.lang.Long">
+			<column name="product_id" />
+		</property>
+		<property name="serviceId" type="java.lang.Long">
+			<column name="service_id" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="startDate" type="java.sql.Timestamp">
+			<column name="start_date" />
+		</property>
+		<property name="endDate" type="java.sql.Timestamp">
+			<column name="end_date" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.catalog.db.dbobject.CatalogKeyValuePairDO" table="catalog_key_value_pair"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<property name="parentContainerId" type="java.lang.Long">
+			<column name="catalog_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.catalog.db.dbobject.StatusDO" table="status"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>

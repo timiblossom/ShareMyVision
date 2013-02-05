@@ -1,0 +1,25 @@
+<% @body_id = 'my_account' %> 
+
+         <div class="clear"></div>
+	
+	 <BR>
+         <div class="innerContent">
+              <div class="breadcrumps">
+                   <ul>
+                        <li><%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"home"}) %></li>
+                        <li>></li>
+                        <li>My Account</li>
+                   </ul>
+                   <div class="clear"></div>
+              </div>
+              <div class="ContentSec">                   
+                        <p><%= link_to("Change Password", :controller=>:user, :action=>:change_password) %> </p>
+                        <p>&nbsp;</p>
+                        <p><%= link_to("Update Account Information") %></p>                   
+              </div>
+         </div>	 
+    </div>
+
+     <!-- /Bottom Content -->
+     <%= render :partial => "layouts/innerBottomContent" %>
+     <%= render :partial => "layouts/innerFooter" %>

@@ -1,0 +1,1088 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="File" resourceRoot="" soapui-version="3.5" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="FileServiceSoapBinding" type="wsdl" bindingName="{http://smv}FileServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://sharemyvision.com/file/FileService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://sharemyvision.com/file/FileService?wsdl"><con:part><con:url>http://sharemyvision.com/file/FileService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FileService" targetNamespace="http://smv" xmlns:ns1="http://file.service.smv.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://smv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://sharemyvision.com/file/FileService?wsdl=IFileService.wsdl" namespace="http://file.service.smv.com/"></wsdl:import>
+  <wsdl:binding name="FileServiceSoapBinding" type="ns1:IFileService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getItemById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getItemById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getItemByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsByUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEventsByUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEventsByUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMostRecentItems">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMostRecentItems">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMostRecentItemsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateItem">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateItem">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateItemResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEventById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getEventById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEventByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getItemsByEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getItemsByEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getItemsByEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="eventRequest">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="eventRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="eventRequestResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEvent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateEvent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateEventResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMostRecentItemsByUser">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMostRecentItemsByUser">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMostRecentItemsByUserResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileService">
+    <wsdl:port binding="tns:FileServiceSoapBinding" name="FileServiceImplPort">
+      <soap:address location="http://sharemyvision.com/file/FileService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://sharemyvision.com/file/FileService?wsdl=IFileService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IFileService" targetNamespace="http://file.service.smv.com/" xmlns:ns1="http://file.service.smv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://file.service.smv.com/" xmlns:tns="http://file.service.smv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="KeyValueEntry" type="tns:keyValueEntry"/>
+      <xs:element name="KeyValueMapDTO" type="tns:keyValueMapDTO"/>
+      <xs:complexType name="ItemDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="itemId" type="xs:long"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="itemCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="description" type="xs:string"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="url" type="xs:string"/>
+          <xs:element minOccurs="0" name="url1" type="xs:string"/>
+          <xs:element minOccurs="0" name="url2" type="xs:string"/>
+          <xs:element minOccurs="0" name="url3" type="xs:string"/>
+          <xs:element minOccurs="0" name="processDone" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="path" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileName" type="xs:string"/>
+          <xs:element minOccurs="0" name="md5InHex" type="xs:string"/>
+          <xs:element minOccurs="0" name="md5InBase64" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="accountId" type="xs:long"/>
+          <xs:element minOccurs="0" name="isPublic" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="width" type="xs:int"/>
+          <xs:element minOccurs="0" name="height" type="xs:int"/>
+          <xs:element minOccurs="0" name="mimeType" type="xs:string"/>
+          <xs:element minOccurs="0" name="fileSize" type="xs:long"/>
+          <xs:element minOccurs="0" name="duration" type="xs:int"/>
+          <xs:element minOccurs="0" name="latitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="altitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="location" type="xs:string"/>
+          <xs:element minOccurs="0" name="deviceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="sequenceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="eventId" type="xs:long"/>
+          <xs:element minOccurs="0" name="expiredOn" type="xs:long"/>
+          <xs:element minOccurs="0" name="postedOn" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="userDisplayName" type="xs:string"/>
+          <xs:element minOccurs="0" name="userEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="userPassword" type="xs:string"/>
+          <xs:element minOccurs="0" name="userSalt" type="xs:string"/>
+          <xs:element minOccurs="0" name="userStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="userType" type="xs:string"/>
+          <xs:element minOccurs="0" name="userActivationCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="userPasswordResetUserCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="userLanguage" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionClientIp" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionUserAgent" type="xs:string"/>
+          <xs:element minOccurs="0" name="account" type="tns:AccountDTO"/>
+          <xs:element minOccurs="0" name="contact" type="tns:ContactDTO"/>
+          <xs:element minOccurs="0" name="userExtraInfo" type="tns:UserExtraInfoDTO"/>
+          <xs:element minOccurs="0" name="roleName" type="xs:string"/>
+          <xs:element minOccurs="0" name="roleDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+          <xs:element minOccurs="0" name="userAgent" type="xs:string"/>
+          <xs:element minOccurs="0" name="session" type="tns:SessionDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AccountDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountName" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountType" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="contact" type="tns:ContactDTO"/>
+          <xs:element minOccurs="0" name="creditCardLastFour" type="xs:string"/>
+          <xs:element minOccurs="0" name="creditCardExpireMmyy" type="xs:string"/>
+          <xs:element minOccurs="0" name="creditCardType" type="xs:string"/>
+          <xs:element minOccurs="0" name="creditCardStatus" type="xs:string"/>
+          <xs:element minOccurs="0" name="creditCardAddress" type="tns:AddressDTO"/>
+          <xs:element minOccurs="0" name="accountExtraInfoKeyPair" type="xs:string"/>
+          <xs:element minOccurs="0" name="accountExtraInfoValuePair" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ContactDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactFirstName" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactLastName" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactAdditionalEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactWorkPhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactMobilePhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactHomePhone" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactAim" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactYim" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactSkype" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactFaceBook" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactTwitter" type="xs:string"/>
+          <xs:element minOccurs="0" name="contactResidentAddress" type="tns:AddressDTO"/>
+          <xs:element minOccurs="0" name="contactShippingAddress" type="tns:AddressDTO"/>
+          <xs:element minOccurs="0" name="contactBillingAddress" type="tns:AddressDTO"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="AddressDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="street" type="xs:string"/>
+          <xs:element minOccurs="0" name="city" type="xs:string"/>
+          <xs:element minOccurs="0" name="state" type="xs:string"/>
+          <xs:element minOccurs="0" name="zipCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="country" type="xs:string"/>
+          <xs:element minOccurs="0" name="latitude" type="xs:double"/>
+          <xs:element minOccurs="0" name="longitude" type="xs:double"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UserExtraInfoDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoIndustry" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoCompany" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoCompanySize" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoZipCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoJobTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoMobileDeviceModel" type="xs:string"/>
+          <xs:element minOccurs="0" name="userExtraInfoMobileManufacturer" type="xs:string"/>
+          <xs:element minOccurs="0" name="timeZone" type="xs:string"/>
+          <xs:element minOccurs="0" name="timeZoneLabel" type="xs:string"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SessionDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionGuid" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionUid" type="xs:long"/>
+          <xs:element minOccurs="0" name="sessionClieptIp" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionLastLogin" type="xs:dateTime"/>
+          <xs:element minOccurs="0" name="sessionUserAgent" type="xs:string"/>
+          <xs:element minOccurs="0" name="sessionLoggedIn" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="eventDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="accountId" type="xs:long"/>
+          <xs:element minOccurs="0" name="action" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventDescription" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventId" type="xs:long"/>
+          <xs:element minOccurs="0" name="eventPublic" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="eventTagText" type="xs:string"/>
+          <xs:element minOccurs="0" name="eventTitle" type="xs:string"/>
+          <xs:element minOccurs="0" name="expiredOn" type="xs:long"/>
+          <xs:element minOccurs="0" name="folderUrl" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="items" nillable="true" type="tns:ItemDTO"/>
+          <xs:element minOccurs="0" name="policy" type="tns:keyValueMapDTO"/>
+          <xs:element minOccurs="0" name="postedOn" type="xs:long"/>
+          <xs:element minOccurs="0" name="status" type="xs:string"/>
+          <xs:element minOccurs="0" name="userId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueMapDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="entry" type="tns:keyValueEntry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueEntry">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="smvServiceException" type="tns:smvServiceException"/>
+      <xs:complexType name="smvServiceException">
+        <xs:sequence>
+          <xs:element name="description" nillable="true" type="xs:string"/>
+          <xs:element name="errorCode" nillable="true" type="xs:int"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getItemById" type="tns:getItemById"/>
+      <xs:complexType name="getItemById">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="itemId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getItemByIdResponse" type="tns:getItemByIdResponse"/>
+      <xs:complexType name="getItemByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:ItemDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getEventsByUser" type="tns:getEventsByUser"/>
+      <xs:complexType name="getEventsByUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:UserDTO"/>
+          <xs:element minOccurs="0" name="showItems" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getEventsByUserResponse" type="tns:getEventsByUserResponse"/>
+      <xs:complexType name="getEventsByUserResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateItem" type="tns:updateItem"/>
+      <xs:complexType name="updateItem">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="item" type="tns:ItemDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateItemResponse" type="tns:updateItemResponse"/>
+      <xs:complexType name="updateItemResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMostRecentItems" type="tns:getMostRecentItems"/>
+      <xs:complexType name="getMostRecentItems">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="num" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMostRecentItemsResponse" type="tns:getMostRecentItemsResponse"/>
+      <xs:complexType name="getMostRecentItemsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ItemDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getEventById" type="tns:getEventById"/>
+      <xs:complexType name="getEventById">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="eventId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getEventByIdResponse" type="tns:getEventByIdResponse"/>
+      <xs:complexType name="getEventByIdResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getItemsByEvent" type="tns:getItemsByEvent"/>
+      <xs:complexType name="getItemsByEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="event" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getItemsByEventResponse" type="tns:getItemsByEventResponse"/>
+      <xs:complexType name="getItemsByEventResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ItemDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="eventRequest" type="tns:eventRequest"/>
+      <xs:complexType name="eventRequest">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="event" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="eventRequestResponse" type="tns:eventRequestResponse"/>
+      <xs:complexType name="eventRequestResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateEvent" type="tns:updateEvent"/>
+      <xs:complexType name="updateEvent">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="event" type="tns:eventDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="updateEventResponse" type="tns:updateEventResponse"/>
+      <xs:complexType name="updateEventResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMostRecentItemsByUser" type="tns:getMostRecentItemsByUser"/>
+      <xs:complexType name="getMostRecentItemsByUser">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="user" type="tns:UserDTO"/>
+          <xs:element minOccurs="0" name="num" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getMostRecentItemsByUserResponse" type="tns:getMostRecentItemsByUserResponse"/>
+      <xs:complexType name="getMostRecentItemsByUserResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ItemDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getEventsByUserResponse">
+    <wsdl:part element="ns1:getEventsByUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEventById">
+    <wsdl:part element="ns1:getEventById" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eventRequestResponse">
+    <wsdl:part element="ns1:eventRequestResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEventsByUser">
+    <wsdl:part element="ns1:getEventsByUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateItemResponse">
+    <wsdl:part element="ns1:updateItemResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostRecentItemsByUserResponse">
+    <wsdl:part element="ns1:getMostRecentItemsByUserResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SmvServiceException">
+    <wsdl:part element="ns1:smvServiceException" name="SmvServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostRecentItemsResponse">
+    <wsdl:part element="ns1:getMostRecentItemsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEventByIdResponse">
+    <wsdl:part element="ns1:getEventByIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEventResponse">
+    <wsdl:part element="ns1:updateEventResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemsByEventResponse">
+    <wsdl:part element="ns1:getItemsByEventResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateItem">
+    <wsdl:part element="ns1:updateItem" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemsByEvent">
+    <wsdl:part element="ns1:getItemsByEvent" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateEvent">
+    <wsdl:part element="ns1:updateEvent" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostRecentItemsByUser">
+    <wsdl:part element="ns1:getMostRecentItemsByUser" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemById">
+    <wsdl:part element="ns1:getItemById" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getItemByIdResponse">
+    <wsdl:part element="ns1:getItemByIdResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMostRecentItems">
+    <wsdl:part element="ns1:getMostRecentItems" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eventRequest">
+    <wsdl:part element="ns1:eventRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IFileService">
+    <wsdl:operation name="getItemById">
+      <wsdl:input message="ns1:getItemById" name="getItemById"></wsdl:input>
+      <wsdl:output message="ns1:getItemByIdResponse" name="getItemByIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEventsByUser">
+      <wsdl:input message="ns1:getEventsByUser" name="getEventsByUser"></wsdl:input>
+      <wsdl:output message="ns1:getEventsByUserResponse" name="getEventsByUserResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateItem">
+      <wsdl:input message="ns1:updateItem" name="updateItem"></wsdl:input>
+      <wsdl:output message="ns1:updateItemResponse" name="updateItemResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMostRecentItems">
+      <wsdl:input message="ns1:getMostRecentItems" name="getMostRecentItems"></wsdl:input>
+      <wsdl:output message="ns1:getMostRecentItemsResponse" name="getMostRecentItemsResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getEventById">
+      <wsdl:input message="ns1:getEventById" name="getEventById"></wsdl:input>
+      <wsdl:output message="ns1:getEventByIdResponse" name="getEventByIdResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getItemsByEvent">
+      <wsdl:input message="ns1:getItemsByEvent" name="getItemsByEvent"></wsdl:input>
+      <wsdl:output message="ns1:getItemsByEventResponse" name="getItemsByEventResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="eventRequest">
+      <wsdl:input message="ns1:eventRequest" name="eventRequest"></wsdl:input>
+      <wsdl:output message="ns1:eventRequestResponse" name="eventRequestResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateEvent">
+      <wsdl:input message="ns1:updateEvent" name="updateEvent"></wsdl:input>
+      <wsdl:output message="ns1:updateEventResponse" name="updateEventResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getMostRecentItemsByUser">
+      <wsdl:input message="ns1:getMostRecentItemsByUser" name="getMostRecentItemsByUser"></wsdl:input>
+      <wsdl:output message="ns1:getMostRecentItemsByUserResponse" name="getMostRecentItemsByUserResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.139.129:8080/file/FileService</con:endpoint><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:endpoint>http://localhost:8080/file/FileService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getEventById" bindingOperationName="getEventById" type="Request-Response" outputName="getEventByIdResponse" inputName="getEventById" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventById>
+         <!--Optional:-->
+         <id>1</id>
+      </file:getEventById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getEventById"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 2"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventById>
+         <!--Optional:-->
+         <id>?</id>
+      </file:getEventById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getEventById"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getEventsByUser" bindingOperationName="getEventsByUser" type="Request-Response" outputName="getEventsByUserResponse" inputName="getEventsByUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventsByUser>
+         <!--Optional:-->
+         <user>
+            <id>1</id>
+         </user>
+      </file:getEventsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getEventsByUser"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventsByUser>
+         <!--Optional:-->
+         <user>
+            <id>1</id>
+         </user>
+         <showItems>false</showItems>
+      </file:getEventsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getEventsByUser"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Request 3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventsByUser>
+         <!--Optional:-->
+         <user>
+            <userId>7</userId>
+         </user>
+         <!--Optional:-->
+         <showItems>true</showItems>
+      </file:getEventsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getEventsByUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getItemsByEvent" bindingOperationName="getItemsByEvent" type="Request-Response" outputName="getItemsByEventResponse" inputName="getItemsByEvent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getItemsByEvent>
+         <!--Optional:-->
+         <event>
+            <id>1</id>
+          
+         </event>
+      </file:getItemsByEvent>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getItemsByEvent"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getItemById" bindingOperationName="getItemById" type="Request-Response" outputName="getItemByIdResponse" inputName="getItemById" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getItemById>
+         <!--Optional:-->
+         <id>1</id>
+      </file:getItemById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getItemById"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getMostRecentItems" bindingOperationName="getMostRecentItems" type="Request-Response" outputName="getMostRecentItemsResponse" inputName="getMostRecentItems" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getMostRecentItems>
+         <!--Optional:-->
+         <num>?</num>
+      </file:getMostRecentItems>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getMostRecentItems"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getMostRecentItemsByUser" bindingOperationName="getMostRecentItemsByUser" type="Request-Response" outputName="getMostRecentItemsByUserResponse" inputName="getMostRecentItemsByUser" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getMostRecentItemsByUser>
+         <!--Optional:-->
+         <user>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <userDisplayName>?</userDisplayName>
+            <!--Optional:-->
+            <userEmail>?</userEmail>
+            <!--Optional:-->
+            <userPassword>?</userPassword>
+            <!--Optional:-->
+            <userSalt>?</userSalt>
+            <!--Optional:-->
+            <userStatus>?</userStatus>
+            <!--Optional:-->
+            <userActivationCode>?</userActivationCode>
+            <!--Optional:-->
+            <userPasswordResetUserCode>?</userPasswordResetUserCode>
+            <!--Optional:-->
+            <userLanguage>?</userLanguage>
+            <!--Optional:-->
+            <sessionClientIp>?</sessionClientIp>
+            <!--Optional:-->
+            <sessionUserAgent>?</sessionUserAgent>
+            <!--Optional:-->
+            <account>
+               <!--Optional:-->
+               <action>?</action>
+               <!--Optional:-->
+               <accountName>?</accountName>
+               <!--Optional:-->
+               <accountDescription>?</accountDescription>
+               <!--Optional:-->
+               <accountType>?</accountType>
+               <!--Optional:-->
+               <accountStatus>?</accountStatus>
+               <!--Optional:-->
+               <contact>
+                  <!--Optional:-->
+                  <action>?</action>
+                  <!--Optional:-->
+                  <contactFirstName>?</contactFirstName>
+                  <!--Optional:-->
+                  <contactLastName>?</contactLastName>
+                  <!--Optional:-->
+                  <contactAdditionalEmail>?</contactAdditionalEmail>
+                  <!--Optional:-->
+                  <contactWorkPhone>?</contactWorkPhone>
+                  <!--Optional:-->
+                  <contactMobilePhone>?</contactMobilePhone>
+                  <!--Optional:-->
+                  <contactHomePhone>?</contactHomePhone>
+                  <!--Optional:-->
+                  <contactAim>?</contactAim>
+                  <!--Optional:-->
+                  <contactYim>?</contactYim>
+                  <!--Optional:-->
+                  <contactSkype>?</contactSkype>
+                  <!--Optional:-->
+                  <contactFaceBook>?</contactFaceBook>
+                  <!--Optional:-->
+                  <contactTwitter>?</contactTwitter>
+                  <!--Optional:-->
+                  <contactResidentAddress>
+                     <!--Optional:-->
+                     <id>?</id>
+                     <!--Optional:-->
+                     <street>?</street>
+                     <!--Optional:-->
+                     <city>?</city>
+                     <!--Optional:-->
+                     <state>?</state>
+                     <!--Optional:-->
+                     <zipCode>?</zipCode>
+                     <!--Optional:-->
+                     <country>?</country>
+                     <!--Optional:-->
+                     <latitude>?</latitude>
+                     <!--Optional:-->
+                     <longitude>?</longitude>
+                  </contactResidentAddress>
+                  <!--Optional:-->
+                  <contactShippingAddress>
+                     <!--Optional:-->
+                     <id>?</id>
+                     <!--Optional:-->
+                     <street>?</street>
+                     <!--Optional:-->
+                     <city>?</city>
+                     <!--Optional:-->
+                     <state>?</state>
+                     <!--Optional:-->
+                     <zipCode>?</zipCode>
+                     <!--Optional:-->
+                     <country>?</country>
+                     <!--Optional:-->
+                     <latitude>?</latitude>
+                     <!--Optional:-->
+                     <longitude>?</longitude>
+                  </contactShippingAddress>
+                  <!--Optional:-->
+                  <contactBillingAddress>
+                     <!--Optional:-->
+                     <id>?</id>
+                     <!--Optional:-->
+                     <street>?</street>
+                     <!--Optional:-->
+                     <city>?</city>
+                     <!--Optional:-->
+                     <state>?</state>
+                     <!--Optional:-->
+                     <zipCode>?</zipCode>
+                     <!--Optional:-->
+                     <country>?</country>
+                     <!--Optional:-->
+                     <latitude>?</latitude>
+                     <!--Optional:-->
+                     <longitude>?</longitude>
+                  </contactBillingAddress>
+                  <!--Optional:-->
+                  <id>?</id>
+               </contact>
+               <!--Optional:-->
+               <creditCardLastFour>?</creditCardLastFour>
+               <!--Optional:-->
+               <creditCardExpireMmyy>?</creditCardExpireMmyy>
+               <!--Optional:-->
+               <creditCardType>?</creditCardType>
+               <!--Optional:-->
+               <creditCardStatus>?</creditCardStatus>
+               <!--Optional:-->
+               <creditCardAddress>
+                  <!--Optional:-->
+                  <id>?</id>
+                  <!--Optional:-->
+                  <street>?</street>
+                  <!--Optional:-->
+                  <city>?</city>
+                  <!--Optional:-->
+                  <state>?</state>
+                  <!--Optional:-->
+                  <zipCode>?</zipCode>
+                  <!--Optional:-->
+                  <country>?</country>
+                  <!--Optional:-->
+                  <latitude>?</latitude>
+                  <!--Optional:-->
+                  <longitude>?</longitude>
+               </creditCardAddress>
+               <!--Optional:-->
+               <accountExtraInfoKeyPair>?</accountExtraInfoKeyPair>
+               <!--Optional:-->
+               <accountExtraInfoValuePair>?</accountExtraInfoValuePair>
+               <!--Optional:-->
+               <id>?</id>
+            </account>
+            <!--Optional:-->
+            <contact>
+               <!--Optional:-->
+               <action>?</action>
+               <!--Optional:-->
+               <contactFirstName>?</contactFirstName>
+               <!--Optional:-->
+               <contactLastName>?</contactLastName>
+               <!--Optional:-->
+               <contactAdditionalEmail>?</contactAdditionalEmail>
+               <!--Optional:-->
+               <contactWorkPhone>?</contactWorkPhone>
+               <!--Optional:-->
+               <contactMobilePhone>?</contactMobilePhone>
+               <!--Optional:-->
+               <contactHomePhone>?</contactHomePhone>
+               <!--Optional:-->
+               <contactAim>?</contactAim>
+               <!--Optional:-->
+               <contactYim>?</contactYim>
+               <!--Optional:-->
+               <contactSkype>?</contactSkype>
+               <!--Optional:-->
+               <contactFaceBook>?</contactFaceBook>
+               <!--Optional:-->
+               <contactTwitter>?</contactTwitter>
+               <!--Optional:-->
+               <contactResidentAddress>
+                  <!--Optional:-->
+                  <id>?</id>
+                  <!--Optional:-->
+                  <street>?</street>
+                  <!--Optional:-->
+                  <city>?</city>
+                  <!--Optional:-->
+                  <state>?</state>
+                  <!--Optional:-->
+                  <zipCode>?</zipCode>
+                  <!--Optional:-->
+                  <country>?</country>
+                  <!--Optional:-->
+                  <latitude>?</latitude>
+                  <!--Optional:-->
+                  <longitude>?</longitude>
+               </contactResidentAddress>
+               <!--Optional:-->
+               <contactShippingAddress>
+                  <!--Optional:-->
+                  <id>?</id>
+                  <!--Optional:-->
+                  <street>?</street>
+                  <!--Optional:-->
+                  <city>?</city>
+                  <!--Optional:-->
+                  <state>?</state>
+                  <!--Optional:-->
+                  <zipCode>?</zipCode>
+                  <!--Optional:-->
+                  <country>?</country>
+                  <!--Optional:-->
+                  <latitude>?</latitude>
+                  <!--Optional:-->
+                  <longitude>?</longitude>
+               </contactShippingAddress>
+               <!--Optional:-->
+               <contactBillingAddress>
+                  <!--Optional:-->
+                  <id>?</id>
+                  <!--Optional:-->
+                  <street>?</street>
+                  <!--Optional:-->
+                  <city>?</city>
+                  <!--Optional:-->
+                  <state>?</state>
+                  <!--Optional:-->
+                  <zipCode>?</zipCode>
+                  <!--Optional:-->
+                  <country>?</country>
+                  <!--Optional:-->
+                  <latitude>?</latitude>
+                  <!--Optional:-->
+                  <longitude>?</longitude>
+               </contactBillingAddress>
+               <!--Optional:-->
+               <id>?</id>
+            </contact>
+            <!--Optional:-->
+            <userExtraInfo>
+               <!--Optional:-->
+               <action>?</action>
+               <!--Optional:-->
+               <userExtraInfoIndustry>?</userExtraInfoIndustry>
+               <!--Optional:-->
+               <userExtraInfoCompany>?</userExtraInfoCompany>
+               <!--Optional:-->
+               <userExtraInfoCompanySize>?</userExtraInfoCompanySize>
+               <!--Optional:-->
+               <userExtraInfoZipCode>?</userExtraInfoZipCode>
+               <!--Optional:-->
+               <userExtraInfoTitle>?</userExtraInfoTitle>
+               <!--Optional:-->
+               <userExtraInfoJobTitle>?</userExtraInfoJobTitle>
+               <!--Optional:-->
+               <userExtraInfoMobileDeviceModel>?</userExtraInfoMobileDeviceModel>
+               <!--Optional:-->
+               <userExtraInfoMobileManufacturer>?</userExtraInfoMobileManufacturer>
+               <!--Optional:-->
+               <timeZone>?</timeZone>
+               <!--Optional:-->
+               <timeZoneLabel>?</timeZoneLabel>
+               <!--Optional:-->
+               <id>?</id>
+            </userExtraInfo>
+            <!--Optional:-->
+            <roleName>?</roleName>
+            <!--Optional:-->
+            <roleDescription>?</roleDescription>
+            <!--Optional:-->
+            <id>?</id>
+            <!--Optional:-->
+            <userAgent>?</userAgent>
+         </user>
+         <!--Optional:-->
+         <num>?</num>
+      </file:getMostRecentItemsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/getMostRecentItemsByUser"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="eventRequest" bindingOperationName="eventRequest" type="Request-Response" outputName="eventRequestResponse" inputName="eventRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:eventRequest>
+         <!--Optional:-->
+         <event>
+            <!--Optional:-->
+            <accountId>?</accountId>
+            <!--Optional:-->
+            <action>?</action>
+            <!--Optional:-->
+            <eventCode>?</eventCode>
+            <!--Optional:-->
+            <eventDescription>?</eventDescription>
+            <!--Optional:-->
+            <eventId>?</eventId>
+            <!--Optional:-->
+            <eventPublic>?</eventPublic>
+            <!--Optional:-->
+            <eventTagText>?</eventTagText>
+            <!--Optional:-->
+            <eventTitle>?</eventTitle>
+            <!--Optional:-->
+            <expiredOn>?</expiredOn>
+            <!--Zero or more repetitions:-->
+            <items>
+               <!--Optional:-->
+               <itemId>?</itemId>
+               <!--Optional:-->
+               <action>?</action>
+               <!--Optional:-->
+               <itemTitle>?</itemTitle>
+               <!--Optional:-->
+               <itemCode>?</itemCode>
+               <!--Optional:-->
+               <description>?</description>
+               <!--Optional:-->
+               <status>?</status>
+               <!--Optional:-->
+               <url>?</url>
+               <!--Optional:-->
+               <url2>?</url2>
+               <!--Optional:-->
+               <url3>?</url3>
+               <!--Optional:-->
+               <processDone>?</processDone>
+               <!--Optional:-->
+               <path>?</path>
+               <!--Optional:-->
+               <fileName>?</fileName>
+               <!--Optional:-->
+               <md5InHex>?</md5InHex>
+               <!--Optional:-->
+               <md5InBase64>?</md5InBase64>
+               <!--Optional:-->
+               <userId>?</userId>
+               <!--Optional:-->
+               <accountId>?</accountId>
+               <!--Optional:-->
+               <isPublic>?</isPublic>
+               <!--Optional:-->
+               <width>?</width>
+               <!--Optional:-->
+               <height>?</height>
+               <!--Optional:-->
+               <mimeType>?</mimeType>
+               <!--Optional:-->
+               <fileSize>?</fileSize>
+               <!--Optional:-->
+               <duration>?</duration>
+               <!--Optional:-->
+               <latitude>?</latitude>
+               <!--Optional:-->
+               <longitude>?</longitude>
+               <!--Optional:-->
+               <altitude>?</altitude>
+               <!--Optional:-->
+               <location>?</location>
+               <!--Optional:-->
+               <deviceId>?</deviceId>
+               <!--Optional:-->
+               <sequenceId>?</sequenceId>
+               <!--Optional:-->
+               <eventId>?</eventId>
+               <!--Optional:-->
+               <expiredOn>?</expiredOn>
+               <!--Optional:-->
+               <postedOn>?</postedOn>
+            </items>
+            <!--Optional:-->
+            <policy>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </policy>
+            <!--Optional:-->
+            <postedOn>?</postedOn>
+            <!--Optional:-->
+            <status>?</status>
+            <!--Optional:-->
+            <userId>?</userId>
+         </event>
+      </file:eventRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/eventRequest"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateItem" bindingOperationName="updateItem" type="Request-Response" outputName="updateItemResponse" inputName="updateItem" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:updateItem>
+         <!--Optional:-->
+         <item>
+            
+            <itemId>1</itemId>
+            <itemTitle>Castel</itemTitle>
+            
+         </item>
+      </file:updateItem>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/updateItem"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="updateEvent" bindingOperationName="updateEvent" type="Request-Response" outputName="updateEventResponse" inputName="updateEvent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:updateEvent>
+         <!--Optional:-->
+         <event>
+            <eventId>1</eventId>
+            <eventTitle>Rome2</eventTitle>
+           
+         </event>
+      </file:updateEvent>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IFileService/updateEvent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GetEventsOrItems" searchProperties="true" id="40d144d8-85ba-4888-9864-d2c10c5e8fae"><con:settings/><con:testStep type="request" name="getEventById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getEventById</con:operation><con:request name="getEventById"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventById>
+         <!--Optional:-->
+         <eventId>3</eventId>
+      </file:getEventById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getEventsByUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getEventsByUser</con:operation><con:request name="getEventsByUser"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getEventsByUser>
+         <!--Optional:-->
+         <user>
+             <userId>1</userId>
+         </user>
+         <showItems>true</showItems>
+      </file:getEventsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getItemsByEvent"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getItemsByEvent</con:operation><con:request name="getItemsByEvent"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getItemsByEvent>
+         <!--Optional:-->
+         <event>
+            <eventId>1</eventId>
+         </event>
+      </file:getItemsByEvent>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getItemById"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getItemById</con:operation><con:request name="getItemById"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getItemById>
+         <!--Optional:-->
+         <id>1</id>
+      </file:getItemById>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getMostRecentItems"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getMostRecentItems</con:operation><con:request name="getMostRecentItems"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getMostRecentItems>
+         <!--Optional:-->
+         <num>1</num>
+      </file:getMostRecentItems>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="getMostRecentItemsByUser"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>getMostRecentItemsByUser</con:operation><con:request name="getMostRecentItemsByUser"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://sharemyvision.com/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:getMostRecentItemsByUser>
+         <!--Optional:-->
+         <user>
+            <userId>1</userId>
+         </user>
+         <num>2</num>
+      </file:getMostRecentItemsByUser>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:assertion type="SOAP Fault Assertion"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateEvent" searchProperties="true"><con:settings/><con:testStep type="request" name="UpdateEvent"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>updateEvent</con:operation><con:request name="UpdateEvent"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:updateEvent>
+         <!--Optional:-->
+         <event>
+            <eventId>1</eventId>
+            <eventTitle>Rome2</eventTitle>
+         </event>
+      </file:updateEvent>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="UpdateItem" searchProperties="true"><con:settings/><con:testStep type="request" name="UpdateItem"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>FileServiceSoapBinding</con:interface><con:operation>updateItem</con:operation><con:request name="UpdateItem"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/file/FileService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:file="http://file.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <file:updateItem>
+         <!--Optional:-->
+         <item>
+            <itemId>1</itemId>
+            <itemTitle>Castel</itemTitle>
+         </item>
+      </file:updateItem>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response"/><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

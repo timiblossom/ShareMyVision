@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+		xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+    <bean id="props" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location">
+                <value>classpath:outlet.properties</value>
+        </property>
+
+    </bean>
+    
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+    
+    <import resource="outlet-svc.xml" />  
+    <import resource="outlet-db.xml" />  
+	<import resource="outlet-common.xml" /> 
+	<import resource="outlet-proxy.xml" /> 
+	
+</beans>

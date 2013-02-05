@@ -1,0 +1,16 @@
+a{text-decoration:none;}a:hover {text-decoration:underline}
+.FL { float:left; }
+.FR { float:right; }
+.crr_conn .FL{float:left;}
+.crr_conn .FR{float:right;}
+.crr_conn .CL{clear:both; font-size:0; line-height:0; height:0;}
+.crr_conn .b_18 { font:18px arial; color:#000;} 
+.crr_conn { margin:0; width:933px; padding:0px; }
+#localityBox .rightArrowbox, #localityBox .leftArrowbox { width:13px; padding:60px 10px; position:relative; }
+#localityBox .leftArrowbox, #localityBox .localityContentBox, #localityBox .rightArrowbox { float:left; }
+#localityBox .rightArrowbox { left:80px; }
+.crr_conn .scroll3 { position:relative; overflow:hidden; width:780px; height:145px; float:left; left:40px; }
+.crr_conn .scroll3 .belt { position:absolute; left:0px; top:0px; }
+.crr_conn .scroll3 .panel { float:left; overflow:hidden; width:860px;  height:145px;}
+.crr_conn .bl_14{font:bold 14px arial; color:#006699;}
+.localityContentBox img { margin-right:33px; }

@@ -1,0 +1,93 @@
+     <script>
+      function addClass()
+      {
+        document.getElementById('showLogin').classname='userLoginHover';
+        document.getElementById('userLoginBox').style.display='block';
+      }
+      function removeClass()
+      {
+        document.getElementById('showLogin').classname='';
+        document.getElementById('userLoginBox').style.display='none';
+      }
+     </script>        
+    <div class="navHolder">
+       <ul>
+       <li><% if controller.controller_name=='user' && controller.action_name=='index' %>
+              <%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"homeActive sel"}) %>
+           <%else%>
+              <%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"homeActive"}) %>
+           <%end%> 
+       </li>    
+       <li class="divider"></li>
+       <% if logged_in?%>
+             <li><% if controller.controller_name=='item' %>
+                    <%= link_to("Events", {:controller=>:item, :action=>:event},{:class=>"sel"}) %>
+                 <%else%>
+                    <%= link_to("Events", {:controller=>:item, :action=>:event}) %>
+                 <%end%>       
+             </li>       
+             <li class="divider"></li>
+       <%end%>
+       <li><% if controller.controller_name=='catalog' %>
+              <%= link_to("Product Plans",{:controller=>:catalog, :action=>:index},{:class=>"sel"}) %>
+           <%else%>   
+              <%= link_to("Product Plans", :controller=>:catalog, :action=>:index) %>
+           <%end%>   
+       </li>
+       <li class="divider"></li>
+       <li><% if controller.action_name  == 'device'%>
+                <%= link_to("Mobiles Supported",{:controller=>:user, :action=>:device},{:class=>"sel"}) %>
+           <%else%>     
+                <%= link_to("Mobiles Supported", :controller=>:user, :action=>:device) %>
+           <%end%>     
+       </li>
+       <li class="divider"></li>
+       <li><% if controller.action_name  == 'download'%>
+                <%= link_to("Downloads",{:controller=>:user, :action=>:download},{:class=>"sel"}) %>
+           <%else%>     
+                <%= link_to("Downloads", :controller=>:user, :action=>:download) %>
+           <%end%>       
+       <li class="divider"></li>
+       <li><%= link_to("Blog", "http://blog.sharemyvision.com", {:target => "_blank" }) %></li>     
+       <li class="divider"></li>
+       <% if !logged_in?%>
+              <li class="login"><a id="showLogin" href="#" onMouseOver="addClass();return true;" >Login</a>
+	      <div id ="loginBox">
+                   <div class="userLoginBox" id="userLoginBox">             
+                        <h3><B>Login to your account</B></h3>
+                        <% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "login"),:method=>'put',:id=>'loginForm',:name=>'loginForm'},
+			                             :url=>{ :controller => "user", :action => "login"}, 
+                                   :complete=>'successMsg(request)',:before=>'chkLogin()'
+                                                     
+
+                                                        
+                                         ) do%>
+                             <label>User Name :</label>
+                             <%= text_field "login", "email" %>
+                             <label>Password :</label>
+	                     <%= password_field "login", "password" ,:class=>"smallInput"%>
+	                     <%= submit_tag "Go", :class => "submitGo", :value => 'Go' ,:onMouseOut=>"removeClass();return true;" %>
+                             <div class="clear"></div>
+                             <p class="fgtPswd"><%= link_to("Forgot Password?", :controller=>:user, :action=>:forgot_password) %></p>
+                             <div class="clear"></div>
+                             
+                              <%= render :partial => 'layouts/outlet', :locals=>{:type=>'follow'} %>
+                        <%end%>                       
+                   </div>
+              </div>
+	      </li>
+	<%else%>
+	      <div id="logoutBox">
+	           <% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "logout"),:method=>'put',:id=>'logoutForm'}, 
+	                                                 :url=>{ :controller => "user", :action => "logout"},
+	                                                 :update=>{:success=>"update_tag", :failure=>'login_error'}, :complete=>'redirectHome(request)'
+                                                     
+
+	                                                    
+	                                      ) do%>
+                        <li class="login"><a href="#" onClick="$('logoutForm').onsubmit();">Logout</a></li>
+                   <%end%>
+	      </div>
+        <%end%>
+    </ul>  
+    </div>

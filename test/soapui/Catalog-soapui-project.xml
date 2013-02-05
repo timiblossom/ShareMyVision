@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Catalog" resourceRoot="${projectDir}" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="CatalogServiceSoapBinding" type="wsdl" bindingName="{http://smv}CatalogServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.245.128:8080/catalog/CatalogService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.245.128:8080/catalog/CatalogService?wsdl"><con:part><con:url>http://192.168.245.128:8080/catalog/CatalogService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CatalogService" targetNamespace="http://smv" xmlns:ns1="http://catalog.service.smv.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://smv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://192.168.245.128:8080/catalog/CatalogService?wsdl=ICatalogService.wsdl" namespace="http://catalog.service.smv.com/"></wsdl:import>
+  <wsdl:binding name="CatalogServiceSoapBinding" type="ns1:ICatalogService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCatalog">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCatalog">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCatalogResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServices">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllServices">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllServicesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProducts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllProducts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllProductsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CatalogService">
+    <wsdl:port binding="tns:CatalogServiceSoapBinding" name="CatalogServiceImplPort">
+      <soap:address location="http://192.168.245.128:8080/catalog/CatalogService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://192.168.245.128:8080/catalog/CatalogService?wsdl=ICatalogService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="ICatalogService" targetNamespace="http://catalog.service.smv.com/" xmlns:ns1="http://catalog.service.smv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://catalog.service.smv.com/" xmlns:tns="http://catalog.service.smv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="CatalogDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="productId" type="xs:long"/>
+          <xs:element minOccurs="0" name="serviceId" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="catalogKeyValuePairs" nillable="true" type="tns:CatalogKeyValuePairDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CatalogKeyValuePairDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:KeyValuePairDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="catalog" type="tns:CatalogDTO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType abstract="true" name="KeyValuePairDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="keyPair" type="xs:string"/>
+          <xs:element minOccurs="0" name="valuePair" type="xs:string"/>
+          <xs:element minOccurs="0" name="containerParentId" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="serviceKeyValuePairs" nillable="true" type="tns:ServiceKeyValuePairDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceKeyValuePairDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:KeyValuePairDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="service" type="tns:ServiceDTO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:complexType name="ProductDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="id" type="xs:long"/>
+          <xs:element minOccurs="0" name="name" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="productKeyValuePairs" nillable="true" type="tns:ProductKeyValuePairDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ProductKeyValuePairDTO">
+        <xs:complexContent>
+          <xs:extension base="tns:KeyValuePairDTO">
+            <xs:sequence>
+              <xs:element minOccurs="0" name="product" type="tns:ProductDTO"/>
+            </xs:sequence>
+          </xs:extension>
+        </xs:complexContent>
+      </xs:complexType>
+      <xs:element name="smvServiceException" type="tns:smvServiceException"/>
+      <xs:complexType name="smvServiceException">
+        <xs:sequence>
+          <xs:element name="description" nillable="true" type="xs:string"/>
+          <xs:element name="errorCode" nillable="true" type="xs:int"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getCatalog" type="tns:getCatalog"/>
+      <xs:complexType name="getCatalog">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="getCatalogResponse" type="tns:getCatalogResponse"/>
+      <xs:complexType name="getCatalogResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:CatalogDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getAllServices" type="tns:getAllServices"/>
+      <xs:complexType name="getAllServices">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="getAllServicesResponse" type="tns:getAllServicesResponse"/>
+      <xs:complexType name="getAllServicesResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ServiceDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="getAllProducts" type="tns:getAllProducts"/>
+      <xs:complexType name="getAllProducts">
+        <xs:sequence/>
+      </xs:complexType>
+      <xs:element name="getAllProductsResponse" type="tns:getAllProductsResponse"/>
+      <xs:complexType name="getAllProductsResponse">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:ProductDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getAllProducts">
+    <wsdl:part element="ns1:getAllProducts" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCatalog">
+    <wsdl:part element="ns1:getCatalog" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCatalogResponse">
+    <wsdl:part element="ns1:getCatalogResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllServicesResponse">
+    <wsdl:part element="ns1:getAllServicesResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SmvServiceException">
+    <wsdl:part element="ns1:smvServiceException" name="SmvServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllProductsResponse">
+    <wsdl:part element="ns1:getAllProductsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllServices">
+    <wsdl:part element="ns1:getAllServices" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ICatalogService">
+    <wsdl:operation name="getCatalog">
+      <wsdl:input message="ns1:getCatalog" name="getCatalog"></wsdl:input>
+      <wsdl:output message="ns1:getCatalogResponse" name="getCatalogResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllServices">
+      <wsdl:input message="ns1:getAllServices" name="getAllServices"></wsdl:input>
+      <wsdl:output message="ns1:getAllServicesResponse" name="getAllServicesResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="getAllProducts">
+      <wsdl:input message="ns1:getAllProducts" name="getAllProducts"></wsdl:input>
+      <wsdl:output message="ns1:getAllProductsResponse" name="getAllProductsResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:endpoint>http://HPE-209f:8088/mockCatalogServiceSoapBinding</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="getAllProducts" bindingOperationName="getAllProducts" type="Request-Response" outputName="getAllProductsResponse" inputName="getAllProducts" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getAllProducts/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/ICatalogService/getAllProducts"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getAllServices" bindingOperationName="getAllServices" type="Request-Response" outputName="getAllServicesResponse" inputName="getAllServices" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getAllServices/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/ICatalogService/getAllServices"/></con:call></con:operation><con:operation isOneWay="false" action="" name="getCatalog" bindingOperationName="getCatalog" type="Request-Response" outputName="getCatalogResponse" inputName="getCatalog" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getCatalog/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/ICatalogService/getCatalog"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="CatalogServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAllProducts TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getAllProducts"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CatalogServiceSoapBinding</con:interface><con:operation>getAllProducts</con:operation><con:request name="getAllProducts"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getAllProducts/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://smv/ICatalogService/getAllProducts" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getAllServices TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getAllServices"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CatalogServiceSoapBinding</con:interface><con:operation>getAllServices</con:operation><con:request name="getAllServices"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getAllServices/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://smv/ICatalogService/getAllServices" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="getCatalog TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="getCatalog"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CatalogServiceSoapBinding</con:interface><con:operation>getCatalog</con:operation><con:request name="getCatalog"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/catalog/CatalogService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:cat="http://catalog.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <cat:getCatalog/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://smv/ICatalogService/getCatalog" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest 1"><con:settings><con:setting id="HttpSettings@close-connections">false</con:setting></con:settings><con:threadCount>5</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

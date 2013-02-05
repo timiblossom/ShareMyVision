@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project name="Mailer" resourceRoot="${projectDir}" soapui-version="3.6.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MailerServiceSoapBinding" type="wsdl" bindingName="{http://smv}MailerServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://192.168.245.128:8080/mailer/MailerService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.245.128:8080/mailer/MailerService?wsdl"><con:part><con:url>http://192.168.245.128:8080/mailer/MailerService?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="MailerService" targetNamespace="http://smv" xmlns:ns1="http://mailer.service.smv.com/" xmlns:ns2="http://cxf.apache.org/bindings/xformat" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://smv" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://192.168.245.128:8080/mailer/MailerService?wsdl=IMailerService.wsdl" namespace="http://mailer.service.smv.com/"></wsdl:import>
+  <wsdl:binding name="MailerServiceSoapBinding" type="ns1:IMailerService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sendMail">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendMail">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendMailResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="SmvServiceException">
+        <soap:fault name="SmvServiceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MailerService">
+    <wsdl:port binding="tns:MailerServiceSoapBinding" name="mailerPort">
+      <soap:address location="http://192.168.245.128:8080/mailer/MailerService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://192.168.245.128:8080/mailer/MailerService?wsdl=IMailerService.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="IMailerService" targetNamespace="http://mailer.service.smv.com/" xmlns:ns1="http://mailer.service.smv.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://mailer.service.smv.com/" xmlns:tns="http://mailer.service.smv.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="EmailNameEntry" type="tns:emailNameEntry"/>
+      <xs:element name="EmailNameMapDTO" type="tns:emailNameMapDTO"/>
+      <xs:element name="KeyValueEntry" type="tns:keyValueEntry"/>
+      <xs:element name="KeyValueMapDTO" type="tns:keyValueMapDTO"/>
+      <xs:complexType name="MailerDataDTO">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mailerEventCode" type="xs:string"/>
+          <xs:element minOccurs="0" name="fromEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="fromName" type="xs:string"/>
+          <xs:element minOccurs="0" name="to" type="tns:emailNameMapDTO"/>
+          <xs:element minOccurs="0" name="subjectData" type="tns:keyValueMapDTO"/>
+          <xs:element minOccurs="0" name="bodyData" type="tns:keyValueMapDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="emailNameMapDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="entry" type="tns:emailNameEntry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="emailNameEntry">
+        <xs:sequence>
+          <xs:element name="email" type="xs:string"/>
+          <xs:element name="name" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueMapDTO">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="entry" type="tns:keyValueEntry"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="keyValueEntry">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="smvServiceException" type="tns:smvServiceException"/>
+      <xs:complexType name="smvServiceException">
+        <xs:sequence>
+          <xs:element name="description" nillable="true" type="xs:string"/>
+          <xs:element name="errorCode" nillable="true" type="xs:int"/>
+          <xs:element name="errorMessage" nillable="true" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="sendMail" type="tns:sendMail"/>
+      <xs:complexType name="sendMail">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="mailerData" type="tns:MailerDataDTO"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="sendMailResponse" type="tns:sendMailResponse"/>
+      <xs:complexType name="sendMailResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:boolean"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="sendMail">
+    <wsdl:part element="ns1:sendMail" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendMailResponse">
+    <wsdl:part element="ns1:sendMailResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SmvServiceException">
+    <wsdl:part element="ns1:smvServiceException" name="SmvServiceException"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="IMailerService">
+    <wsdl:operation name="sendMail">
+      <wsdl:input message="ns1:sendMail" name="sendMail"></wsdl:input>
+      <wsdl:output message="ns1:sendMailResponse" name="sendMailResponse"></wsdl:output>
+      <wsdl:fault message="ns1:SmvServiceException" name="SmvServiceException"></wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.245.128:8080/mailer/MailerService</con:endpoint><con:endpoint>http://sharemyvision.com/mailer/MailerService</con:endpoint><con:endpoint>http://dev.sharemyvision.com/mailer/MailerService</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="sendMail" bindingOperationName="sendMail" type="Request-Response" outputName="sendMailResponse" inputName="sendMail" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.245.128:8080/mailer/MailerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mail="http://mailer.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mail:sendMail>
+         <!--Optional:-->
+         <mailerData>
+            <!--Optional:-->
+            <mailerEventCode>?</mailerEventCode>
+            <!--Optional:-->
+            <fromEmail>?</fromEmail>
+            <!--Optional:-->
+            <fromName>?</fromName>
+            <!--Optional:-->
+            <to>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <email>?</email>
+                  <name>?</name>
+               </entry>
+            </to>
+            <!--Optional:-->
+            <subjectData>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </subjectData>
+            <!--Optional:-->
+            <bodyData>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>?</key>
+                  <value>?</value>
+               </entry>
+            </bodyData>
+         </mailerData>
+      </mail:sendMail>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://smv/IMailerService/sendMail"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="MailerServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sendMail TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="AccountRegistration_sendMail"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MailerServiceSoapBinding</con:interface><con:operation>sendMail</con:operation><con:request name="AccountRegistration_sendMail"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://dev.sharemyvision.com/mailer/MailerService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:mail="http://mailer.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <mail:sendMail>
+         <!--Optional:-->
+         <mailerData>
+            <!--Optional:-->
+            <mailerEventCode>AccountRegistration</mailerEventCode>
+            <!--Optional:-->
+            <fromEmail>info@sharemyvision.com</fromEmail>
+            <!--Optional:-->
+            <fromName>Tri Nguyen Sender Test</fromName>
+            <!--Optional:-->
+            <to>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <email>info@sharemyvision.com</email>
+                  <name>Minh Do</name>
+               </entry>
+            </to>
+            <!--Optional:-->
+            <subjectData>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>name</key>
+                  <value>Minh Do</value>
+               </entry>
+            </subjectData>
+            <!--Optional:-->
+            <bodyData>
+               <!--1 or more repetitions:-->
+               <entry>
+                  <key>name</key>
+                  <value>Tri Nguyen</value>
+               </entry>
+               <entry>
+                  <key>registrationCode</key>
+                  <value>someRegistrationValue123</value>
+               </entry>
+            </bodyData>
+         </mailerData>
+      </mail:sendMail>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://smv/IMailerService/sendMail" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>

@@ -1,0 +1,21 @@
+             <div class="header">
+                <div class="headerTop">
+                   <div class="headerTopRghtSide">
+                      <ul>
+                        <li><%= link_to("Home", {:controller=>:user, :action=>:index}) %></li>                        
+                         <% if logged_in?%> 
+                            <li><%= link_to("My Vision",{:controller=>:user, :action=>:my_account})%></li>
+                        <%else%>
+                            <li><%= link_to("Sign Up",{:controller=>:user, :action=>:register})%></li>
+                        <%end%>
+                        <li class="noPads"><a href="#" title="Contact Us">Contact Us</a></li>
+                      </ul>
+                   </div>
+                </div>
+                <div class="logoHolder">
+                   <h2><%= link_to image_tag("/web/theme2/images/logo01.jpg", :border=>0, :class=>"logoIcon"), :controller=>:user, :action=>:index %>
+                   <%= link_to image_tag("/web/theme2/images/logo.jpg" , :border=>0, :title=>"ShareMyVision"), :controller=>:user, :action=>:index %></h2>
+               </div>               
+             </div>
+
+

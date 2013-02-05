@@ -1,0 +1,34 @@
+                   <%= javascript_include_tag "/web/theme2/javascript/myscript.js" %> 
+		   <%= javascript_include_tag "/web/theme2/javascript/tabber.js" %> 
+		   <div class="midContent">
+                        <div class="tabSec">    
+                             <div id="TabbedPanels1" class="TabbedPanels">
+                                  <ul class="TabbedPanelsTabGroup">
+                                       <li class="TabbedPanelsTab" tabindex="0">About Us</li>
+                                       <li class="TabbedPanelsTab" tabindex="0">Events</li>
+                                       <li class="TabbedPanelsTab" tabindex="0">Blog</li>
+                                       <li class="TabbedPanelsTab" tabindex="0" style="margin:0;">Catalog</li>
+                                  </ul>
+                                  <div class="TabbedPanelsContentGroup">
+                                       <div class="TabbedPanelsContent">
+                                            <h4>Welcome to ShareMyVision</h4>
+                                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
+                                            <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <a href="#">more »</a></p>
+                                       </div>
+                                       <div class="TabbedPanelsContent">Content 2</div>
+                                       <div class="TabbedPanelsContent">Content 3</div>
+                                       <div class="TabbedPanelsContent"><%= link_to("Content 4", :controller=>:catalog, :action=>:index) %></div>
+                                  </div>
+                             </div>
+                        <div class="clear"></div>
+                   </div>
+		   <div class="adSec">
+     	                <img src="/web/theme2/images/ad-photo-img.gif" width="208" height="167" border="0" alt="" />
+                   </div>  
+                   <div class="clear"></div>
+                   </div>
+                   <script type="text/javascript">
+                   <!--
+                      var TabbedPanels1 = new Spry.Widget.TabbedPanels("TabbedPanels1");
+                   //-->
+                   </script>

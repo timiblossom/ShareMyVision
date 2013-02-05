@@ -1,0 +1,80 @@
+                   <% @body_id = 'register' %>
+                        <script language="JavaScript">
+                             var RecaptchaOptions = {
+                                  theme : 'custom',
+                                  custom_theme_widget: 'recaptcha_widget'
+                              };
+                       </script>
+                      <div class="clear"></div>
+                      <BR>
+                     <div id='flash'><%= "<p style='color: green'>#{flash[:notice]}</p>" if flash[:notice]%></div>
+                     <div class="clear"></div>
+                     <!-- Inner Content -->
+                     <div class="innerContent">
+                        <div class="breadcrumps">
+                                 <ul><li><%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"home"}) %></li> <li>></li> <li>Registration</li></ul>
+                                <div class="clear"></div>
+                        </div>
+                        <div class="ContentSec">
+                             <div class="firstCol">
+                                  <h1>Welcome to ShareMyVision.</h1>
+                                  <p>Please register. Features available to  </p>
+                                  <ul>
+                                       <li>Visit <%= link_to("Product plans", {:controller=>:catalog, :action=>:index}, {:class=>"home"}) %> for more options.</li>
+                                  </ul>
+                                  <p>Registration is a simple process at ShareMyVision. More info to come!. Keep checking ShareMyVision <a href="http://blog.sharemyvision.com">Blog</a></p>
+                            </div>
+                            <div class="secCol">
+                                <div  id='errormsg'></div>
+                                <h3>Member Registration</h3>
+                                <div id="registration">
+                                      <% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "save_reg"),:method=>'put',:id=>'fleetForm'}, 
+                                                         :url=>{ :controller => "user", :action => "save_reg"},
+                                                         :update=>{:success=>"update_tag", :failure=>'errormsg'}, :complete=>'successMsg(request)'
+                                                         
+                                               ) do%>
+                                           <label><span class="asterix">*</span>First Name<span class="colon">:</span></label>
+                                           <%= text_field "user", "firstName" %>
+                                           <label><span class="asterix">*</span>Last Name<span class="colon">:</span></label>
+                                           <%= text_field "user", "lastName" %>
+                                           <label><span class="asterix">*</span>Email Address<span class="colon">:</span></label>
+                                           <%= text_field "user", "email" , :onBlur=>'isEmailAlreadyRegistered()'%>
+                                           <label><span class="asterix">*</span>Password<span class="colon">:</span></label>
+                                           <%= password_field "user", "password"%>
+                                           <label><span class="asterix">*</span>Confirm Password<span class="colon">:</span></label>
+                                           <%= password_field "user", "password_confirmation" %>
+                                           <label><span class="asterix">*</span>Enter the two words below<span class="colon last">:</span></label>
+                                           <input type="text" name="recaptcha_response_field" id="recaptcha_response_field" />				  
+                                           <div class="clear"></div>                                      
+                                           <div>
+                                                <div id="recaptcha_image" style="display:inline"></div>
+                                                <script type="text/javascript"  src="http://www.google.com/recaptcha/api/challenge?k=<%= ENV['RECAPTCHA_PUBLIC_KEY']%>"> </script>
+                                               <noscript>
+                                                    <iframe src="http://www.google.com/recaptcha/api/noscript?k=<%= ENV['RECAPTCHA_PUBLIC_KEY']%>"   height="300" width="500" frameborder="1"></iframe><br>
+                                                    <textarea name="recaptcha_challenge_field" rows="3" cols="20"></textarea>
+                                                    <input type="hidden" name="recaptcha_response_field"  value="manual_challenge">
+                                              </noscript>
+                                              <div class="clear"></div>
+                                          </div>
+                                          <div class="imageBox">
+                                             <a href="javascript:void(0);"  onclick="Recaptcha.reload();"><img src="/web/theme2/images/get-new-words-btn-img.gif" width="91" height="20" class="getWords" /></a>
+                                             <br>
+                                          </div>
+                                          <div class="center">
+                                             <%= submit_tag "submit" , :onClick=>'return register();', :id=>"submit" %>
+                                          </div>
+                                          <div id="update_tag"></div>
+                                          <div class="clear"></div>
+                                       <% end %> 
+                                 </div>
+                                 <div id="success_msg"></div>
+                            </div>
+                           <div class="clear"></div>
+                        </div>
+                    </div>
+              </div>   
+              <!-- /Inner Content -->      
+              <div class="clear"></div>
+              <!-- /Bottom Content -->
+              <%= render :partial => "layouts/innerBottomContent" %>
+              <%= render :partial => "layouts/innerFooter" %>

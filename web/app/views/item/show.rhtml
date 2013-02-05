@@ -1,0 +1,50 @@
+
+
+<h2> Detail of item</h2>
+<table border="0" cellpadding="5" cellspacing="5" >
+  <tbody>
+    <tr>
+      <td>Name:</td>
+      <td>  <%=h @item.name%></td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td>
+        <%=h @item.description%>
+      </td>
+    </tr>
+    <tr>
+      <td>Photo:</td>
+      <td>
+        <%= image_tag @item.imageurl %>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>Price:</td>
+      <td>
+        <%=h @item.price%>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>Seller's Location:</td>
+      <td>
+        <%=h @item.address.city%> ,   <%=h @item.address.state%>
+      </td>
+    </tr>
+    <tr>
+      <td>Seller's email:</td>
+      <td>
+        <%=h @item.contactinfo.email%>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br/>
+
+
+<%= link_to 'Back', :action => 'list' %>
+
+<br/>
+

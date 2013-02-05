@@ -1,0 +1,58 @@
+                                 <div class="clear"></div><br><br>	                   
+                                     <div class="innerContent">
+                                        <%if logged_in? %>
+                                           <div class="breadcrumps">
+                                             <ul>
+                                                <li><%= link_to("Home", {:controller=>:user, :action=>:index}, {:class=>"home"}) %></li>
+                                                <li>></li>
+                                                <li><%= link_to("Events", {:controller=>:item, :action=>:event}) %></li>
+                                                <li>></li>
+                                                <li>Image Gallery</li>
+                                             </ul>
+                                             <div class="clear"></div>
+                                           </div>
+                                        <%end%>
+                                        
+ 
+                                       <div class="ContentSec">
+                                          <div >
+                                             
+                                             <% if @smv_event_status[:statusCode]!=-1 && @smv_event_status[:statusCode]==0%>
+                                                  <% if !@smv_event_status[:value].blank? %>
+                                                         <h1><%=@smv_event_status[:value].eventTitle%></h1><BR>
+                                                         <div style="word-wrap: break-word;width:800px;margin-left:20px;margin-right:20px"><%=@smv_event_status[:value].eventDescription%></div>
+                                                  <%end%>  
+                                             <%end%>    
+                                          </div> <BR><BR>
+                                          <% if @smv_status[:statusCode]!=-1 && @smv_status[:statusCode]==0%>
+                                              <% if !@smv_status[:value].blank? %>
+                                                   <div class="slideshow" style="margin-left:20px">
+                                                    <ul>
+                                                        <li><a href="#" class="popular" id="prev">prev</a></li>
+                                                        <li><a href="#" class="popular" id="play">play</a></li>
+                                                        <li><a href="#" class="popular" id="pause" style="display:none">pause</a></li>
+                                                        <li><a href="#" class="popular" id="next">next</a></li>
+                                                         
+                                                    </ul>                                                   
+                                                  </div> 
+                                                 <div class="content">
+                                                     <div id="galleria">
+                                                       <% @smv_status[:value].each do |item| %> 
+                                                             <img alt="<%=item.itemTitle%>" src="<%=item.url2%>">
+                                                       <%end%> 
+                                                     </div>
+                                                 </div>
+                                              <%else%>
+                                                   No Records Found 
+                                              <%end%>
+                                          <%else%>
+                                              <%=@smv_status[:msg]%>
+                                          <%end%>
+                                       </div>
+                                       <!-- /Inner Content -->
+                                       <!-- Mid Content -->
+                                       <div class="midContent"> </div>
+                                       <div class="clear"></div>
+                                   </div>
+                                 </div>
+                                 

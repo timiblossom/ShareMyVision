@@ -1,0 +1,13 @@
+
+<% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "login"),:method=>'put',:id=>'loginForm'}, 
+                                                     :url=>{ :controller => "user", :action => "login"},
+                                                     :update=>{:success=>"update_tag", :failure=>'errormsg'}, :complete=>'successMsg(request)',:before=>'chkLogin()'
+                                                     
+
+                                                        
+                                         ) do%>
+     <%= image_tag("/web/theme1/images/existingMember.gif",	:size => "107x20", :align=>"absmiddle" ) %>	
+     <%= text_field "login", "email", :value=> "User ID", :onClick => "this.value=''" %>
+     <%= password_field "login", "password", :value=> "Password", :onClick => "this.value=''" %>
+     <%= image_tag("/web/theme1/images/goButton.gif",	:size => "30x20",:alt=>"Submit" ,:align=>"absmiddle", :onClick=>"$('#loginForm').submit();") %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to("Forgot Your Password?", :controller=>:user, :action=>:forgot_password) %>
+<%end%>

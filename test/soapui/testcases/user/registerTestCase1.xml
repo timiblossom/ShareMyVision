@@ -1,0 +1,22 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://user.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:register>
+         <!--Optional:-->
+         <user>
+            <!--Optional:-->
+            <userDisplayName>Junk GMail</userDisplayName>
+            <!--Optional:-->
+            <userEmail>junk@gmail.com</userEmail>
+            <!--Optional:-->
+            <userPassword>smv123</userPassword>
+            <!--Optional:-->
+            <userStatus>ActivationPending</userStatus>
+            <!--Optional:-->
+            <userType>Free</userType>
+            <!--Optional:-->
+            <userLanguage>English_US</userLanguage>
+         </user>
+      </user:register>
+   </soapenv:Body>
+</soapenv:Envelope>

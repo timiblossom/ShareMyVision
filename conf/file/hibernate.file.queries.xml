@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+     
+	<query name="getEventsByUserId">
+		<![CDATA[
+			select event from EventDO as event where event.uid = ? order by event.createdOn desc
+		]]>
+	</query>
+
+    <query name="getItemsByEventId">
+		<![CDATA[
+			select item from ItemDO as item where item.eventId = ? order by item.createdOn desc
+		]]>
+	</query>
+		
+	<query name="getMostRecentItems">
+		<![CDATA[
+			select item from ItemDO as item order by item.createdOn desc
+		]]>
+	</query>
+	
+	<query name="getMostRecentItemsByUserId">
+		<![CDATA[
+			select item from ItemDO as item where item.uid = ? order by item.createdOn desc
+		]]>
+	</query>
+	     
+	<query name="getEventByEventCode">
+		<![CDATA[
+			select event from EventDO as event where event.eventCode = ?
+		]]>
+	</query>
+	
+	     
+	<query name="getFilePoliciesByPolicyId">
+		<![CDATA[
+			select filePolicy from FilePolicyDO as filePolicy where filePolicy.policyId = ? 
+		]]>
+	</query>
+</hibernate-mapping>

@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.smv.service.user.db.dbobject.SessionDO" table="session"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="guid" type="java.lang.String">
+			<column name="guid" />
+		</property>
+		<property name="uid" type="java.lang.Long">
+			<column name="uid" />
+		</property>
+		<property name="clientIp" type="java.lang.String">
+			<column name="client_ip" />
+		</property>
+		<property name="lastLogin" type="java.sql.Timestamp">
+			<column name="last_login" />
+		</property>
+		<property name="userAgent" type="java.lang.String">
+			<column name="user_agent" />
+		</property>
+		<property name="loggedIn" type="java.lang.Boolean">
+			<column name="logged_in" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.AccountDO" table="account"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="status" />
+		</property>
+		<property name="contactId" type="java.lang.Long">
+			<column name="contact_id" />
+		</property>
+		<property name="ccInfoId" type="java.lang.Long">
+			<column name="cc_info_id" />
+		</property>
+		<property name="extraInfo" type="java.lang.Long">
+			<column name="extra_info_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.CcInfoDO" table="cc_info"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="lastFour" type="java.lang.String">
+			<column name="last_four" />
+		</property>
+		<property name="expireMmyy" type="java.lang.String">
+			<column name="expire_mmyy" />
+		</property>
+		<property name="type" type="java.lang.String">
+			<column name="type" />
+		</property>
+		<property name="status" type="java.lang.String">
+			<column name="status" />
+		</property>
+		<property name="addressId" type="java.lang.Long">
+			<column name="address_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.AccountExtraInfoDO"
+		table="account_extra_info" catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.AddressDO" table="address"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="street" type="java.lang.String">
+			<column name="street" />
+		</property>
+		<property name="city" type="java.lang.String">
+			<column name="city" />
+		</property>
+		<property name="state" type="java.lang.String">
+			<column name="state" />
+		</property>
+		<property name="zipCode" type="java.lang.String">
+			<column name="zip_code" />
+		</property>
+		<property name="country" type="java.lang.String">
+			<column name="country" />
+		</property>
+		<property name="latitude" type="double">
+			<column name="latitude" />
+		</property>
+		<property name="longitude" type="double">
+			<column name="longitude" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.ContactDO" table="contact"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="firstName" type="java.lang.String">
+			<column name="first_name" />
+		</property>
+		<property name="lastName" type="java.lang.String">
+			<column name="last_name" />
+		</property>
+		<property name="additionalEmail" type="java.lang.String">
+			<column name="additional_email" />
+		</property>
+		<property name="residentAddressId" type="java.lang.Long">
+			<column name="resident_address_id" />
+		</property>
+		<property name="shippingAddressId" type="java.lang.Long">
+			<column name="shipping_address_id" />
+		</property>
+		<property name="billingAddressId" type="java.lang.Long">
+			<column name="billing_address_id" />
+		</property>
+		<property name="workPhone" type="java.lang.String">
+			<column name="work_phone" />
+		</property>
+		<property name="mobilePhone" type="java.lang.String">
+			<column name="mobile_phone" />
+		</property>
+		<property name="homePhone" type="java.lang.String">
+			<column name="home_phone" />
+		</property>
+		<property name="aim" type="java.lang.String">
+			<column name="aim" />
+		</property>
+		<property name="yim" type="java.lang.String">
+			<column name="yim" />
+		</property>
+		<property name="skype" type="java.lang.String">
+			<column name="skype" />
+		</property>
+		<property name="facebook" type="java.lang.String">
+			<column name="facebook" />
+		</property>
+		<property name="twitter" type="java.lang.String">
+			<column name="twitter" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.PermissionDO" table="permission"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.RoleDO" table="role"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.RolePermissionDO"
+		table="role_permission" catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="roleId" type="java.lang.Long">
+			<column name="role_id" />
+		</property>
+		<property name="permissionId" type="java.lang.Long">
+			<column name="permission_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.TimeZoneDO" table="time_zone"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="timeZone" type="java.lang.String">
+			<column name="time_zone" />
+		</property>
+		<property name="label" type="java.lang.String">
+			<column name="label" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.UserDO" table="user"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="displayName" type="java.lang.String">
+			<column name="display_name" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" />
+		</property>
+		<property name="password" type="java.lang.String">
+			<column name="password" />
+		</property>
+		<property name="salt" type="java.lang.String">
+			<column name="salt" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="typeId" type="java.lang.Long">
+			<column name="type_id" />
+		</property>
+		<property name="activationCode" type="java.lang.String">
+			<column name="activation_code" />
+		</property>
+		<property name="passwordResetCode" type="java.lang.String">
+			<column name="password_reset_code" />
+		</property>
+		<property name="accountId" type="java.lang.Long">
+			<column name="account_id" />
+		</property>
+		<property name="contactId" type="java.lang.Long">
+			<column name="contact_id" />
+		</property>
+		<property name="userExtraInfoId" type="java.lang.Long">
+			<column name="user_extra_info_id" />
+		</property>
+		<property name="roleId" type="java.lang.Long">
+			<column name="role_id" />
+		</property>
+		<property name="language" type="java.lang.String">
+			<column name="language" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.UserExtraInfoDO"
+		table="user_extra_info" catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="industry" type="java.lang.String">
+			<column name="industry" />
+		</property>
+		<property name="company" type="java.lang.String">
+			<column name="company" />
+		</property>
+		<property name="companySize" type="java.lang.String">
+			<column name="company_size" />
+		</property>
+		<property name="zipCode" type="java.lang.String">
+			<column name="zip_code" />
+		</property>
+		<property name="timeZoneId" type="java.lang.Long">
+			<column name="time_zone_id" />
+		</property>
+		<property name="title" type="java.lang.String">
+			<column name="title" />
+		</property>
+		<property name="jobTitle" type="java.lang.String">
+			<column name="job_title" />
+		</property>
+		<property name="mobileDeviceModel" type="java.lang.String">
+			<column name="mobile_device_model" />
+		</property>
+		<property name="mobileManufacturer" type="java.lang.String">
+			<column name="mobile_manufacturer" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.UserStatusDO" table="user_status"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.user.db.dbobject.UserTypeDO" table="user_type"
+		catalog="user_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>

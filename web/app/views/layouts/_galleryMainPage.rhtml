@@ -1,0 +1,66 @@
+<style>
+    .carousel { position:relative; margin-top:35px;
+    }
+    .carousel .navButton {
+        cursor:pointer; display:block; text-indent:-9999px; background-repeat:none; z-index:10;
+    }
+    .carousel .container { position:absolute; overflow:hidden; }
+    .carousel .items { position:absolute; }
+
+    /* Horizontal Carousel */
+    #Carousel2 { height:139px; width:910px; left:10px }
+    #Carousel2 .container { left:70px; top:12px; width:800px; height:130px;}        
+    #Carousel2 .items { top:0; left:2px; width:2000px;}
+    #Carousel2 .item { height:120px;  width:200px; float:left; clear:right; }
+    #Carousel2 .item .icon img { position:relative; left:0px;  height:113px; cursor:pointer;}
+    #Carousel2 .navButton { position:absolute; bottom:0px; width:24px; height:87px;top:20px; }
+    #Carousel2 .navButton.previous {  left:0px; background-image:url('/web/theme2/images/button.left.png'); }
+    #Carousel2 .navButton.next { right:0px; background-image:url('/web/theme2/images/button.right.png'); }
+
+    /* Hide data items from selector */
+    #Carousel2 .item .key { display:none;}
+    #Carousel2 .item .picture { display:none;}
+</style>
+<% if @smv_status[:statusCode]!=0 %>
+        No Record Found::<%=@smv_status[:msg]%><BR><BR>
+ <% else %>
+    <div class="gallery">
+          <ul>
+            	<li><a href="#" class="popular">Recent Images</a></li>
+          </ul>
+         <div class="crr_conn" id="localityBox">
+              <div id="Carousel2" class="carousel">
+                   <div class="button navButton previous" style="display:none;">Back</div>
+                   <div class="button navButton next" style="display:none;">More</div>
+                   <div class="container">
+                       <div id="Viewer" style="display:none;">
+                         <h2>Viewer</h2>
+                             <div id="ViewerCaption" class="caption"></div>
+                             <div id="ViewerData" class="data"></div>
+                         </div>  
+                        <div class="items">
+		             <% @smv_status[:value].each do |item| %> 
+		                  <div class="item">		                               
+                                       <div class="key caption"><%=item.itemTitle%></div>
+                                       <div class="icon">
+                                            <%= link_to image_tag(item.url3,:border=>0,:class=>"pc_img",:alt=>item.itemTitle,:size => "113"),  :controller=>:gallery, :action=>:imagegallery, :id=>item.eventId %>                                            
+                                       </div>
+                                     <div class="picture">
+           	                                  <img src="<%=item.url3%>"  alt="<%=item.itemTitle%>" />
+                                       </div>                            
+		                  </div>  
+		             <%end%>
+                        </div>
+                   </div>
+              </div>
+	 </div>
+    </div>
+<% end %>    
+    <%= javascript_include_tag "/web/theme2/javascript/os.js" %>
+    <%= javascript_include_tag "/web/theme2/javascript/carousel.js" %>
+    <%= javascript_include_tag "/web/theme2/javascript/application.js" %>
+
+<!--------->
+<div class="clear"></div>
+<div class="clear"></div>
+<div class="clear"></div>

@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:user="http://user.service.smv.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <user:activateUser>
+         <!--Optional:-->
+         <user>
+            <!--Optional:-->
+            <userEmail>Bar@yahoo.com</userEmail>
+            <!--Optional:-->
+            <userActivationCode>8B6MCHmXijLXmxwWOx0w8_AtPrwpzfl7</userActivationCode>
+         </user>
+      </user:activateUser>
+   </soapenv:Body>
+</soapenv:Envelope>

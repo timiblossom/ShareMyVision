@@ -1,0 +1,438 @@
+DEBUG output created by Wget 1.10.2 (Red Hat modified) on linux-gnu.
+
+Enqueuing http://xml_string=aa/ at depth 0
+Queue count 1, maxcount 1.
+Dequeuing http://xml_string=aa/ at depth 0
+Queue count 0, maxcount 1.
+--04:01:10--  http://xml_string=aa/
+Resolving xml_string=aa... failed: Name or service not known.
+Enqueuing http://192.168.0.2:8080/main/upll at depth 0
+Queue count 1, maxcount 1.
+Dequeuing http://192.168.0.2:8080/main/upll at depth 0
+Queue count 0, maxcount 1.
+--04:01:11--  http://192.168.0.2:8080/main/upll
+Connecting to 192.168.0.2:8080... connected.
+Created socket 4.
+Releasing 0x0000000001cd5520 (new refcount 0).
+Deleting unused 0x0000000001cd5520.
+
+---request begin---
+GET /main/upll HTTP/1.0
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 302 Moved Temporarily
+Server: Apache-Coyote/1.1
+Cache-Control: no-cache
+Location: http://192.168.0.2:8080/main
+X-Runtime: 2
+Content-Type: text/html;charset=utf-8
+Content-Length: 94
+Date: Tue, 30 Mar 2010 05:31:10 GMT
+Connection: keep-alive
+
+---response end---
+302 Moved Temporarily
+hs->local_file is: 192.168.0.2:8080/main/upll (not existing)
+Registered socket 4 for persistent reuse.
+Location: http://192.168.0.2:8080/main [following]
+Skipping 94 bytes of body: [<html><body>You are being <a href="http://192.168.0.2:8080/main">redirected</a>.</body></html>] done.
+--04:01:16--  http://192.168.0.2:8080/main
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /main HTTP/1.0
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+X-Runtime: 24
+ETag: "b03c3e4570f81139caa5f1711106e2a3"
+Cache-Control: private, max-age=0, must-revalidate
+Content-Type: text/html;charset=utf-8
+Content-Length: 2231
+Date: Tue, 30 Mar 2010 05:31:10 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/main (not existing)
+TEXTHTML is on.
+Length: 2231 (2.2K) [text/html]
+Saving to: `192.168.0.2:8080/main'
+
+     0K ..                                                    100% 60.8M=0s
+
+04:01:17 (60.8 MB/s) - `192.168.0.2:8080/main' saved [2231/2231]
+
+Deciding whether to enqueue "http://192.168.0.2:8080/main".
+Loading robots.txt; please ignore errors.
+--04:01:17--  http://192.168.0.2:8080/robots.txt
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /robots.txt HTTP/1.0
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"99-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/plain
+Content-Length: 99
+Date: Tue, 30 Mar 2010 05:31:10 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/robots.txt (not existing)
+TEXTHTML is on.
+Length: 99 [text/plain]
+Saving to: `192.168.0.2:8080/robots.txt'
+
+     0K                                                       100% 13.5M=0s
+
+04:01:17 (13.5 MB/s) - `192.168.0.2:8080/robots.txt' saved [99/99]
+
+Decided to load it.
+Loaded 192.168.0.2:8080/main (size 2231).
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/stylesheets/reset-fonts-grids.css?1258361811") -> http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811
+appending "http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/stylesheets/style.css?1258361831") -> http://192.168.0.2:8080/stylesheets/style.css?1258361831
+appending "http://192.168.0.2:8080/stylesheets/style.css?1258361831" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/javascripts/prototype.js?1250836602") -> http://192.168.0.2:8080/javascripts/prototype.js?1250836602
+appending "http://192.168.0.2:8080/javascripts/prototype.js?1250836602" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/javascripts/effects.js?1250836602") -> http://192.168.0.2:8080/javascripts/effects.js?1250836602
+appending "http://192.168.0.2:8080/javascripts/effects.js?1250836602" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/javascripts/dragdrop.js?1250836602") -> http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602
+appending "http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/javascripts/controls.js?1250836602") -> http://192.168.0.2:8080/javascripts/controls.js?1250836602
+appending "http://192.168.0.2:8080/javascripts/controls.js?1250836602" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/javascripts/application.js?1250836602") -> http://192.168.0.2:8080/javascripts/application.js?1250836602
+appending "http://192.168.0.2:8080/javascripts/application.js?1250836602" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/main/generate_with_rexml") -> http://192.168.0.2:8080/main/generate_with_rexml
+appending "http://192.168.0.2:8080/main/generate_with_rexml" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/main/generate_with_builder") -> http://192.168.0.2:8080/main/generate_with_builder
+appending "http://192.168.0.2:8080/main/generate_with_builder" to urlpos.
+192.168.0.2:8080/main: merge("http://192.168.0.2:8080/main", "/main/upload") -> http://192.168.0.2:8080/main/upload
+appending "http://192.168.0.2:8080/main/upload" to urlpos.
+no-follow in 192.168.0.2:8080/main: 0
+Deciding whether to enqueue "http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811 at depth 1
+Queue count 1, maxcount 1.
+Deciding whether to enqueue "http://192.168.0.2:8080/stylesheets/style.css?1258361831".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/stylesheets/style.css?1258361831 at depth 1
+Queue count 2, maxcount 2.
+Deciding whether to enqueue "http://192.168.0.2:8080/javascripts/prototype.js?1250836602".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/javascripts/prototype.js?1250836602 at depth 1
+Queue count 3, maxcount 3.
+Deciding whether to enqueue "http://192.168.0.2:8080/javascripts/effects.js?1250836602".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/javascripts/effects.js?1250836602 at depth 1
+Queue count 4, maxcount 4.
+Deciding whether to enqueue "http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602 at depth 1
+Queue count 5, maxcount 5.
+Deciding whether to enqueue "http://192.168.0.2:8080/javascripts/controls.js?1250836602".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/javascripts/controls.js?1250836602 at depth 1
+Queue count 6, maxcount 6.
+Deciding whether to enqueue "http://192.168.0.2:8080/javascripts/application.js?1250836602".
+Decided to load it.
+Enqueuing http://192.168.0.2:8080/javascripts/application.js?1250836602 at depth 1
+Queue count 7, maxcount 7.
+Dequeuing http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811 at depth 1
+Queue count 6, maxcount 7.
+--04:01:17--  http://192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /stylesheets/reset-fonts-grids.css?1258361811 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"3107-1258361811000"
+Last-Modified: Mon, 16 Nov 2009 08:56:51 GMT
+Content-Type: text/css
+Content-Length: 3107
+Date: Tue, 30 Mar 2010 05:31:11 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811 (not existing)
+TEXTHTML is on.
+Length: 3107 (3.0K) [text/css]
+Saving to: `192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811'
+
+     0K ...                                                   100% 78.0M=0s
+
+04:01:17 (78.0 MB/s) - `192.168.0.2:8080/stylesheets/reset-fonts-grids.css?1258361811' saved [3107/3107]
+
+Dequeuing http://192.168.0.2:8080/stylesheets/style.css?1258361831 at depth 1
+Queue count 5, maxcount 7.
+--04:01:17--  http://192.168.0.2:8080/stylesheets/style.css?1258361831
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /stylesheets/style.css?1258361831 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"1156-1258361831000"
+Last-Modified: Mon, 16 Nov 2009 08:57:11 GMT
+Content-Type: text/css
+Content-Length: 1156
+Date: Tue, 30 Mar 2010 05:31:11 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/stylesheets/style.css?1258361831 (not existing)
+TEXTHTML is on.
+Length: 1156 (1.1K) [text/css]
+Saving to: `192.168.0.2:8080/stylesheets/style.css?1258361831'
+
+     0K .                                                     100% 64.8M=0s
+
+04:01:17 (64.8 MB/s) - `192.168.0.2:8080/stylesheets/style.css?1258361831' saved [1156/1156]
+
+Dequeuing http://192.168.0.2:8080/javascripts/prototype.js?1250836602 at depth 1
+Queue count 4, maxcount 7.
+--04:01:17--  http://192.168.0.2:8080/javascripts/prototype.js?1250836602
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /javascripts/prototype.js?1250836602 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"71260-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/javascript
+Content-Length: 71260
+Date: Tue, 30 Mar 2010 05:31:11 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/javascripts/prototype.js?1250836602 (not existing)
+TEXTHTML is on.
+Length: 71260 (70K) [text/javascript]
+Saving to: `192.168.0.2:8080/javascripts/prototype.js?1250836602'
+
+     0K .......... .......... .......... .......... .......... 71%  124K 0s
+    50K .......... .........                                  100% 36.6M=0.4s
+
+04:01:18 (172 KB/s) - `192.168.0.2:8080/javascripts/prototype.js?1250836602' saved [71260/71260]
+
+Dequeuing http://192.168.0.2:8080/javascripts/effects.js?1250836602 at depth 1
+Queue count 3, maxcount 7.
+--04:01:18--  http://192.168.0.2:8080/javascripts/effects.js?1250836602
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /javascripts/effects.js?1250836602 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"38200-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/javascript
+Content-Length: 38200
+Date: Tue, 30 Mar 2010 05:31:11 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/javascripts/effects.js?1250836602 (not existing)
+TEXTHTML is on.
+Length: 38200 (37K) [text/javascript]
+Saving to: `192.168.0.2:8080/javascripts/effects.js?1250836602'
+
+     0K .......... .......... .......... .......              100% 23.3M=0.002s
+
+04:01:18 (23.3 MB/s) - `192.168.0.2:8080/javascripts/effects.js?1250836602' saved [38200/38200]
+
+Dequeuing http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602 at depth 1
+Queue count 2, maxcount 7.
+--04:01:18--  http://192.168.0.2:8080/javascripts/dragdrop.js?1250836602
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /javascripts/dragdrop.js?1250836602 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"30550-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/javascript
+Content-Length: 30550
+Date: Tue, 30 Mar 2010 05:31:12 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/javascripts/dragdrop.js?1250836602 (not existing)
+TEXTHTML is on.
+Length: 30550 (30K) [text/javascript]
+Saving to: `192.168.0.2:8080/javascripts/dragdrop.js?1250836602'
+
+     0K .......... .......... .........                       100% 44.3M=0.001s
+
+04:01:18 (44.3 MB/s) - `192.168.0.2:8080/javascripts/dragdrop.js?1250836602' saved [30550/30550]
+
+Dequeuing http://192.168.0.2:8080/javascripts/controls.js?1250836602 at depth 1
+Queue count 1, maxcount 7.
+--04:01:18--  http://192.168.0.2:8080/javascripts/controls.js?1250836602
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /javascripts/controls.js?1250836602 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"28911-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/javascript
+Content-Length: 28911
+Date: Tue, 30 Mar 2010 05:31:12 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/javascripts/controls.js?1250836602 (not existing)
+TEXTHTML is on.
+Length: 28911 (28K) [text/javascript]
+Saving to: `192.168.0.2:8080/javascripts/controls.js?1250836602'
+
+     0K .......... .......... ........                        100% 39.1M=0.001s
+
+04:01:18 (39.1 MB/s) - `192.168.0.2:8080/javascripts/controls.js?1250836602' saved [28911/28911]
+
+Dequeuing http://192.168.0.2:8080/javascripts/application.js?1250836602 at depth 1
+Queue count 0, maxcount 7.
+--04:01:18--  http://192.168.0.2:8080/javascripts/application.js?1250836602
+Reusing existing connection to 192.168.0.2:8080.
+Reusing fd 4.
+
+---request begin---
+GET /javascripts/application.js?1250836602 HTTP/1.0
+Referer: http://192.168.0.2:8080/main
+User-Agent: Wget/1.10.2 (Red Hat modified)
+Accept: */*
+Host: 192.168.0.2:8080
+Connection: Keep-Alive
+Content-Type: text/xml; charset=utf-8
+
+---request end---
+HTTP request sent, awaiting response... 
+---response begin---
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+ETag: W/"148-1250836602000"
+Last-Modified: Fri, 21 Aug 2009 06:36:42 GMT
+Content-Type: text/javascript
+Content-Length: 148
+Date: Tue, 30 Mar 2010 05:31:12 GMT
+Connection: keep-alive
+
+---response end---
+200 OK
+hs->local_file is: 192.168.0.2:8080/javascripts/application.js?1250836602 (not existing)
+TEXTHTML is on.
+Length: 148 [text/javascript]
+Saving to: `192.168.0.2:8080/javascripts/application.js?1250836602'
+
+     0K                                                       100% 10.1M=0s
+
+04:01:19 (10.1 MB/s) - `192.168.0.2:8080/javascripts/application.js?1250836602' saved [148/148]
+
+FINISHED --04:01:19--
+Downloaded: 9 files, 172K in 0.4s (421 KB/s)

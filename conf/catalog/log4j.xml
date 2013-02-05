@@ -1,0 +1,20 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="catalogEngineLog" class="org.apache.log4j.RollingFileAppender">
+		<param name="maxFileSize" value="100MB" />
+		<param name="maxBackupIndex" value="10" />
+		<param name="File" value="${catalina.home}/logs/catalog.log" />
+		<param name="threshold" value="info"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSSS} %p %t %c – %m%n"/>
+		</layout>
+	</appender>	
+	
+	<root>
+		<priority value="info" />
+		<appender-ref ref="catalogEngineLog" />
+	</root>
+
+</log4j:configuration>
+    

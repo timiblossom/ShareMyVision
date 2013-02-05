@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+
+	<class name="com.smv.service.file.db.dbobject.EventDO" table="event" catalog="file_db" dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="event_id" />
+			<generator class="identity" />
+		</id>
+		<version name="version" column="version" insert="true" type="java.lang.Long"/> 
+		<property name="eventTitle" type="string">
+			<column name="event_title" />
+		</property>
+		<property name="eventCode" type="string">
+			<column name="event_code" />
+		</property>
+		<property name="description" type="string">
+			<column name="description" />
+		</property>
+		<property name="folderUrl" type="string">
+			<column name="folder_url" />
+		</property>
+		<property name="tagText" type="string">
+			<column name="tags" />
+		</property>
+		<property name="uid" type="java.lang.Long">
+			<column name="uid" />
+		</property>
+		<property name="aid" type="java.lang.Long">
+			<column name="aid" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" />
+		</property>
+		<property name="isPublic" type="java.lang.Boolean">
+			<column name="is_public" />
+		</property>
+		
+		<property name="expiredOn" type="timestamp">
+			<column name="expired_on" length="19" />
+		</property>
+		<property name="postedOn" type="timestamp">
+			<column name="posted_on" length="19" />
+		</property>
+		<property name="updatedOn" type="timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+		
+		<set name="items" inverse="true" lazy="true" table="item" fetch="select">
+			<key>
+				<column name="event_id" />
+			</key>
+			<one-to-many class="com.smv.service.file.db.dbobject.ItemDO" />
+		</set>
+
+	</class>
+
+
+	<class name="com.smv.service.file.db.dbobject.ItemDO" table="item" batch-size="10" catalog="file_db" dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="item_id" />
+			<generator class="identity" />
+		</id>
+		<version name="version" column="version" insert="true" type="java.lang.Long"/> 
+		<property name="itemTitle" type="string">
+			<column name="item_title" />
+		</property>
+		<property name="itemCode" type="string">
+			<column name="item_code" />
+		</property>
+		<property name="description" type="string">
+			<column name="description" />
+		</property>		
+		<property name="uid" type="java.lang.Long">
+			<column name="uid" />
+		</property>
+		<property name="aid" type="java.lang.Long">
+			<column name="aid" />
+		</property>
+		<property name="status" type="string">
+			<column name="status" />
+		</property>		
+		<property name="isPublic" type="java.lang.Boolean">
+			<column name="is_public" />
+		</property>
+
+		<property name="width" type="java.lang.Integer">
+			<column name="width" />
+		</property>
+		<property name="height" type="java.lang.Integer">
+			<column name="height" />
+		</property>
+		<property name="mimeType" type="string">
+			<column name="mime_type" />
+		</property>
+				
+		<property name="size" type="java.lang.Long">
+			<column name="size" />
+		</property>
+
+		<property name="duration" type="java.lang.Integer">
+			<column name="duration" />
+		</property>
+		<property name="latitude" type="java.lang.Double">
+			<column name="latitude" />
+		</property>
+		<property name="longitude" type="java.lang.Double">
+			<column name="longitude" />
+		</property>
+		<property name="altitude" type="java.lang.Double">
+			<column name="altitude" />
+		</property>
+		<property name="location" type="string">
+			<column name="location" />
+		</property>
+		
+		<property name="deviceId" type="java.lang.Long">
+			<column name="device_id" />
+		</property>
+		<property name="storageId" type="string">
+			<column name="storage_id" />
+		</property>
+		<property name="storageId1" type="string">
+			<column name="storage_id1" />
+		</property>
+		<property name="storageId2" type="string">
+			<column name="storage_id2" />
+		</property>
+		<property name="storageId3" type="string">
+			<column name="storage_id3" />
+		</property>
+		<property name="processDone" type="java.lang.Boolean">
+			<column name="process_done" />
+		</property>
+<!--  
+		<property name="sequenceId" type="java.lang.Integer">
+			<column name="sequence_id" />
+		</property>
+-->		
+        
+		<property name="eventId" type="java.lang.Long">
+			<column name="event_id" />
+		</property>		
+
+		<property name="expiredOn" type="timestamp">
+			<column name="expired_on" length="19" />
+		</property>
+		<property name="postedOn" type="timestamp">
+			<column name="posted_on" length="19" />
+		</property>
+		
+		<property name="updatedOn" type="timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.file.db.dbobject.FileSystemDO" table="file_system" catalog="file_db" dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="long">
+			<column name="uid" />
+			<generator class="assigned" />
+		</id>
+		<version name="version" column="version" insert="true" type="java.lang.Long"/> 
+		<property name="filePolicyId" type="java.lang.Long">
+			<column name="file_policy_id" />
+		</property>		
+		<property name="server" type="string">
+			<column name="server" />
+		</property>
+		<property name="fileId1" type="string">
+			<column name="file_id1" />
+		</property>
+		<property name="fileId2" type="string">
+			<column name="file_id2" />
+		</property>
+		<property name="fileId3" type="string">
+			<column name="file_id3" />
+		</property>
+		<property name="usedSpace" type="long">
+			<column name="used_space" />
+		</property>
+		<property name="eventCount" type="int">
+			<column name="event_count" />
+		</property>
+
+		<property name="fileCount" type="int">
+			<column name="file_count" />
+		</property>
+
+		<property name="updatedOn" type="timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+		
+	</class>
+	
+	
+	<class name="com.smv.service.file.db.dbobject.FilePolicyDO" table="file_policy" catalog="file_db" dynamic-insert="true" dynamic-update="true" optimistic-lock="version">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<version name="version" column="version" insert="true" type="java.lang.Long"/> 
+		<property name="policyId" type="java.lang.Long">
+			<column name="policy_id" />
+		</property>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="value" type="java.lang.String">
+			<column name="value" />
+		</property>		
+		<property name="updatedOn" type="timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>
+        

@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<!-- Outlet Status Type -->
+	<query name="allOutletStatusTypes"><![CDATA[from OutletStatusTypeDO]]></query>
+
+	<query name="lookupOutletStatusTypeByName">
+		<![CDATA[
+ 			select outletStatusType
+ 			from 
+				OutletStatusTypeDO as outletStatusType
+			where
+				outletStatusType.name = ?
+		]]>
+	</query>
+
+	<!-- Outlet Type -->
+	<query name="allOutletTypes"><![CDATA[from OutletTypeDO]]></query>
+
+	<query name="lookupOutletTypeByName">
+		<![CDATA[
+ 			select outletType
+ 			from 
+				OutletTypeDO as outletType
+			where
+				outletType.name = ?
+		]]>
+	</query>
+
+	<query name="lookupOutletTypeByPrefix">
+		<![CDATA[
+ 			select outletType
+ 			from 
+				OutletTypeDO as outletType
+			where
+				outletType.prefix = ?
+		]]>
+	</query>
+
+	<query name="lookupOutletTypeByStatusId">
+		<![CDATA[
+ 			select outletType
+ 			from 
+				OutletTypeDO as outletType
+			where
+				outletType.statusId = ?
+		]]>
+	</query>
+
+	<query name="lookupOutletTypeByUserId">
+		<![CDATA[
+ 			select outletType
+ 			from 
+				OutletTypeDO as outletType,
+				UserOutletDO as userOutlet
+			where
+				userOutlet.userId = ?
+			and
+				userOutlet.outletId = outletType.id 
+		]]>
+	</query>
+
+	<!-- User Outlet Content Type -->
+	<query name="allUserOutletContents"><![CDATA[from UserOutletContentDO]]></query>
+
+	<query name="lookupUserOutletContentByUserId">
+		<![CDATA[
+ 			select userOutletContent
+ 			from 
+				UserOutletContentDO as userOutletContent
+			where
+				userOutletContent.userId = ?
+		]]>
+	</query>
+
+	<query name="lookupUserOutletContentByKeyValuePair">
+		<![CDATA[
+			select userOutletContent
+			from 
+				UserOutletContentDO as userOutletContent, 
+				UserOutletContentKeyValuePairDO as keyValuePair
+			where
+				userOutletContent.id = keyValuePair.parentContainerId
+			and
+				keyValuePair.id = ?
+		]]>
+	</query>
+
+	<!-- User Outlet Content Key Value Pair Type -->
+	<query name="allUserOutletContentKeyValuePairs"><![CDATA[from UserOutletContentKeyValuePairDO]]></query>
+
+	<query name="lookupKeyValuePairsByUserOutletContentId">
+		<![CDATA[
+ 			select userOutletContentKeyValuePair
+ 			from 
+				UserOutletContentKeyValuePairDO as userOutletContentKeyValuePair
+			where
+				userOutletContentKeyValuePair.parentContainerId = ?
+		]]>
+	</query>
+
+	<!-- User Outlet -->
+	<query name="allUserOutlets"><![CDATA[from UserOutletDO]]></query>
+
+	<query name="lookupUserOutletByOutletId">
+		<![CDATA[
+ 			select userOutlet
+ 			from 
+				UserOutletDO as userOutlet
+			where
+				userOutlet.outletId = ?
+		]]>
+	</query>
+
+	<query name="lookupUserOutletByUserId">
+		<![CDATA[
+ 			select userOutlet
+ 			from 
+				UserOutletDO as userOutlet
+			where
+				userOutlet.userId = ?
+		]]>
+	</query>
+
+	<query name="lookupUserOutletByUserIdAndOutletId">
+		<![CDATA[
+ 			select userOutlet
+ 			from 
+				UserOutletDO as userOutlet
+			where
+				userOutlet.userId = ?
+			and
+				userOutlet.outletId = ?
+		]]>
+	</query>
+
+	<query name="lookupUserOutletByStatusId">
+		<![CDATA[
+ 			select userOutlet
+ 			from 
+				UserOutletDO as userOutlet
+			where
+				userOutlet.statusId = ?
+		]]>
+	</query>
+
+	<query name="lookupUserOutletByKeyValuePair">
+		<![CDATA[
+			select userOutlet
+			from 
+				UserOutletDO as userOutlet, 
+				UserOutletKeyValuePairDO as keyValuePair
+			where
+				userOutlet.id = keyValuePair.parentContainerId
+			and
+				keyValuePair.id = ?
+		]]>
+	</query>
+
+	<!-- User Outlet Key Value Pair Type -->
+	<query name="allUserOutletKeyValuePairs"><![CDATA[from UserOutletKeyValuePairDO]]></query>
+
+	<query name="lookupKeyValuePairsByUserOutletId">
+		<![CDATA[
+ 			select userOutletKeyValuePair
+ 			from 
+				UserOutletKeyValuePairDO as userOutletKeyValuePair
+			where
+				userOutletKeyValuePair.parentContainerId = ?
+		]]>
+	</query>
+
+</hibernate-mapping>

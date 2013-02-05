@@ -1,0 +1,45 @@
+          <style type="text/css">
+              .left_captcha {float: left; width: 500px; }
+              .right_captcha {float: right; width: 100px;}
+          </style>
+          
+         <div  id='errormsg'></div>
+         <div class="clearboth"></div>
+
+         <div class="label">First Name</div><div class="label"><div class="tb2"><%= text_field "user", "firstName" ,:class=>"tb2a"%></div></div>
+         <div class="clearboth height18"></div>
+
+         <div class="label">Last Name</div><div class="label"><div class="tb2"><%= text_field "user", "lastName" ,:class=>"tb2a"%></div></div>
+         <div class="clearboth height18"></div>
+
+         <div class="label">Email Address</div><div class="label"><div class="tb2"><%= text_field "user", "email" , :onBlur=>'isEmailAlreadyRegistered()' ,:class=>"tb2a"%></div></div>
+         <div class="clearboth height18"></div>
+
+         <div class="label">Password</div><div class="label"><div class="tb2"><%= password_field "user", "password" ,:class=>"tb2a"%></div></div>
+         <div class="clearboth height18"></div>
+
+         <div class="label">Confirm Password</div><div class="label"><div class="tb2"><%= password_field "user", "password_confirmation" ,:class=>"tb2a"%></div></div>
+         <div class="clearboth">&nbsp;</div>
+        
+         <div id="recaptcha_container">
+              <div class="left_captcha">
+                 <div class="label">Enter the two words below:</div>
+                 <div class="label"><div class="tb2"><input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="tb2a"/></div></div>
+	          </div>
+	          <div class="right_captcha">  
+                  <input type="button" id="recaptcha_reload_btn" value="Get new words" onclick="Recaptcha.reload();" />
+	          </div>
+              <div id="recaptcha_image" class="left_captcha"></div>   
+         </div>
+        
+        <%= hidden_field "user", "type" ,:value=>"Free"%>
+        
+        <script type="text/javascript"  src="http://www.google.com/recaptcha/api/challenge?k=<%= ENV['RECAPTCHA_PUBLIC_KEY']%>"> </script>
+            <noscript>
+               <iframe src="http://www.google.com/recaptcha/api/noscript?k=<%= ENV['RECAPTCHA_PUBLIC_KEY']%>"  height="300" width="500" frameborder="1"></iframe><br>
+               <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+               <input type="hidden" name="recaptcha_response_field"  value="manual_challenge">
+            </noscript>
+  
+        <div class="clearboth height18"></div>
+        <div class="clearboth height18"></div>

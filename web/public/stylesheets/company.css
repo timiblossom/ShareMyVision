@@ -1,0 +1,103 @@
+
+div.staticContent	{
+	width:585px;
+	color:#666666;
+	font-size:11px;
+	padding-top:16px;
+	/*margin-left:20px;
+	float:left;*/
+}
+
+div.staticContent p	{
+	margin-right:0px;
+	margin-left:0px;
+}
+
+
+div.staticContent ul{
+	margin-left:30px;
+}
+
+
+div.staticContent ul,
+div.staticContent ol {
+        margin:10px;
+}
+
+div.staticContent ul li {
+        list-style-type:disc;
+        margin-left:20px;
+        margin-bottom:5px;
+
+}
+
+div.staticContent ol li {
+        list-style-type:inherit;
+        margin-left:25px;
+        margin-bottom:5px;
+
+}
+
+
+div.staticContent h4 {
+	margin-left:0px;
+        font-size:11px;
+        color:#333333;
+}
+
+
+div.staticContent ol{
+	margin-left:45px;
+}
+
+
+div.contentColRight	{
+	float:right;
+	margin-right:0;
+	width:165px;
+	background-color:white;
+	height:500px;
+	margin-top:11px;
+	border-left:1px solid #ccc;
+	padding-left:9px;
+}
+
+#error-status {
+	padding-left:30px;
+}
+
+#faq_table th {
+        text-align:left;
+        padding-right:12px;
+        vertical-align:top;
+    margin: none;
+}
+
+
+#faq_table th li {
+        font-size:11px;
+        color:#333333;
+        list-style:none;
+        margin-left:0px;
+        margin-top:10px;
+}
+
+
+#faq_table td li {
+        margin-left:-15px;
+}
+
+#faq_table td {
+    font-size:11px;
+        vertical-align:top;
+        padding-top:10px;
+        padding-bottom:25px;
+}
+
+#faq_table {
+        width:515px;
+        margin-top:-10px;
+}
+
+
+

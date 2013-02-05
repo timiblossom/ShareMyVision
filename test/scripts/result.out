@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>login</title>
+
+  <link href="/web/stylesheets/container.css?1271301719" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/web/stylesheets/box.css?1271301718" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/web/stylesheets/newui_font.css?1271301719" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/web/stylesheets/new_screen.css?1271301719" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/web/stylesheets/company.css?1271301718" media="screen" rel="stylesheet" type="text/css" />
+  <link href="/web/stylesheets/myaccount.css?1271301719" media="screen" rel="stylesheet" type="text/css" />
+  <script src="/web/javascripts/prototype.js?1271301719" type="text/javascript"></script>
+<script src="/web/javascripts/effects.js?1271301718" type="text/javascript"></script>
+<script src="/web/javascripts/dragdrop.js?1271301718" type="text/javascript"></script>
+<script src="/web/javascripts/controls.js?1271301718" type="text/javascript"></script>
+<script src="/web/javascripts/application.js?1271301719" type="text/javascript"></script>
+</head>
+
+
+<body id="homepage">
+  <div id="container">
+      <div id="header">
+            <div id="banner-logo" class="logo">  
+
+                 <div style="float:left;">
+                     <a href="/"><img alt="Logo" height="79" src="/web/images/logo.gif?1271301718" style="display:inline;" width="207" /></a>
+
+                 </div>
+
+                 <div style="margin-right:10px; margin-top:10px; float:right; width:280px; height:99px; text-align:right;">
+                           <a href="/">Login</a>
+                          |<a href="/" TARGET="_blank">Blog</a>
+                          |<a href="/">Contact Us</a> <br><br>
+                 </div>
+
+            </div>
+            <div id="top-nav-bar">
+                 <ul id="top-main-menu">
+                      <li> <a href="/web/item">Home</a></li>
+                      <li>&nbsp;|&nbsp;</li>
+                      <li><a href="/web/item">My Vision</a></li>
+                      <li>&nbsp;|&nbsp;</li>
+                      <li><a href="/web/item">Account</a></li>
+                 </ul>
+                 <ul id="top-sub-menu">
+                      <li><a href="/web/item">Login</a></li>
+                 </ul>
+            </div>
+ </div>
+
+
+
+     <p style="color: green"></p>
+    
+    <br/> 
+    <div>
+      <div>
+   
+        
+<h2> LLL Listing items</h2>
+
+
+
+Session Guid : guidasdffafafadsf
+
+
+
+  <br />
+
+
+      </div> 
+    </div>
+
+      
+<br/><br/>
+<div id="footer" style="text-align:center">
+  <ul>
+    <li><b>ShareMyVision</b> <span class="copyRight">&copy; 2009 - 2010&nbsp;</span></li>
+    <li><a href="">Contact Support</a></li>
+    <li><a href="">Careers</a></li>   
+    <li><a href="">About us</a></li>
+    <li><a href="">Privacy</a></li>
+    <li><a href="">Terms of Service</a></li>
+    <li class="last"><a href="">Events</a></li>
+  
+  </ul>
+</div>
+
+
+
+
+  </div>
+</body>
+</html>

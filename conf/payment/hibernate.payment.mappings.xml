@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.smv.service.payment.db.dbobject.PurchaseOrderDO" table="purchase_order"
+		catalog="payment_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="orderNumberId" type="java.lang.String">
+			<column name="order_number_id" />
+		</property>
+		<property name="totalOrderAmount" type="java.lang.Double">
+			<column name="total_order_amount" />
+		</property>
+		<property name="totalOrderQuantity" type="java.lang.Double">
+			<column name="total_order_quantity" />
+		</property>
+		<property name="orderCode" type="java.lang.String">
+			<column name="order_code" />
+		</property>
+		<property name="orderDescription" type="java.lang.String">
+			<column name="order_description" />
+		</property>
+		<property name="userId" type="java.lang.Long">
+			<column name="user_id" />
+		</property>
+		<property name="accountId" type="java.lang.Long">
+			<column name="account_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.payment.db.dbobject.OrderItemDO" table="order_item"
+		catalog="payment_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="orderId" type="java.lang.Long">
+			<column name="order_id" />
+		</property>
+		<property name="itemAmount" type="java.lang.Double">
+			<column name="item_amount" />
+		</property>
+		<property name="itemQuantity" type="java.lang.Double">
+			<column name="item_quantity" />
+		</property>
+		<property name="itemCode" type="java.lang.Long">
+			<column name="item_code" />
+		</property>
+		<property name="itemDescription" type="java.lang.String">
+			<column name="item_description" />
+		</property>
+		<property name="isService" type="java.lang.Boolean">
+			<column name="is_service" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.payment.db.dbobject.InvoiceDO" table="invoice"
+		catalog="payment_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="invoiceNumberId" type="java.lang.String">
+			<column name="invoice_number_id" />
+		</property>
+		<property name="totalInvoicedAmount" type="java.lang.Double">
+			<column name="total_invoiced_amount" />
+		</property>
+		<property name="totalInvoicedQuantity" type="java.lang.Double">
+			<column name="total_invoiced_quantity" />
+		</property>
+		<property name="orderId" type="java.lang.Long">
+			<column name="order_id" />
+		</property>
+		<property name="invoiceCode" type="java.lang.String">
+			<column name="invoice_code" />
+		</property>
+		<property name="invoiceDescription" type="java.lang.String">
+			<column name="invoice_description" />
+		</property>
+		<property name="userId" type="java.lang.Long">
+			<column name="user_id" />
+		</property>
+		<property name="accountId" type="java.lang.Long">
+			<column name="account_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.payment.db.dbobject.InvoiceItemDO" table="invoice_item"
+		catalog="payment_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="invoiceId" type="java.lang.Long">
+			<column name="invoice_id" />
+		</property>
+		<property name="itemAmount" type="java.lang.Double">
+			<column name="item_amount" />
+		</property>
+		<property name="itemQuantity" type="java.lang.Double">
+			<column name="item_quantity" />
+		</property>
+		<property name="itemCode" type="java.lang.Long">
+			<column name="item_code" />
+		</property>
+		<property name="itemDescription" type="java.lang.String">
+			<column name="item_description" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.payment.db.dbobject.PaymentMethodDO" table="payment_method"
+		catalog="payment_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="methodName" type="java.lang.String">
+			<column name="method_name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>

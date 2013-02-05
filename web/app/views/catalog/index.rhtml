@@ -1,0 +1,76 @@
+         <div class="clear"></div>
+         <BR>
+                   <div class="innerContent">
+                        <div class="breadcrumps">
+                             <ul>
+                                  <li><%= link_to("Home", {:controller=>:user, :action=>:index}) %></li>
+                                  <li>></li>
+                                  <li>Catalog</li>
+                             </ul>
+                             <div class="clear"></div>
+                        </div>
+                        <div class="ContentSec">
+                             <div class="textHolder">
+                                  <div class="midContent">
+                                          <table width="100%" cellpadding="0"; cellspacing="0" class="cataList" border="0">
+                                            <% if @smv_status[:statusCode]==-1%>
+                                              <tr>
+                                                  <td colspan="3"><%=@smv_status[:msg]%></td>
+                                              </tr>
+                                            <%else
+                                               if @smv_status[:value].blank?%>
+                                                 <tr>
+                                                     <td colspan="3">No Record Found</td>
+                                                  </tr>
+                                               <%else%>
+                                                      <tr>
+                                                          <td></td>
+                                                          <%   
+                                                                productKeyValue = Hash.new
+                                                                @smv_status[:value].each do |products| 
+                                                                    products.productKeyValuePairs.each do |keyValue|
+                                                                       productKeyValue[keyValue.keyPair] = keyValue.valuePair                                                                       
+                                                                    end%>
+                                                             <td class="cataListHead"><a href='#?cid=<%="#{products.id}"%>'> <%=products.name%> <img src="/web/theme2/images/arrow.gif" /></a></td>
+                                                          <%end%>                                                
+                                                      </tr>
+                                                      <tr>
+                                                          <td colspan="3" bgcolor="#b6d6e6" class="cataFeature">Feature</td>
+                                                      </tr>
+                                                      <tr>
+                                                          <td valign="top"><table width="100%" border="1">
+                                                             <% productKeyValue.each do |key,value| %>                                                   
+                                                              <tr>
+                                                                  <td><%=key%></td>
+                                                              </tr>
+                                                              <%end%>
+                                                          </table></td>                                                          
+                                                          <%  @smv_status[:value].each do |products|%>
+                                                              <td valign="top"><table width="100%" border="1">
+                                                                 <%products.productKeyValuePairs.each do |keyValue|%>
+                                                                 <tr>
+                                                                       <td><%=keyValue.valuePair%></td>
+                                                                 </tr>   
+                                                              <%end%>
+                                                              </table></td> 
+                                                          <%end%>
+                                                          </tr>
+                                                          <tr>
+                                                              <td>&nbsp;</td>
+                                                              <td class="center"><input type="image" src="/web/theme2/images/signup.gif"> </td>
+                                                              <td bgcolor="#f2fafe" class="center"><input type="image" src="/web/theme2/images/buynow.gif"  />                        </td>
+                                                          </tr>
+                                                 <%end%>
+                                           <%end%>   
+                                        </table>
+                                  </div>
+                             </div>
+                        </div>
+                        <div class="clear"></div>
+                   </div>
+              </div>
+         </div>
+         <div class="clear"></div>
+         <!-- /Bottom Content -->
+         <%= render :partial => "layouts/innerBottomContent" %>
+         <%= render :partial => "layouts/innerFooter" %>

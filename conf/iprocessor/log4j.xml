@@ -1,0 +1,32 @@
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<appender name="R" class="org.apache.log4j.RollingFileAppender">
+		<param name="maxFileSize" value="100MB" />
+		<param name="maxBackupIndex" value="10" />
+		<param name="File" value="${catalina.home}/logs/iprocessor.log" />
+		<param name="threshold" value="info"/>
+		<layout class="org.apache.log4j.PatternLayout">
+            <param name="conversionPattern" value="[%X{hostname}] %d{dd/MM/yyyy HH:mm:ss,SSS}[%p][%t][%F:%L] - %m%n" />
+        </layout>
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="DEBUG" />
+            <param name="LevelMax" value="FATAL" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+		
+	</appender>	
+	
+	<appender name="ASYNCLOGGING" class="org.apache.log4j.AsyncAppender">
+        <param name="bufferSize" value="1024"/>
+        <param name="blocking" value="false"/>
+        <appender-ref ref="R" />
+    </appender>
+	
+	<root>
+		<priority value="info" />
+		<appender-ref ref="ASYNCLOGGING" />
+	</root>
+
+</log4j:configuration>
+    

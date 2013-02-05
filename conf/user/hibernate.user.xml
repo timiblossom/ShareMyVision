@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="SmvFileSessionFactory">
+		<property name="hibernate.connection.driver_class">org.gjt.mm.mysql.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1/user_db</property>
+		<property name="hibernate.connection.username">smv</property>
+		<property name="hibernate.connection.password">smv</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="hibernate.c3p0.idle_test_period">25</property>
+		<property name="hibernate.c3p0.max_size">30</property>
+		<property name="hibernate.c3p0.max_statements">5</property>
+		<property name="hibernate.c3p0.min_size">1</property>
+		<property name="hibernate.c3p0.timeout">25</property>
+		<property name="hibernate.c3p0.initialPoolSize">1</property>
+		<property name="hibernate.c3p0.preferredTestQuery">SELECT 1</property>
+		<property name="hibernate.c3p0.acquireRetryAttempts">5</property>
+		<property name="hibernate.c3p0.testConnectionOnCheckin">true</property>
+		<property name="hibernate.c3p0.testConnectionOnCheckout">true</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- this will create the database tables for us -->
+		<property name="hibernate.hbm2ddl.auto">false</property>
+		<property name="show_sql">false</property>
+		<!-- Mapping files -->
+		<mapping resource="hibernate.user.mappings.xml" />
+		<mapping resource="hibernate.user.queries.xml" />
+	</session-factory>
+</hibernate-configuration>

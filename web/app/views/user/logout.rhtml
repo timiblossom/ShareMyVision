@@ -1,0 +1,9 @@
+<div id="login_error"></div>
+
+<% form_remote_tag(:html => {:action => url_for(:controller => "user", :action => "logout"),:method=>'put',:id=>'fleetForm'}, 
+	                                                 :url=>{ :controller => "user", :action => "logout"},
+	                                                 :update=>{:success=>"update_tag", :failure=>'errormsg'}
+	                                                    
+	                                      ) do%>	                                      
+<%= image_tag("/web/theme1/images/logout.jpg",:alt=>"Logout" ,:align=>"absmiddle", :onClick=>"$('logoutForm').onsubmit();") %>
+<%end%>

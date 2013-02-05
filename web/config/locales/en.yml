@@ -1,0 +1,31 @@
+
+en:
+  valid_user_password: Please enter valid username and password
+  access_denied: "Access Denied"          
+  loginsuccessful: LoggedIn Sucessfully
+  constant:
+    event_regisration_code: AccountRegistration
+    event_active: active
+    event_forgotpassword_code: ForgotPassword
+    outlet_facebook: FACEBOOK
+    outlet_sharemyvision: SHAREMYVISION
+    outlet_twitter: TWITTER
+    outlet_email: EMAIL
+    outlet_status_active: ACTIVE
+    outlet_status_inactive: INACTIVE
+  message: 
+    registration_error: Error Occured while registering the user
+    registration_success: Successfully Registered
+    captcha_not_verified: Captcha entered by user is not correct
+    no_session: No session found 
+    event_fetch_error: Error occured while fetching the events
+    product_fetch_error: Error occured while fetching the products
+    not_logged_in: Please login
+    password_reset_message: Instructions to change your password has been emailed you successfully.     
+    password_reset_success_message: Your password has been changed successfully
+    change_password_success_message: Your password has been changed successfully
+    successful_activation: Your account has been successfully activated
+    unsuccessful_activation: We are unable to activate your account, please regenerate activation code
+    password_reset_failed: Unable to reset password. Please enter a valid email Id.
+    forgot_password_error: Error occured while regenerating the user forgot password
+    outlet_fetch_error: Error occured while fetching the outlets

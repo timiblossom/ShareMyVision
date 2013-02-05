@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.smv.service.mailer.db.dbobject.EventCodeDO" table="event_code"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.mailer.db.dbobject.SubjectTemplateDO" table="subject_template"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="fileLocation" type="java.lang.String">
+			<column name="file_location" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.mailer.db.dbobject.BodyTemplateDO" table="body_template"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="fileLocation" type="java.lang.String">
+			<column name="file_location" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.mailer.db.dbobject.EventCodeTemplateDO" table="event_code_template"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="eventCodeId" type="java.lang.Long">
+			<column name="event_code_id" />
+		</property>
+		<property name="subjectTemplateId" type="java.lang.Long">
+			<column name="subject_template_id" />
+		</property>
+		<property name="bodyTemplateId" type="java.lang.Long">
+			<column name="body_template_id" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+
+	<class name="com.smv.service.mailer.db.dbobject.SubjectTemplateKeyValuePairDO" table="subject_template_key_value_pair"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+				<property name="subjectTemplateId" type="java.lang.Long">
+			<column name="subject_template_id" />
+		</property>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="defaultValuePair" type="java.lang.String">
+			<column name="default_value_pair" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.mailer.db.dbobject.BodyTemplateKeyValuePairDO" table="body_template_key_value_pair"
+		catalog="mailer_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+				<property name="bodyTemplateId" type="java.lang.Long">
+			<column name="body_template_id" />
+		</property>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="defaultValuePair" type="java.lang.String">
+			<column name="default_value_pair" />
+		</property>
+		<!--  
+		<property name="versionId" type="java.lang.Long">
+			<column name="version_id" />
+		</property>
+		-->
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>
+        

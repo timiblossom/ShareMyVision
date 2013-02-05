@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.smv.service.outlet.db.dbobject.OutletStatusTypeDO" table="outlet_status_type"
+		catalog="outlet_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.outlet.db.dbobject.OutletTypeDO" table="outlet_type"
+		catalog="outlet_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="prefix" type="java.lang.String">
+			<column name="prefix" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.outlet.db.dbobject.UserOutletDO" table="user_outlet"
+		catalog="outlet_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="outletId" type="java.lang.Long">
+			<column name="outlet_id" />
+		</property>
+		<property name="userId" type="java.lang.Long">
+			<column name="user_id" />
+		</property>
+		<property name="statusId" type="java.lang.Long">
+			<column name="status_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.outlet.db.dbobject.UserOutletKeyValuePairDO" table="user_outlet_key_value_pair"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<property name="parentContainerId" type="java.lang.Long">
+			<column name="user_outlet_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.outlet.db.dbobject.UserOutletContentDO" table="user_outlet_content"
+		catalog="outlet_db">
+		<id name="id" type="long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name" />
+		</property>
+		<property name="description" type="java.lang.String">
+			<column name="description" />
+		</property>
+		<property name="userId" type="java.lang.Long">
+			<column name="user_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+	<class name="com.smv.service.outlet.db.dbobject.UserOutletContentKeyValuePairDO" table="user_outlet_content_key_value_pair"
+		catalog="catalog_db">
+		<id name="id" type="java.lang.Long">
+			<column name="id" />
+			<generator class="increment" />
+		</id>
+		<property name="keyPair" type="java.lang.String">
+			<column name="key_pair" />
+		</property>
+		<property name="valuePair" type="java.lang.String">
+			<column name="value_pair" />
+		</property>
+		<property name="parentContainerId" type="java.lang.Long">
+			<column name="user_outlet_id" />
+		</property>
+		<property name="updatedOn" type="java.sql.Timestamp">
+			<column name="updated_on" />
+		</property>
+		<property name="createdOn" type="java.sql.Timestamp">
+			<column name="created_on" />
+		</property>
+	</class>
+
+</hibernate-mapping>
