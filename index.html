@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Sharemyvision : Instragram like server project" />
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Sharemyvision by timiblossom</title>
+    <title>Sharemyvision</title>
   </head>
 
   <body>
 
-    <header>
-      <div class="container">
-        <h1>Sharemyvision</h1>
-        <h2>Instragram like server project</h2>
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/timiblossom/ShareMyVision">View on GitHub</a>
 
-        <section id="downloads">
-          <a href="https://github.com/timiblossom/ShareMyVision/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/timiblossom/ShareMyVision/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/timiblossom/ShareMyVision" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+          <h1 id="project_title">Sharemyvision</h1>
+          <h2 id="project_tagline">Instragram like server project</h2>
 
-    <div class="container">
-      <section id="main_content">
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/timiblossom/ShareMyVision/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/timiblossom/ShareMyVision/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
         <h3>Welcome to SMV project.</h3>
 
 <p>Instragram like server component project.  It has a web component written in Jruby.
@@ -38,7 +41,7 @@ The whole thing is an SOA.</p>
 
 <p>Using Rails and Jruby to display users' uploaded images</p>
 
-<h3>Driver/aggregator compenent</h3>
+<h3>Driver/aggregation component</h3>
 
 <p>This is the heart of this SOA.  This is where Mobiles and Web components send API requests.
 This is a stateless component which makes calls (sync/async) to other internal services.</p>
@@ -49,7 +52,7 @@ This is a stateless component which makes calls (sync/async) to other internal s
 
 <h3>Image processing</h3>
 
-<p>Generate thumbnails and other sizes for an image</p>
+<p>Generate thumbnails and sizes for an image.  Also this could be used to do other image processing.</p>
 
 <h3>Email Service</h3>
 
@@ -65,6 +68,15 @@ This is a stateless component which makes calls (sync/async) to other internal s
       </section>
     </div>
 
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sharemyvision maintained by <a href="https://github.com/timiblossom">timiblossom</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
     
+
   </body>
 </html>
